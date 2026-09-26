@@ -404,12 +404,12 @@
     scheduleDrop();
   })();
 
-  // ---- Tracking de clics en CTAs de compra (listo para Meta Pixel) ----
+  // ---- Tracking de clics en CTAs de compra (Meta Pixel) ----
   // Captura cualquier botón que lleve al checkout de Hotmart
   var buyButtons = document.querySelectorAll('a[href*="hotmart.com"]');
   buyButtons.forEach(function (btn) {
     btn.addEventListener('click', function () {
-      // if (typeof fbq === 'function') { fbq('track', 'InitiateCheckout'); }
+      if (typeof fbq === 'function') { fbq('track', 'InitiateCheckout'); }
     });
   });
 })();
