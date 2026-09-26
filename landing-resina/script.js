@@ -8,13 +8,24 @@
 
   // ---- Evitar que la página cargue desplazada (salto en móvil) ----
   // Desactiva la restauración automática de scroll del navegador y, si no hay
-  // un ancla (#seccion) en la URL, asegura que la carga empiece arriba del todo.
+  // un ancla (#seccion) en la URL, mantiene la carga arriba del todo durante
+  // los primeros instantes (mientras las imágenes lazy reacomodan el layout).
   if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
   }
   if (!window.location.hash) {
-    window.scrollTo(0, 0);
-    window.addEventListener('load', function () { window.scrollTo(0, 0); });
+    var forceTop = function () { window.scrollTo(0, 0); };
+    forceTop();
+    // Repite el reset durante ~1s para contrarrestar el reflow de imágenes
+    var tries = 0;
+    var topInterval = setInterval(function () {
+      forceTop();
+      if (++tries >= 20) clearInterval(topInterval); // 20 x 50ms = 1s
+    }, 50);
+    // Si el usuario empieza a hacer scroll, dejamos de forzar (no molestar)
+    window.addEventListener('touchstart', function () { clearInterval(topInterval); }, { passive: true, once: true });
+    window.addEventListener('wheel', function () { clearInterval(topInterval); }, { passive: true, once: true });
+    window.addEventListener('load', forceTop);
   }
 
   // ---- Menú hamburguesa (móvil) ----
