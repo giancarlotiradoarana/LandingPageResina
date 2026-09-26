@@ -28,6 +28,46 @@
     window.addEventListener('load', forceTop);
   }
 
+  // ---- Modales legales (Términos / Privacidad) ----
+  (function initModals() {
+    var triggers = document.querySelectorAll('[data-modal]');
+    if (!triggers.length) return;
+
+    function openModal(id) {
+      var m = document.getElementById(id);
+      if (!m) return;
+      m.classList.add('open');
+      m.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(m) {
+      m.classList.remove('open');
+      m.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    triggers.forEach(function (btn) {
+      btn.addEventListener('click', function () { openModal(btn.getAttribute('data-modal')); });
+    });
+
+    document.querySelectorAll('.modal-overlay').forEach(function (overlay) {
+      // Cerrar con la X
+      var closeBtn = overlay.querySelector('.modal-close');
+      if (closeBtn) closeBtn.addEventListener('click', function () { closeModal(overlay); });
+      // Cerrar al hacer clic fuera de la caja
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) closeModal(overlay);
+      });
+    });
+
+    // Cerrar con la tecla Escape
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.open').forEach(closeModal);
+      }
+    });
+  })();
+
   // ---- Menú hamburguesa (móvil) ----
   (function initMenu() {
     var toggle = document.getElementById('navToggle');
