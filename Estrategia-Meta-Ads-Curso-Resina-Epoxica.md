@@ -104,6 +104,73 @@ Los **dos perfiles más rentables**, porque ven el curso como una **inversión q
 
 ---
 
+> ⚠️ **Nota de presupuesto:** con S/50–100 (~$13–27 USD) usa **1 solo buyer** por campaña
+> (el 1 o el 2). Meta necesita datos y con poco dinero repartido entre varios públicos
+> ninguno rinde. Los buyers 3, 4 y 5 son para **escalar** cuando subas el presupuesto.
+
+### 🏠 Buyer Persona 3 — "El dueño de casa DIY" (Roberto)
+
+| Campo | Detalle |
+|---|---|
+| **Edad** | 30–55 años |
+| **Género** | Hombre y mujer por igual |
+| **Perfil** | Propietario de casa/depa, le gusta el "hágalo usted mismo", ve tutoriales |
+| **Nivel** | Medio, quiere ahorrar en remodelaciones |
+
+**Qué quiere de verdad**
+- Renovar su piso, cocina o mesa sin pagar una fortuna a un tercero.
+- Un proyecto personal del que sentirse orgulloso.
+
+**Dolores / miedos**
+- Los presupuestos de remodelación le parecen carísimos.
+- Miedo a arruinar la superficie de su casa.
+
+**Palabras gatillo:** renueva tu hogar, tú mismo, ahorra, sin contratar, transforma tu casa.
+
+---
+
+### 🛠️ Buyer Persona 4 — "El que busca reinventarse" (Miguel)
+
+| Campo | Detalle |
+|---|---|
+| **Edad** | 30–55 años |
+| **Género** | Hombre (60%) / Mujer (40%) |
+| **Perfil** | Sin empleo estable, en busca de un oficio nuevo, quiere un cambio de vida |
+| **Nivel** | Medio-bajo, con ganas pero sin rumbo claro |
+
+**Qué quiere de verdad**
+- Un oficio rentable que pueda aprender rápido y desde cero.
+- Independencia económica y dejar de depender de un empleo.
+
+**Dolores / miedos**
+- "Estoy cansado de mi trabajo / no encuentro empleo."
+- Miedo a invertir y que no funcione.
+
+**Palabras gatillo:** cambia tu vida, nuevo oficio, desde cero, independízate, sé tu propio jefe.
+
+---
+
+### 👩‍👧 Buyer Persona 5 — "La mamá que quiere ingresos desde casa" (Lucía)
+
+| Campo | Detalle |
+|---|---|
+| **Edad** | 28–45 años |
+| **Género** | Mujer (95%) |
+| **Perfil** | Mamá, ama de casa, busca generar dinero sin salir ni descuidar a la familia |
+| **Nivel** | Medio / medio-bajo |
+
+**Qué quiere de verdad**
+- Un ingreso propio compatible con la crianza y las tareas del hogar.
+- Sentirse productiva y aportar a la economía familiar.
+
+**Dolores / miedos**
+- "Quiero aportar en casa pero no tengo tiempo ni con quién dejar a los niños."
+- Poco presupuesto para empezar.
+
+**Palabras gatillo:** desde casa, en tus tiempos, ingreso extra, para la familia, sin salir de casa.
+
+---
+
 ## ✍️ Copies de Anuncios
 
 > Varias versiones por buyer para pruebas A/B.
@@ -199,20 +266,166 @@ Aprende a crear piezas en resina que se venden solas.
 
 ---
 
+### 🏠 Buyer 3 — Roberto (Dueño de casa DIY)
+
+**Copy A — Ángulo ahorro/renovación**
+```
+¿Un presupuesto de remodelación te dejó frío? 🥶
+
+Renueva tú mismo tu piso, cocina o mesa con resina epóxica y ahorra
+cientos de dólares… con un acabado que parece de revista.
+
+No necesitas experiencia. Te enseñamos paso a paso, desde cero.
+
+👉 Transforma tu hogar por una fracción de lo que cobra un profesional.
+
+🔗 Toca "Más información".
+```
+
+**Copy B — Ángulo orgullo/proyecto propio**
+```
+Imagina la cara de tu familia cuando vean tu cocina renovada… hecha por ti. 😍
+
+Con resina epóxica logras acabados de lujo (mármol, efecto río, 3D) sin pagar
+miles a un contratista. Un proyecto del que vas a estar orgulloso.
+
+👉 Te guiamos paso a paso, aunque nunca hayas tocado la resina.
+
+🔗 Empieza hoy.
+```
+
+**Copy C — Corto para Reels/Stories**
+```
+Renueva tu cocina o piso tú mismo y ahorra una fortuna. 🏡✨
+Aprende resina epóxica paso a paso, desde tu celular.
+👉 Empieza hoy.
+```
+
+---
+
+### 🛠️ Buyer 4 — Miguel (Busca reinventarse)
+
+**Copy A — Ángulo cambio de vida/oficio**
+```
+¿Cansado de un trabajo que no te llena o de no encontrar empleo? 😮‍💨
+
+Aprende un oficio nuevo y rentable desde cero: la resina epóxica.
+Pisos, mesas y cocinas que la gente paga muy bien y que casi nadie
+sabe hacer en tu zona.
+
+No necesitas experiencia. Solo ganas de cambiar tu vida.
+
+👉 Empieza hoy y conviértete en tu propio jefe.
+
+🔗 Toca "Más información".
+```
+
+**Copy B — Ángulo prueba social/urgencia suave**
+```
+Mientras buscas empleo, otros ya están ganando con esto. 👀
+
+La resina epóxica es un oficio con alta demanda y poca competencia. Un solo
+trabajo bien hecho se paga muy bien, y tú puedes aprenderlo desde cero.
+
+👉 +2.100 personas ya empezaron. Hoy te toca a ti.
+
+🔗 Toca "Más información".
+```
+
+**Copy C — Corto para Reels/Stories**
+```
+Un oficio nuevo, rentable y desde cero. 🛠️💰
+Aprende resina epóxica y sé tu propio jefe.
+👉 Empieza hoy.
+```
+
+---
+
+### 👩‍👧 Buyer 5 — Lucía (Mamá con ingresos desde casa)
+
+**Copy A — Ángulo ingreso desde casa/familia**
+```
+Mamá, ¿y si generas tu propio dinero sin salir de casa? 💗
+
+Con la resina epóxica creas piezas hermosas (cuadros, posavasos, mesas)
+que se venden solas… en los ratitos que tienes libres, a tu ritmo.
+
+Sin jefe, sin horarios, sin descuidar a los tuyos.
+
+👉 Empieza desde cero, aunque nunca hayas hecho manualidades.
+
+🔗 Toca "Más información".
+```
+
+**Copy B — Ángulo testimonio/inspiración**
+```
+"Empecé en la mesa de mi cocina mientras mis hijos dormían…
+hoy tengo pedidos cada semana." 💗
+
+Así empezaron muchas mamás con la resina epóxica. Un ingreso propio,
+sin salir de casa y en tus tiempos.
+
+👉 Aprende paso a paso, desde cero. Si ellas pudieron, tú también.
+
+🔗 Empieza hoy.
+```
+
+**Copy C — Corto para Reels/Stories**
+```
+Genera ingresos desde casa, en tus tiempos. 👩‍👧💰
+Aprende a crear piezas de resina que se venden solas.
+👉 Empieza hoy.
+```
+
+---
+
 ## 🏗️ Estructura de Campaña en Meta Ads
 
+> La estructura depende del presupuesto. **No abras los 5 buyers de golpe.** Escala por fases.
+
+### 🟢 FASE 1 — Arranque / prueba (S/50–100)
+
+Prueba los 2 buyers más fuertes con 3 anuncios cada uno. Presupuesto a nivel
+campaña (CBO) para que Meta reparta hacia el que mejor rinda.
+
 ```
-CAMPAÑA (Objetivo: Ventas/Conversiones o Mensajes según cómo vendas)
+CAMPAÑA (Objetivo: Ventas / Mensajes) — CBO
 │
-├── CONJUNTO DE ANUNCIOS 1 → Buyer "Emprendedor del oficio"
-│     ├── Anuncio A → Video 1 "Cobra más"
-│     ├── Anuncio B → Video 2 "Antes/Después"
-│     └── Anuncio C → Video 5 "Reto"
+├── CONJUNTO 1 → Buyer #2 "Creativa"
+│     ├── Anuncio A → Video "Efecto río"
+│     ├── Anuncio B → Video "Testimonio"
+│     └── Anuncio C → Video "Catálogo"
 │
-└── CONJUNTO DE ANUNCIOS 2 → Buyer "Emprendedora creativa"
-      ├── Anuncio A → Video 3 "Efecto río"
-      ├── Anuncio B → Video 4 "Testimonio"
-      └── Anuncio C → Video 6 "Catálogo"
+└── CONJUNTO 2 → Buyer #1 "Oficio"
+      ├── Anuncio A → Video "Cobra más"
+      ├── Anuncio B → Video "Antes/Después"
+      └── Anuncio C → Video "Reto"
+```
+- **Público:** amplio (Advantage+ audience). Deja que el video filtre.
+- No toques nada los primeros 3–4 días (fase de aprendizaje).
+
+### 🟡 FASE 2 — Presupuesto medio (S/200–400/día)
+
+Suma un tercer buyer y mantén los ganadores de la Fase 1.
+
+```
+CAMPAÑA
+├── CONJUNTO 1 → Buyer #2 "Creativa"        (3 videos)
+├── CONJUNTO 2 → Buyer #1 "Oficio"          (3 videos)
+└── CONJUNTO 3 → Buyer #5 "Mamá desde casa" (3 videos)
+```
+
+### 🔵 FASE 3 — Escala (S/500+/día)
+
+Ya con ventas constantes, abre un conjunto por cada buyer para escalar volumen.
+
+```
+CAMPAÑA
+├── CONJUNTO 1 → Buyer #1 "Oficio"
+├── CONJUNTO 2 → Buyer #2 "Creativa"
+├── CONJUNTO 3 → Buyer #3 "Dueño de casa DIY"
+├── CONJUNTO 4 → Buyer #4 "Reinventarse"
+└── CONJUNTO 5 → Buyer #5 "Mamá desde casa"
 ```
 
 ### Configuración detallada
@@ -222,19 +435,18 @@ CAMPAÑA (Objetivo: Ventas/Conversiones o Mensajes según cómo vendas)
 - Venta por WhatsApp/DM → **Interacción / Mensajes** o Ventas optimizado a conversaciones.
 - Para arrancar: **Advantage+ / CBO** (presupuesto a nivel campaña).
 
-**Presupuesto de arranque sugerido**
-- $10–15 USD/día por conjunto los primeros 4–7 días (fase de aprendizaje).
-- No tocar nada los primeros 3–4 días aunque parezca que no vende. Deja salir del aprendizaje.
+**Presupuesto**
+- Fase 1: todo el presupuesto en 1 conjunto. No tocar nada los primeros 3–4 días (fase de aprendizaje).
+- Fase 2–3: reparte y escala solo lo que ya vende.
 
-**Segmentación — Conjunto 1 (Oficio)**
-- Edad: 28–50 | Género: todos (sesga a hombres si mejora el CPA).
-- Intereses amplios: construcción, remodelación, albañilería, bricolaje, herramientas, carpintería, emprendimiento.
-- Ideal: audiencia abierta (Advantage+) y que el video filtre.
-
-**Segmentación — Conjunto 2 (Creativa)**
-- Edad: 25–48 | Género: mujeres (o todos si escala mejor).
-- Intereses amplios: manualidades, decoración del hogar, DIY, arte, emprendimiento femenino, negocios desde casa.
-- Colocaciones: Advantage+ placements (Reels, Feed, Stories).
+**Segmentación por buyer**
+| Buyer | Edad | Género | Intereses amplios |
+|---|---|---|---|
+| #1 Oficio | 28–50 | Todos (sesga hombre) | Construcción, remodelación, albañilería, bricolaje |
+| #2 Creativa | 25–48 | Mujeres | Manualidades, decoración, DIY, arte, emprendimiento |
+| #3 Dueño DIY | 30–55 | Todos | Hágalo usted mismo, hogar, decoración, remodelación |
+| #4 Reinventarse | 30–55 | Todos | Emprendimiento, oficios, negocios, ingresos extra |
+| #5 Mamá | 28–45 | Mujeres | Manualidades, negocios desde casa, maternidad, emprendimiento femenino |
 
 ### Reglas clave de optimización
 - Métricas iniciales que importan: **CPA** (costo por resultado) y **CTR** (sano ≈ 1.5%+ en video).
@@ -419,6 +631,99 @@ happy mood, authentic lifestyle style, realistic, 4K.
 |---|---|
 | 🔨 Oficio (Carlos) | V1 "Cobra más" · V2 "Antes/Después" · V5 "Reto" |
 | 🎨 Creativa (Andrea) | V3 "Efecto río" · V4 "Testimonio" · V6 "Catálogo" |
+
+---
+
+### 🏠 CONJUNTO 3 — DUEÑO DE CASA DIY (Roberto)
+
+#### 🎥 Video 7 — "Renueva tu hogar"
+
+**Guion**
+- **Gancho (0–3s):** [VISUAL] Split screen: cocina vieja vs. cocina renovada con resina. 🎙️ *"La misma cocina. Sin cambiar los muebles."*
+- **Desarrollo (3–15s):** [VISUAL] Manos aplicando resina sobre una encimera vieja, resultado mármol brillante. 🎙️ *"No necesitas demoler nada ni pagar una fortuna. Tú mismo puedes renovar tu hogar con resina."*
+- **Cierre (15–24s):** 🎙️ *"Aprende paso a paso y ahorra cientos de dólares. Empieza hoy."* 👉 *"Toca Más información"*
+
+**Prompt IA — Gancho (antes/después hogar)**
+```
+Vertical 9:16 split screen: left an old dull kitchen countertop, right the same
+countertop renovated with glossy white marble epoxy resin, bright home lighting,
+clean transition, realistic textures, home renovation ad style, 4K.
+```
+*(Split screen: encimera vieja vs. renovada con resina efecto mármol.)*
+
+**Prompt IA — Desarrollo (aplicación en casa)**
+```
+Vertical 9:16 shot of hands applying glossy epoxy resin over an old kitchen
+countertop at home, transforming it into a marble finish, cozy domestic setting,
+natural light, realistic, DIY home improvement style, 4K.
+```
+*(Manos renovando una encimera vieja en casa con resina.)*
+
+---
+
+### 🛠️ CONJUNTO 4 — REINVENTARSE (Miguel)
+
+#### 🎥 Video 8 — "Cambia tu vida con un oficio"
+
+**Guion**
+- **Gancho (0–3s):** [VISUAL] Persona mirando el celular preocupada, luego levanta la vista con determinación. 🎙️ Texto: *"¿Y si aprendes un oficio que sí paga?"*
+- **Desarrollo (3–16s):** [VISUAL] Montaje: la persona aprendiendo, aplicando resina, mostrando un trabajo terminado y cobrando. 🎙️ *"La resina epóxica es un oficio con alta demanda y poca competencia. Se aprende desde cero y se paga muy bien."*
+- **Cierre (16–25s):** 🎙️ *"Deja de buscar empleo. Crea el tuyo. Empieza hoy."* 👉 *"Toca Más información"*
+
+**Prompt IA — Gancho (determinación)**
+```
+Vertical 9:16 shot of a mid-30s Latin man looking at his phone with a worried
+expression, then looking up with determination and hope, neutral home background,
+cinematic natural lighting, realistic, emotional storytelling style, 4K.
+```
+*(Hombre latino preocupado con el celular que luego mira con determinación.)*
+
+**Prompt IA — Desarrollo (aprender y trabajar)**
+```
+Vertical 9:16 fast montage of a man learning and applying epoxy resin: mixing,
+pouring on a table, showing a finished glossy piece proudly, warm motivational
+tone, realistic, transformation journey style, 4K.
+```
+*(Montaje: hombre aprendiendo, aplicando resina y mostrando su trabajo terminado.)*
+
+---
+
+### 👩‍👧 CONJUNTO 5 — MAMÁ DESDE CASA (Lucía)
+
+#### 🎥 Video 9 — "Ingreso desde casa"
+
+**Guion**
+- **Gancho (0–3s):** [VISUAL] Mamá creando una pieza de resina en la mesa de la cocina mientras la casa está tranquila. 🎙️ Texto: *"Mi negocio cabe en la mesa de mi cocina. 💗"*
+- **Desarrollo (3–16s):** [VISUAL] Ella crea posavasos/cuadros de resina, luego los empaca para enviar. 🎙️ voz cálida: *"Sin salir de casa, en mis tiempos y sin descuidar a mis hijos. Aprendí desde cero y hoy tengo pedidos."*
+- **Cierre (16–25s):** 🎙️ *"Si yo pude, tú también. Empieza hoy."* 👉 *"Toca Más información"*
+
+**Prompt IA — Gancho (mamá creando en casa)**
+```
+Vertical 9:16 shot of a young mother crafting a small colorful epoxy resin piece
+on her kitchen table at home, calm cozy domestic atmosphere, warm natural light,
+authentic and heartwarming, realistic lifestyle style, 4K.
+```
+*(Mamá creando una pieza de resina en la mesa de la cocina, ambiente hogareño.)*
+
+**Prompt IA — Desarrollo (crear y empacar)**
+```
+Vertical 9:16 lifestyle montage of a mother making resin coasters and wall art
+at home, then packaging them for shipping, cozy home, warm authentic tone,
+handheld UGC feel, realistic, 4K.
+```
+*(Montaje: mamá creando posavasos y cuadros, luego empacándolos para enviar.)*
+
+---
+
+### 📋 Resumen de videos por buyer
+
+| Conjunto | Videos |
+|---|---|
+| 🔨 Oficio | V1 "Cobra más" · V2 "Antes/Después" · V5 "Reto" |
+| 🎨 Creativa | V3 "Efecto río" · V4 "Testimonio" · V6 "Catálogo" |
+| 🏠 Dueño de casa DIY | V7 "Renueva tu hogar" |
+| 🛠️ Reinventarse | V8 "Cambia tu vida" |
+| 👩‍👧 Mamá desde casa | V9 "Ingreso desde casa" |
 
 ---
 
