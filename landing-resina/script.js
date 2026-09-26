@@ -6,9 +6,16 @@
 
   var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // ---- Año dinámico en el footer ----
-  var yearEl = document.getElementById('year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+  // ---- Evitar que la página cargue desplazada (salto en móvil) ----
+  // Desactiva la restauración automática de scroll del navegador y, si no hay
+  // un ancla (#seccion) en la URL, asegura que la carga empiece arriba del todo.
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  if (!window.location.hash) {
+    window.scrollTo(0, 0);
+    window.addEventListener('load', function () { window.scrollTo(0, 0); });
+  }
 
   // ---- Menú hamburguesa (móvil) ----
   (function initMenu() {
