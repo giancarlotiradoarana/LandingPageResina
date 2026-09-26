@@ -1,0 +1,13 @@
+# Configuración del editor
+.vscode/
+
+# Archivos del sistema operativo
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Scripts temporales
+_*.ps1
+
+# Guía interna de imágenes
+landing-resina/img/**/LEEME.txt
