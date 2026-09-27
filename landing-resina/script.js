@@ -7,26 +7,40 @@
   var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // ---- Evitar que la página cargue desplazada (salto en móvil) ----
-  // Desactiva la restauración automática de scroll del navegador y, si no hay
-  // un ancla (#seccion) en la URL, mantiene la carga arriba del todo durante
-  // los primeros instantes (mientras las imágenes lazy reacomodan el layout).
+  var topInterval = null;
   if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
   }
   if (!window.location.hash) {
     var forceTop = function () { window.scrollTo(0, 0); };
     forceTop();
-    // Repite el reset durante ~1s para contrarrestar el reflow de imágenes
     var tries = 0;
-    var topInterval = setInterval(function () {
+    topInterval = setInterval(function () {
       forceTop();
-      if (++tries >= 20) clearInterval(topInterval); // 20 x 50ms = 1s
+      if (++tries >= 20) { clearInterval(topInterval); topInterval = null; } // ~1s
     }, 50);
-    // Si el usuario empieza a hacer scroll, dejamos de forzar (no molestar)
-    window.addEventListener('touchstart', function () { clearInterval(topInterval); }, { passive: true, once: true });
-    window.addEventListener('wheel', function () { clearInterval(topInterval); }, { passive: true, once: true });
-    window.addEventListener('load', forceTop);
+    // Si el usuario interactúa, dejamos de forzar (no molestar)
+    var stopForce = function () { if (topInterval) { clearInterval(topInterval); topInterval = null; } };
+    window.addEventListener('touchstart', stopForce, { passive: true, once: true });
+    window.addEventListener('wheel', stopForce, { passive: true, once: true });
+    window.addEventListener('load', function () { if (!topInterval) window.scrollTo(0, 0); });
   }
+
+  // ---- Scroll suave y confiable para enlaces internos (#seccion) ----
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      var id = link.getAttribute('href');
+      if (id === '#' || id === '#top') return; // dejar que el navegador maneje estos
+      var target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      // Cancela el forzado al top para que el scroll no se bloquee
+      if (topInterval) { clearInterval(topInterval); topInterval = null; }
+      var headerH = 70; // compensar el header fijo
+      var y = target.getBoundingClientRect().top + window.pageYOffset - headerH;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    });
+  });
 
   // ---- Modales legales (Términos / Privacidad) ----
   (function initModals() {
