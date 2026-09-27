@@ -36,13 +36,9 @@
       e.preventDefault();
       // Cancela el forzado al top para que el scroll no se bloquee
       if (topInterval) { clearInterval(topInterval); topInterval = null; }
-      // scrollIntoView recalcula solo (evita quedarse corto si el layout cambia
-      // por la carga de imágenes). El scroll-margin-top del CSS deja el aire.
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      // Reajuste de seguridad: tras la animación, corrige por si el layout se movió
-      setTimeout(function () {
-        target.scrollIntoView({ behavior: 'auto', block: 'start' });
-      }, 650);
+      // Scroll directo (sin animación) para llegar exacto a la sección, sin el
+      // efecto de "dos pasos" que provoca el reflow de imágenes al bajar.
+      target.scrollIntoView({ behavior: 'auto', block: 'start' });
     });
   });
 
