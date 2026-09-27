@@ -36,9 +36,11 @@
       e.preventDefault();
       // Cancela el forzado al top para que el scroll no se bloquee
       if (topInterval) { clearInterval(topInterval); topInterval = null; }
-      var headerH = 70; // compensar el header fijo
+      // Compensa el header fijo + un margen extra para que el título quede visible
+      var headerEl = document.querySelector('.site-header');
+      var headerH = (headerEl ? headerEl.offsetHeight : 60) + 20;
       var y = target.getBoundingClientRect().top + window.pageYOffset - headerH;
-      window.scrollTo({ top: y, behavior: 'smooth' });
+      window.scrollTo({ top: Math.max(y, 0), behavior: 'smooth' });
     });
   });
 

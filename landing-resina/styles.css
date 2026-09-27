@@ -1199,7 +1199,9 @@ a { color: inherit; text-decoration: none; }
 /* ============================================
    PRICING
    ============================================ */
-.pricing { background: var(--bg); }
+.pricing { background: var(--bg); scroll-margin-top: 80px; }
+/* Todas las secciones con ancla dejan espacio bajo el header al hacer scroll */
+[id] { scroll-margin-top: 80px; }
 .price-card {
   position: relative;
   max-width: 520px;
