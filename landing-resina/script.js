@@ -240,9 +240,30 @@
       return Math.max(0, slides.length - perView());
     }
 
+    // Precarga las imágenes cercanas para que el deslizado sea instantáneo
+    var preloaded = {};
+    function preloadNear(centerIndex) {
+      var pv = perView();
+      // precarga desde 1 atrás hasta pv+2 posiciones más adelante
+      for (var i = centerIndex - 1; i <= centerIndex + pv + 2; i++) {
+        var slide = slides[i];
+        if (!slide) continue;
+        var img = slide.querySelector('img');
+        if (!img) continue;
+        var src = img.getAttribute('src');
+        if (src && !preloaded[src]) {
+          preloaded[src] = true;
+          img.setAttribute('loading', 'eager');
+          var pre = new Image();      // fuerza la descarga a la caché del navegador
+          pre.src = src;
+        }
+      }
+    }
+
     function go(i) {
       index = Math.min(Math.max(i, 0), maxIndex());
       track.style.transform = 'translateX(' + (-index * slideStep()) + 'px)';
+      preloadNear(index);
       updateUI();
     }
 
@@ -319,7 +340,24 @@
     });
 
     buildDots();
-    go(0);
+    // Posiciona sin precargar (para no frenar la carga inicial de la página)
+    track.style.transform = 'translateX(0px)';
+    updateUI();
+
+    // Cuando el carrusel entra en pantalla, precarga las primeras imágenes
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            preloadNear(index);
+            io.disconnect();
+          }
+        });
+      }, { rootMargin: '200px' });
+      io.observe(viewport);
+    } else {
+      preloadNear(index);
+    }
   }
 
   // Carrusel de WhatsApp (con puntos)
