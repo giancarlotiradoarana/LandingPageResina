@@ -36,11 +36,13 @@
       e.preventDefault();
       // Cancela el forzado al top para que el scroll no se bloquee
       if (topInterval) { clearInterval(topInterval); topInterval = null; }
-      // Compensa el header fijo + un margen extra para que el título quede visible
-      var headerEl = document.querySelector('.site-header');
-      var headerH = (headerEl ? headerEl.offsetHeight : 60) + 20;
-      var y = target.getBoundingClientRect().top + window.pageYOffset - headerH;
-      window.scrollTo({ top: Math.max(y, 0), behavior: 'smooth' });
+      // scrollIntoView recalcula solo (evita quedarse corto si el layout cambia
+      // por la carga de imágenes). El scroll-margin-top del CSS deja el aire.
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Reajuste de seguridad: tras la animación, corrige por si el layout se movió
+      setTimeout(function () {
+        target.scrollIntoView({ behavior: 'auto', block: 'start' });
+      }, 650);
     });
   });
 
