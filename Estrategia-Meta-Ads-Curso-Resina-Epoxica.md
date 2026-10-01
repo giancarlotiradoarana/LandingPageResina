@@ -379,6 +379,123 @@ Aprende a crear piezas de resina que se venden solas.
 
 ---
 
+## 🛡️ Guía Anti-Rechazo: Palabras Prohibidas en Meta Ads
+
+> Meta (Facebook/Instagram) rechaza anuncios por lenguaje que **asume atributos
+> personales**, promete **enriquecimiento rápido** o hace **afirmaciones absolutas**.
+> No es que las palabras estén "baneadas" una por una: Meta lee el **contexto**.
+> Estas son las trampas más comunes en infoproductos y cómo esquivarlas.
+
+### ❌ Evita esto → ✅ Usa esto
+
+| ❌ Riesgo (por qué) | ✅ Alternativa segura |
+|---|---|
+| "¿**Cansado** de tu trabajo?" (asume tu situación) | "Si buscas un cambio…" / "Para quienes quieren un nuevo oficio" |
+| "¿No **encuentras empleo**?" (atributo personal) | "Aprende un oficio con demanda" |
+| "**Gana** $X" / "**cobra 3x más**" (promesa de ingreso) | "Aprende una técnica que se cotiza bien" / "un acabado que se valora" |
+| "**Ingresos garantizados**" / "resultados asegurados" | "aprende paso a paso, a tu ritmo" |
+| "Hazte **rico**" / "dinero fácil" / "sin esfuerzo" | "un oficio que puedes aprender desde cero" |
+| "**Tú** que no tienes dinero…" (asume condición) | "Empieza con poca inversión" |
+| "El **mejor** curso" / "el #1" (superlativo absoluto) | "un curso práctico y completo" |
+| "**Curación** / cura / adelgaza" (salud, no aplica aquí) | — |
+| "+2.100 **personas** ya ganan" (cifra sin sustento) | "muchas personas ya empezaron" |
+| "**Antes/Después** de tu vida" (transformación personal) | "antes/después de un trabajo/proyecto" (de la superficie, OK) |
+
+### 📏 Reglas de oro del copy que aprueba
+
+1. **Nunca le digas al usuario qué ES o qué le PASA.** No "tú estás sin empleo",
+   sino "para quienes buscan un nuevo oficio". Habla del curso, no de la persona.
+2. **Vende el aprendizaje, no el dinero.** "Aprende a hacer X" pasa siempre.
+   "Gana X dólares" es zona de riesgo.
+3. **Sin promesas absolutas.** Cambia "vas a ganar" por "puedes aprender a".
+4. **Prueba social suave.** "Muchas personas" en vez de cifras exactas.
+5. **El antes/después de una superficie SÍ se permite** (piso, mesa, cocina).
+   El antes/después de una *persona* (cuerpo, vida, finanzas) es lo que se marca.
+6. **Emojis y mayúsculas con moderación.** Exceso de MAYÚSCULAS o 🔥🔥🔥 baja calidad.
+
+---
+
+## ✍️ Copies "Policy-Safe" (versión anti-rechazo)
+
+> Reescritura de los copies para minimizar rechazos de Meta, manteniendo la fuerza
+> de venta. Úsalos como **primera versión para lanzar**; una vez aprobados y con
+> historial, puedes probar variantes más directas.
+
+### 🔨 Buyer 1 — Oficio (Policy-Safe)
+
+```
+Hay un acabado que se está pidiendo cada vez más… y pocos saben aplicarlo. ✨
+
+Se llama resina epóxica: pisos, mesas y cocinas con efecto mármol o río,
+de aspecto premium. Un servicio que se valora y se cotiza bien.
+
+En este curso online aprendes la técnica paso a paso, desde cero y a tu ritmo,
+desde el celular. Pisos, mesas, cocinas y paredes en un solo lugar.
+
+👉 Toca "Más información" y empieza hoy.
+```
+
+### 🎨 Buyer 2 — Creativa (Policy-Safe)
+
+```
+¿Y si tu próximo proyecto creativo cabe en la mesa de tu cocina? ✨
+
+La resina epóxica permite crear mesas río, cuadros y piezas decorativas
+preciosas… desde casa y a tu ritmo.
+
+No hace falta ser artista. En este curso online aprendes paso a paso,
+desde cero. Convierte tu creatividad en piezas que la gente adora.
+
+👉 Toca "Más información".
+```
+
+### 🏠 Buyer 3 — Dueño de casa DIY (Policy-Safe)
+
+```
+Renovar tu cocina o tu piso puede costar menos de lo que imaginas. 🏡
+
+Con resina epóxica logras acabados de aspecto lujoso (mármol, efecto río)
+aplicándola sobre lo que ya tienes, sin demoler.
+
+En este curso online aprendes a hacerlo tú mismo, paso a paso y desde cero.
+
+👉 Toca "Más información".
+```
+
+### 🛠️ Buyer 4 — Reinventarse (Policy-Safe)
+
+```
+Para quienes quieren aprender un oficio nuevo y con demanda. 🛠️
+
+La resina epóxica se aplica en pisos, mesas y cocinas, y es una técnica
+que pocos dominan. Se aprende desde cero, a tu propio ritmo.
+
+En este curso online te guiamos paso a paso, con 200 clases y acompañamiento.
+
+👉 Toca "Más información" y empieza hoy.
+```
+
+### 👩‍👧 Buyer 5 — Mamá desde casa (Policy-Safe)
+
+```
+Un proyecto creativo que puedes hacer desde casa y en tus tiempos. 💗
+
+Con resina epóxica creas piezas decorativas hermosas (cuadros, posavasos,
+mesas) a tu ritmo, sin salir de casa.
+
+En este curso online aprendes paso a paso, desde cero, aunque nunca hayas
+hecho manualidades.
+
+👉 Toca "Más información".
+```
+
+> 💡 **Nota:** estos copies evitan asumir la situación personal del usuario y
+> las promesas de dinero. Son la versión "segura para aprobar". Los copies
+> originales (arriba) son más directos y puedes probarlos cuando la cuenta
+> ya tenga historial de anuncios aprobados y buena reputación.
+
+---
+
 ## 🏗️ Estructura de Campaña en Meta Ads
 
 > La estructura depende del presupuesto. **No abras los 5 buyers de golpe.** Escala por fases.
