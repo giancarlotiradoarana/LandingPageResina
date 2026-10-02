@@ -2550,6 +2550,7 @@ a { color: inherit; text-decoration: none; }
   font-size: .97rem;
   line-height: 1.65;
 }
+.obj-card p + p { margin-top: 10px; }
 
 .obj-cta {
   text-align: center;
