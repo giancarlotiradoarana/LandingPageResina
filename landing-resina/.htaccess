@@ -26,9 +26,9 @@
   <FilesMatch "\.(webp|jpg|jpeg|png|gif|svg|ico|woff|woff2)$">
     Header set Cache-Control "max-age=31536000, public"
   </FilesMatch>
-  <!-- CSS y JS: caché corta. Usamos ?v=fecha para forzar la versión nueva al publicar -->
+  <!-- CSS y JS: sin caché. Al subir el archivo, todos ven la versión nueva al instante -->
   <FilesMatch "\.(css|js)$">
-    Header set Cache-Control "max-age=86400, public"
+    Header set Cache-Control "no-cache, must-revalidate"
   </FilesMatch>
   <!-- HTML: nunca cachear, para que los cambios se vean al instante -->
   <FilesMatch "\.(html)$">
