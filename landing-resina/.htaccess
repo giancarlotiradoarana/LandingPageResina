@@ -20,32 +20,7 @@
   AddOutputFilterByType DEFLATE application/font-woff application/font-woff2
 </IfModule>
 
-# ---------- 2. CACHÉ DEL NAVEGADOR (Expires headers) ----------
-<IfModule mod_expires.c>
-  ExpiresActive On
-
-  # Imágenes: 1 año (rara vez cambian)
-  ExpiresByType image/webp "access plus 1 year"
-  ExpiresByType image/jpeg "access plus 1 year"
-  ExpiresByType image/png "access plus 1 year"
-  ExpiresByType image/gif "access plus 1 year"
-  ExpiresByType image/svg+xml "access plus 1 year"
-  ExpiresByType image/x-icon "access plus 1 year"
-
-  # CSS y JS: 1 mes
-  ExpiresByType text/css "access plus 1 month"
-  ExpiresByType application/javascript "access plus 1 month"
-  ExpiresByType text/javascript "access plus 1 month"
-
-  # Fuentes: 1 año
-  ExpiresByType application/font-woff "access plus 1 year"
-  ExpiresByType application/font-woff2 "access plus 1 year"
-
-  # HTML: sin caché, para que los cambios (y las versiones ?v= de CSS/JS) se vean al instante
-  ExpiresByType text/html "access plus 0 seconds"
-</IfModule>
-
-# ---------- 3. CABECERAS CACHE-CONTROL ----------
+# ---------- 2. CABECERAS CACHE-CONTROL (único control de caché) ----------
 <IfModule mod_headers.c>
   <!-- Imágenes y fuentes: caché larga, no cambian de nombre -->
   <FilesMatch "\.(webp|jpg|jpeg|png|gif|svg|ico|woff|woff2)$">
