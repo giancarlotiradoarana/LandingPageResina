@@ -180,7 +180,7 @@
   var sticky = document.getElementById('stickyCta');
   var pricing = document.getElementById('precio');
   var hero = document.querySelector('.hero');
-  var showAfter = hero ? hero.offsetHeight * 0.8 : 600;
+  var showAfter = hero ? hero.offsetHeight * 0.45 : 400;
 
   var onScroll = function () {
     var y = window.scrollY || window.pageYOffset;
@@ -212,7 +212,7 @@
     }
   }, { passive: true });
   window.addEventListener('resize', function () {
-    showAfter = hero ? hero.offsetHeight * 0.8 : 600;
+    showAfter = hero ? hero.offsetHeight * 0.45 : 400;
   });
   onScroll();
 
