@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Marca que el JS está activo. Si falla (ej. navegador in-app de Facebook),
+       el contenido se muestra igual porque las animaciones solo ocultan cuando hay .js -->
+  <script>document.documentElement.classList.add('js');</script>
   <title>Curso de Resina Epóxica desde Cero | Resinovo</title>
   <meta name="description" content="Aprende resina epóxica (porcelanato líquido) desde cero para pisos, mesas, cocinas, paredes y manualidades. Paquete 5×1 con 200 clases, 6 regalos, certificado y acceso de por vida. Empieza hoy." />
   <meta name="keywords" content="curso resina epóxica, resina epóxica desde cero, porcelanato líquido, curso online resina, mesas de río, pisos epóxicos, resina para cocinas, emprender con resina" />
@@ -37,17 +40,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=20260107" />
 
   <!-- Wistia Player -->
   <script src="https://fast.wistia.com/player.js" async></script>
   <script src="https://fast.wistia.com/embed/1k7px1ig7o.js" async type="module"></script>
   <style>
+    /* Portada mientras el player de Wistia carga (o si no llega a cargar,
+       ej. en el navegador in-app de Facebook): se ve la miniatura, no un vacío */
     wistia-player[media-id='1k7px1ig7o']:not(:defined) {
-      background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/1k7px1ig7o/swatch');
+      background: #0a3d3a center / cover no-repeat url('https://fast.wistia.com/embed/medias/1k7px1ig7o/swatch');
       display: block;
-      filter: blur(5px);
+      filter: blur(2px);
       padding-top: 56.56%;
+      border-radius: 20px;
     }
   </style>
 
@@ -141,8 +147,8 @@
           </ul>
 
           <p class="hero-price reveal">
-            <span class="hero-price-old">Antes $70</span>
-            <span class="hero-price-now">Hoy solo $35</span>
+            <span class="hero-price-old">Antes <s>$70</s></span>
+            <span class="hero-price-now">Hoy <strong>$35</strong></span>
             <span class="hero-price-off">50% OFF</span>
           </p>
           <div class="hero-actions reveal">
@@ -998,7 +1004,7 @@
     </div>
   </div>
 
-  <script src="script.js" defer></script>
+  <script src="script.js?v=20260107" defer></script>
 
   <!-- ===== DATOS ESTRUCTURADOS (Schema.org) para SEO ===== -->
   <script type="application/ld+json">
