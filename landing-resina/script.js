@@ -362,6 +362,61 @@
     track.style.transform = 'translateX(0px)';
     updateUI();
 
+    // ---- Autoplay opcional (se mueve solo, en bucle, y se pausa al interactuar) ----
+    if (cfg.autoplay && !prefersReduced) {
+      var apTimer = null;
+      var AP_DELAY = cfg.autoplayDelay || 2800;
+
+      function apNext() {
+        // Si llegó al final, vuelve al inicio para que sea un bucle infinito
+        if (index >= maxIndex()) go(0);
+        else go(index + 1);
+      }
+      var apKickoff = null;
+      var apStarted = false; // el primer arranque adelantado solo ocurre una vez
+      function apStart() {
+        if (apTimer) return;
+        // La primera vez, hace el primer cambio pronto (1s) para que no se vea "congelado".
+        // Después sigue con el ritmo normal.
+        if (!apStarted) {
+          apStarted = true;
+          apKickoff = setTimeout(function () {
+            apNext();
+            apTimer = setInterval(apNext, AP_DELAY);
+          }, 400);
+        } else {
+          apTimer = setInterval(apNext, AP_DELAY);
+        }
+      }
+      function apStop() {
+        clearInterval(apTimer);
+        clearTimeout(apKickoff);
+        apTimer = null;
+      }
+      // Pausa cuando el usuario interactúa (mouse encima, toca o arrastra)
+      viewport.addEventListener('mouseenter', apStop);
+      viewport.addEventListener('mouseleave', apStart);
+      viewport.addEventListener('touchstart', apStop, { passive: true });
+      if (prev) prev.addEventListener('click', apStop);
+      if (next) next.addEventListener('click', apStop);
+
+      // Precarga las primeras imágenes de una, para que el primer cambio sea instantáneo
+      preloadNear(0);
+
+      // Solo corre mientras la galería está visible en pantalla (ahorra batería/CPU)
+      if ('IntersectionObserver' in window) {
+        var apIO = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) apStart();
+            else apStop();
+          });
+        }, { threshold: 0.1 });
+        apIO.observe(viewport);
+      } else {
+        apStart();
+      }
+    }
+
     // Cuando el carrusel entra en pantalla, precarga las primeras imágenes
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function (entries) {
@@ -378,10 +433,10 @@
     }
   }
 
-  // Carrusel de WhatsApp (con puntos)
-  initCarousel({ viewport: 'waViewport', track: 'waTrack', prev: 'waPrev', next: 'waNext', dots: 'waDots' });
-  // Carrusel de galería de trabajos (sin puntos, son muchas)
-  initCarousel({ viewport: 'galViewport', track: 'galTrack', prev: 'galPrev', next: 'galNext' });
+  // Carrusel de WhatsApp (con puntos) con autoplay que se pausa al interactuar
+  initCarousel({ viewport: 'waViewport', track: 'waTrack', prev: 'waPrev', next: 'waNext', dots: 'waDots', autoplay: true, autoplayDelay: 3200 });
+  // Carrusel de galería de trabajos (sin puntos, son muchas) con autoplay que se pausa al interactuar
+  initCarousel({ viewport: 'galViewport', track: 'galTrack', prev: 'galPrev', next: 'galNext', autoplay: true, autoplayDelay: 2800 });
 
   // ---- Contador regresivo (2 días, persistente por visitante) ----
   (function initCountdown() {
