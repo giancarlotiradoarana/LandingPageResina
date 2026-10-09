@@ -368,6 +368,7 @@
       var AP_DELAY = cfg.autoplayDelay || 2800;
 
       function apNext() {
+        if (dragging) return; // no avanzar mientras el usuario arrastra
         // Si llegó al final, vuelve al inicio para que sea un bucle infinito
         if (index >= maxIndex()) go(0);
         else go(index + 1);
@@ -393,12 +394,22 @@
         clearTimeout(apKickoff);
         apTimer = null;
       }
-      // Pausa cuando el usuario interactúa (mouse encima, toca o arrastra)
+      // Pausa temporal: para al interactuar pero REANUDA solo después de unos segundos.
+      // (En iOS, tocar para hacer scroll disparaba touchstart y antes lo detenía para siempre.)
+      var apResume = null;
+      function apPauseThenResume() {
+        apStop();
+        clearTimeout(apResume);
+        apResume = setTimeout(apStart, 4000);
+      }
+
+      // Escritorio: pausa mientras el mouse está encima
       viewport.addEventListener('mouseenter', apStop);
       viewport.addEventListener('mouseleave', apStart);
-      viewport.addEventListener('touchstart', apStop, { passive: true });
-      if (prev) prev.addEventListener('click', apStop);
-      if (next) next.addEventListener('click', apStop);
+      // Móvil: al tocar/arrastrar pausa un momento y luego vuelve a andar solo
+      viewport.addEventListener('touchstart', apPauseThenResume, { passive: true });
+      if (prev) prev.addEventListener('click', apPauseThenResume);
+      if (next) next.addEventListener('click', apPauseThenResume);
 
       // Precarga las primeras imágenes de una, para que el primer cambio sea instantáneo
       preloadNear(0);
