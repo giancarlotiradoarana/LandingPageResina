@@ -458,8 +458,8 @@
     var topTimer = document.getElementById('topTimer');
     if (!daysEl && !topTimer) return;
 
-    var DURATION = 2 * 24 * 60 * 60 * 1000; // 2 días en ms
-    var KEY = 'resina_offer_deadline';
+    var DURATION = 59 * 60 * 1000; // 59 minutos en ms
+    var KEY = 'resina_offer_deadline_v2'; // v2: fuerza reinicio tras cambiar la duración a 59 min
 
     // Fecha límite persistente: se fija la primera vez que el visitante entra
     var deadline = parseInt(localStorage.getItem(KEY), 10);
@@ -482,11 +482,20 @@
       var h = Math.floor((diff % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000));
       var m = Math.floor((diff % (60 * 60 * 1000)) / (60 * 1000));
       var s = Math.floor((diff % (60 * 1000)) / 1000);
+      // Total de minutos restantes (incluye horas si las hubiera)
+      var totalMin = Math.floor(diff / (60 * 1000));
       if (daysEl) daysEl.textContent = pad(d);
       if (hoursEl) hoursEl.textContent = pad(h);
       if (minsEl) minsEl.textContent = pad(m);
       if (secsEl) secsEl.textContent = pad(s);
-      if (topTimer) topTimer.textContent = '⏰ ' + pad(d) + 'd ' + pad(h) + 'h ' + pad(m) + 'm ' + pad(s) + 's';
+      // En la barra: si falta menos de 1 hora, muestra solo min:seg (más urgente y limpio)
+      if (topTimer) {
+        if (diff < 60 * 60 * 1000) {
+          topTimer.textContent = '⏰ ' + pad(totalMin) + 'm ' + pad(s) + 's';
+        } else {
+          topTimer.textContent = '⏰ ' + pad(h) + 'h ' + pad(m) + 'm ' + pad(s) + 's';
+        }
+      }
     }
 
     tick();
@@ -534,4 +543,103 @@
       if (typeof fbq === 'function') { fbq('track', 'InitiateCheckout'); }
     });
   });
+
+  // ---- Notificaciones de prueba social (esquina) ----
+  (function initSocialPop() {
+    var pop = document.getElementById('socialPop');
+    if (!pop) return;
+    var titleEl = document.getElementById('socialPopTitle');
+    var timeEl = document.getElementById('socialPopTime');
+    var icoEl = document.getElementById('socialPopIco');
+    var closeBtn = document.getElementById('socialPopClose');
+
+    // Nombres y ciudades representativas de los mercados principales
+    var nombres = [
+      'María G.', 'Carlos R.', 'Lucía M.', 'José P.', 'Andrea S.', 'Miguel A.',
+      'Rosa T.', 'Luis F.', 'Carmen V.', 'Jorge L.', 'Diana C.', 'Pedro H.',
+      'Valeria N.', 'Daniela Q.', 'Fernando B.', 'Gabriela E.'
+    ];
+    var ciudades = [
+      'Lima', 'Arequipa', 'Trujillo',           // Perú
+      'CDMX', 'Guadalajara', 'Monterrey', 'Puebla', // México
+      'Bogotá', 'Medellín', 'Cali', 'Barranquilla'  // Colombia
+    ];
+
+    function rand(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+    function randInt(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+
+    // Genera un mensaje aleatorio (compra reciente o descuento aprovechado)
+    function buildMessage() {
+      if (Math.random() < 0.6) {
+        // Compra reciente
+        return {
+          ico: '🎉',
+          title: '<strong>' + rand(nombres) + '</strong> de ' + rand(ciudades) + ' se acaba de inscribir',
+          time: 'hace ' + randInt(2, 18) + ' min'
+        };
+      }
+      // Aprovechó el descuento
+      return {
+        ico: '🔥',
+        title: '<strong>' + rand(nombres) + '</strong> aprovechó el 50% de descuento',
+        time: 'hace ' + randInt(1, 12) + ' min'
+      };
+    }
+
+    var closed = false;
+    var hideTimer = null;
+
+    function show() {
+      if (closed) return;
+      var msg = buildMessage();
+      icoEl.textContent = msg.ico;
+      titleEl.innerHTML = msg.title;
+      timeEl.textContent = msg.time;
+      pop.classList.add('visible');
+      pop.setAttribute('aria-hidden', 'false');
+      // Se oculta a los 5 segundos
+      hideTimer = setTimeout(hide, 5000);
+    }
+
+    function hide() {
+      pop.classList.remove('visible');
+      pop.setAttribute('aria-hidden', 'true');
+      if (!closed) {
+        // Programa la siguiente aparición (entre 12 y 20 seg)
+        setTimeout(show, randInt(12000, 20000));
+      }
+    }
+
+    closeBtn.addEventListener('click', function () {
+      closed = true;
+      clearTimeout(hideTimer);
+      hide();
+    });
+
+    // Primera aparición a los 6 segundos de entrar
+    setTimeout(show, 6000);
+  })();
+
+  // ---- Contador fijo de "personas viendo" (siempre visible, número que varía) ----
+  (function initLiveViewers() {
+    var box = document.getElementById('liveViewers');
+    var countEl = document.getElementById('liveCount');
+    if (!box || !countEl) return;
+
+    function randInt(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+
+    var count = randInt(18, 32); // valor inicial
+    countEl.textContent = count;
+
+    // Varía el número cada 5-9 seg, subiendo/bajando de a poco, dentro de un rango creíble
+    function tick() {
+      var delta = randInt(-3, 3);
+      count += delta;
+      if (count < 14) count = 14 + randInt(0, 3);
+      if (count > 42) count = 42 - randInt(0, 3);
+      countEl.textContent = count;
+      setTimeout(tick, randInt(5000, 9000));
+    }
+    setTimeout(tick, randInt(5000, 9000));
+  })();
 })();

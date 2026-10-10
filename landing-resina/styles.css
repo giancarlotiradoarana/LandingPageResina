@@ -161,9 +161,13 @@ a { color: inherit; text-decoration: none; }
 .topbar-timer {
   font-weight: 800;
   background: rgba(59,38,0,.15);
-  padding: 2px 10px;
+  padding: 4px 14px;
   border-radius: 999px;
   font-variant-numeric: tabular-nums;
+  letter-spacing: .04em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .site-header {
@@ -1865,6 +1869,91 @@ a { color: inherit; text-decoration: none; }
   max-width: var(--maxw);
   margin: 0 auto;
 }
+/* ============================================
+   CONTADOR DE PERSONAS VIENDO (dentro de la barra de urgencia)
+   ============================================ */
+.topbar-viewers {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(59,38,0,.15);
+  padding: 3px 12px;
+  border-radius: 999px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.topbar-viewers strong { font-weight: 800; }
+.live-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #16a34a;
+  box-shadow: 0 0 0 0 rgba(22,163,74,.7);
+  animation: livedotPulse 1.8s infinite;
+  flex-shrink: 0;
+}
+@keyframes livedotPulse {
+  0% { box-shadow: 0 0 0 0 rgba(22,163,74,.6); }
+  70% { box-shadow: 0 0 0 6px rgba(22,163,74,0); }
+  100% { box-shadow: 0 0 0 0 rgba(22,163,74,0); }
+}
+
+/* ============================================
+   NOTIFICACIONES DE PRUEBA SOCIAL (pop-up esquina)
+   ============================================ */
+.social-pop {
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  z-index: 55;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 320px;
+  padding: 12px 36px 12px 14px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px -8px rgba(15,23,42,.28);
+  transform: translateY(140%);
+  opacity: 0;
+  transition: transform .45s cubic-bezier(.2,.7,.3,1), opacity .3s ease;
+  pointer-events: none;
+}
+.social-pop.visible { transform: translateY(0); opacity: 1; pointer-events: auto; }
+.social-pop-ico {
+  flex-shrink: 0;
+  width: 40px; height: 40px;
+  display: grid; place-items: center;
+  font-size: 1.2rem;
+  background: var(--teal-50);
+  border-radius: 10px;
+}
+.social-pop-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.social-pop-title { font-size: .9rem; font-weight: 700; color: var(--ink); line-height: 1.25; }
+.social-pop-title strong { color: var(--teal-700); }
+.social-pop-time { font-size: .72rem; color: var(--slate); }
+.social-pop-close {
+  position: absolute;
+  top: 6px; right: 8px;
+  border: none;
+  background: transparent;
+  color: var(--slate-300);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 2px 4px;
+}
+.social-pop-close:hover { color: var(--slate); }
+
+/* En móvil: no tapar el sticky CTA de abajo; subirlo un poco y más compacto */
+@media (max-width: 560px) {
+  .social-pop {
+    left: 10px; right: 10px;
+    bottom: 76px;
+    max-width: none;
+  }
+}
+
 .sticky-price { font-size: 1rem; display: flex; flex-direction: column; line-height: 1.1; }
 .sticky-price s { color: var(--slate-300); }
 .sticky-price strong { color: var(--teal-700); font-size: 1.3rem; }
