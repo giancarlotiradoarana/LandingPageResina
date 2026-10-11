@@ -42,9 +42,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Wistia Player -->
-  <script src="https://fast.wistia.com/player.js" async></script>
-  <script src="https://fast.wistia.com/embed/u6k9fohbn0.js" async type="module"></script>
+  <!-- Wistia Player: se carga bajo demanda (ver script.js) para no frenar el LCP del hero -->
+  <link rel="preconnect" href="https://fast.wistia.com" />
+  <link rel="preconnect" href="https://embedwistia-a.akamaihd.net" />
   <style>
     /* Portada mientras el player de Wistia carga (o si no llega a cargar,
        ej. en el navegador in-app de Facebook): se ve la miniatura, no un vacío */

@@ -646,4 +646,42 @@
     }
     setTimeout(tick, randInt(5000, 9000));
   })();
+
+  // ---- Carga del player de Wistia bajo demanda (mejora el LCP del hero) ----
+  (function loadWistiaOnDemand() {
+    var player = document.querySelector('wistia-player');
+    if (!player) return;
+
+    var loaded = false;
+    function loadWistia() {
+      if (loaded) return;
+      loaded = true;
+      var s1 = document.createElement('script');
+      s1.src = 'https://fast.wistia.com/player.js';
+      s1.async = true;
+      document.head.appendChild(s1);
+
+      var s2 = document.createElement('script');
+      s2.src = 'https://fast.wistia.com/embed/u6k9fohbn0.js';
+      s2.async = true;
+      s2.type = 'module';
+      document.head.appendChild(s2);
+    }
+
+    // Carga cuando el video está por entrar en pantalla
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { loadWistia(); io.disconnect(); }
+        });
+      }, { rootMargin: '300px' });
+      io.observe(player);
+    } else {
+      loadWistia();
+    }
+
+    // Respaldo: si el usuario toca el video o pasa 2.5s, carga igual
+    player.addEventListener('click', loadWistia);
+    setTimeout(loadWistia, 2500);
+  })();
 })();
