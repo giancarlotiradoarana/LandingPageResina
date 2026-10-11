@@ -545,7 +545,11 @@
   });
 
   // ---- Notificaciones de prueba social (esquina) ----
+  // DESACTIVADO temporalmente: dejamos solo el contador de "personas viendo".
+  // Para reactivar los pop-ups de compra, cambia POPUPS_ACTIVOS a true.
+  var POPUPS_ACTIVOS = false;
   (function initSocialPop() {
+    if (!POPUPS_ACTIVOS) return;
     var pop = document.getElementById('socialPop');
     if (!pop) return;
     var titleEl = document.getElementById('socialPopTitle');
