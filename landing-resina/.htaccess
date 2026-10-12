@@ -1,8 +1,15 @@
 # ===================================================================
-#  Configuración de resinovo.com (Apache / cPanel)
+#  Configuración de resinovo.com (Apache / cPanel - Namecheap/LiteSpeed)
 # ===================================================================
 
-# ---------- 0. REDIRECCIÓN WWW -> NON-WWW (unifica el dominio) ----------
+# ---------- 0a. DESACTIVAR CACHÉ DE LITESPEED (Namecheap) ----------
+# Evita que el servidor sirva versiones viejas de HTML/CSS/JS.
+<IfModule LiteSpeed>
+  CacheDisable public /
+  CacheLookup off
+</IfModule>
+
+# ---------- 0b. REDIRECCIÓN WWW -> NON-WWW (unifica el dominio) ----------
 <IfModule mod_rewrite.c>
   RewriteEngine On
   # Redirige www.resinovo.com -> resinovo.com (301 permanente)
