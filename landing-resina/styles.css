@@ -268,9 +268,11 @@ a { color: inherit; text-decoration: none; }
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: 48px;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
   align-items: center;
+  max-width: 1240px;
+  margin: 0 auto;
 }
 
 /* Blobs orgánicos animados de fondo */
@@ -488,17 +490,19 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 6px 10px;
+  gap: 8px 12px;
   margin-bottom: 22px;
-  font-size: .82rem;
-  color: #9fb8b4;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #d1faf5;
 }
 .hero-currencies span {
   color: #ecfeff;
   font-weight: 700;
+  font-size: .92rem;
   background: rgba(255,255,255,.08);
   border: 1px solid rgba(255,255,255,.14);
-  padding: 3px 9px;
+  padding: 5px 12px;
   border-radius: 999px;
   white-space: nowrap;
 }
@@ -2588,6 +2592,12 @@ a { color: inherit; text-decoration: none; }
 /* ============================================
    RESPONSIVE
    ============================================ */
+
+/* En pantallas grandes el hero aprovecha más ancho (evita hueco a los lados) */
+@media (min-width: 1024px) {
+  .hero .container.hero-grid { max-width: 1200px; }
+}
+
 @media (max-width: 900px) {
   .nav-toggle { display: flex; }
   .header-cta { display: none; }
