@@ -1,0 +1,13 @@
+﻿"Nombre del proyecto","Curso Resina"
+"Intervalo de fechas","10/12/2026 00:00 - 10/12/2026 23:59"
+
+
+"Dirección URL visitada coincide con regex","^https://resinovo\.com/(\?.*)?$"
+
+"Vistas de página","20"
+"Total de clics","1"
+
+"Métricas","Pulsar"
+
+"Clasificación","Botón","Pulsaciones"," % de toques"
+"1","#cta-buy","1","100%"

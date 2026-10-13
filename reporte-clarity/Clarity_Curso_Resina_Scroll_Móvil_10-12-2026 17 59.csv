@@ -1,0 +1,32 @@
+﻿"Nombre del proyecto","Curso Resina"
+"Intervalo de fechas","10/12/2026 00:00 - 10/12/2026 23:59"
+
+
+"Dirección URL visitada coincide con regex","^https://resinovo\.com/(\?.*)?$"
+
+"Vistas de página","20"
+
+
+"Métricas","Scroll"
+
+"Profundidad de desplazamiento","Nro. de visitantes","% de bajada"
+"5","6","70"
+"10","4","80"
+"15","3","85"
+"20","3","85"
+"25","3","85"
+"30","3","85"
+"35","3","85"
+"40","2","90"
+"45","1","95"
+"50","1","95"
+"55","1","95"
+"60","1","95"
+"65","1","95"
+"70","0","100"
+"75","0","100"
+"80","0","100"
+"85","0","100"
+"90","0","100"
+"95","0","100"
+"100","0","100"

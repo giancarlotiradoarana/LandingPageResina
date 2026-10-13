@@ -11,3 +11,6 @@ _*.ps1
 
 # Guía interna de imágenes
 landing-resina/img/**/LEEME.txt
+
+# Respaldo local de imágenes (no subir al repo)
+landing-resina/img_backup/
