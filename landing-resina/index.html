@@ -42,19 +42,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Wistia Player: se carga bajo demanda (ver script.js) para no frenar el LCP del hero -->
-  <link rel="preconnect" href="https://fast.wistia.com" />
-  <link rel="preconnect" href="https://embedwistia-a.akamaihd.net" />
-  <!-- Precarga la portada del video para que aparezca al instante (evita hueco verde) -->
-  <link rel="preload" as="image" href="img/Logo/portada.webp" />
+  <!-- Wistia Player -->
+  <script src="https://fast.wistia.com/player.js" async></script>
+  <script src="https://fast.wistia.com/embed/u6k9fohbn0.js" async type="module"></script>
   <style>
-    /* Portada LOCAL mientras el player de Wistia carga (carga rápido en datos móviles,
-       no depende de servidores externos). Evita el "hueco verde" en el hero. */
     wistia-player[media-id='u6k9fohbn0']:not(:defined) {
-      background: #0a3d3a center / cover no-repeat url('img/Logo/portada.webp');
+      background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/u6k9fohbn0/swatch');
       display: block;
+      filter: blur(5px);
       padding-top: 56.56%;
-      border-radius: 20px;
     }
   </style>
 
@@ -189,7 +185,6 @@
             Dale play al Video, y mira resultados reales de los alumnos 👇
           </p>
           <div class="hero-video">
-            <span class="video-loading" id="videoLoading"><span class="video-loading-spinner" aria-hidden="true"></span> Cargando video…</span>
             <wistia-player media-id="u6k9fohbn0" aspect="1.7679558011049723"></wistia-player>
           </div>
         </div>
