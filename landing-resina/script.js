@@ -668,23 +668,33 @@
       document.head.appendChild(s2);
     }
 
-    // Oculta el texto "Cargando video..." cuando el player ya está listo
+    // Oculta el texto "Cargando video..." cuando el player REALMENTE pintó el video
     var loadingEl = document.getElementById('videoLoading');
+    var hidden = false;
     function hideLoading() {
-      if (!loadingEl) return;
+      if (hidden || !loadingEl) return;
+      hidden = true;
       loadingEl.classList.add('hidden');
       setTimeout(function () { if (loadingEl) loadingEl.style.display = 'none'; }, 400);
     }
     if (loadingEl) {
-      // Cuando el custom element <wistia-player> queda definido = ya cargó
-      if (window.customElements && customElements.whenDefined) {
-        customElements.whenDefined('wistia-player').then(function () {
-          // pequeño margen para que pinte el reproductor
-          setTimeout(hideLoading, 600);
-        });
-      }
-      // Respaldo: ocultar sí o sí a los 8 segundos
-      setTimeout(hideLoading, 8000);
+      // Revisa periódicamente si el player ya tiene contenido real (iframe/video dentro)
+      var checks = 0;
+      var poll = setInterval(function () {
+        checks++;
+        var ready =
+          player.matches(':defined') &&
+          (player.querySelector('iframe, video, .w-css-reset') || player.offsetHeight > 60 && player.children.length > 0);
+        if (ready) {
+          clearInterval(poll);
+          setTimeout(hideLoading, 300);
+        } else if (checks > 40) { // ~12s máximo
+          clearInterval(poll);
+          hideLoading();
+        }
+      }, 300);
+      // Respaldo absoluto
+      setTimeout(hideLoading, 12000);
     }
 
     // Carga cuando el video está por entrar en pantalla
