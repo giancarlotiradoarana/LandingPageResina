@@ -668,6 +668,25 @@
       document.head.appendChild(s2);
     }
 
+    // Oculta el texto "Cargando video..." cuando el player ya está listo
+    var loadingEl = document.getElementById('videoLoading');
+    function hideLoading() {
+      if (!loadingEl) return;
+      loadingEl.classList.add('hidden');
+      setTimeout(function () { if (loadingEl) loadingEl.style.display = 'none'; }, 400);
+    }
+    if (loadingEl) {
+      // Cuando el custom element <wistia-player> queda definido = ya cargó
+      if (window.customElements && customElements.whenDefined) {
+        customElements.whenDefined('wistia-player').then(function () {
+          // pequeño margen para que pinte el reproductor
+          setTimeout(hideLoading, 600);
+        });
+      }
+      // Respaldo: ocultar sí o sí a los 8 segundos
+      setTimeout(hideLoading, 8000);
+    }
+
     // Carga cuando el video está por entrar en pantalla
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function (entries) {
@@ -683,5 +702,20 @@
     // Respaldo: si el usuario toca el video o pasa 2.5s, carga igual
     player.addEventListener('click', loadWistia);
     setTimeout(loadWistia, 2500);
+
+    // Oculta el texto "Cargando video..." cuando el player ya está listo
+    var loadingEl = document.getElementById('videoLoading');
+    if (loadingEl) {
+      var hideLoading = function () { loadingEl.style.display = 'none'; };
+      // Cuando el custom element se define (Wistia cargó)
+      if (window.customElements && customElements.whenDefined) {
+        customElements.whenDefined('wistia-player').then(function () {
+          // Pequeño margen para que el player pinte su contenido
+          setTimeout(hideLoading, 600);
+        });
+      }
+      // Respaldo: ocultar a los 8s pase lo que pase (no dejar el texto para siempre)
+      setTimeout(hideLoading, 8000);
+    }
   })();
 })();
