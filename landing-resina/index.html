@@ -42,17 +42,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Wistia Player -->
-  <script src="https://fast.wistia.com/player.js" async></script>
-  <script src="https://fast.wistia.com/embed/u6k9fohbn0.js" async type="module"></script>
-  <style>
-    wistia-player[media-id='u6k9fohbn0']:not(:defined) {
-      background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/u6k9fohbn0/swatch');
-      display: block;
-      filter: blur(5px);
-      padding-top: 56.56%;
-    }
-  </style>
+  <!-- Precarga la portada del video (carga rápido, evita hueco) -->
+  <link rel="preload" as="image" href="img/Logo/portada.webp" />
 
   <!-- ===== Microsoft Clarity (mapa de calor + grabaciones, gratis) =====
        1. Entra a https://clarity.microsoft.com y crea un proyecto (gratis).
@@ -185,7 +176,15 @@
             Dale play al Video, y mira resultados reales de los alumnos 👇
           </p>
           <div class="hero-video">
-            <wistia-player media-id="u6k9fohbn0" aspect="1.7679558011049723"></wistia-player>
+            <video
+              controls
+              playsinline
+              preload="none"
+              poster="img/Logo/portada.webp"
+              width="1280" height="720">
+              <source src="https://academiaparaemprendertunegocio.com/wp-content/uploads/2026/06/2E8AE1CE-4A9D-4027-8B38-B7D8E44CCDA7.mov" type="video/mp4">
+              Tu navegador no soporta el video.
+            </video>
           </div>
         </div>
       </div>
@@ -346,7 +345,95 @@
       </div>
     </section>
 
-    <!-- ===== 5. QUÉ INCLUYE EL CURSO (subido: módulos tras la transformación) ===== -->
+    <!-- ===== 9. PRECIO + GARANTÍA (subido: justo después de la transformación) ===== -->
+    <section class="section pricing" id="precio" aria-labelledby="price-title">
+      <div class="container">
+        <h2 id="price-title" class="section-title" data-reveal>Empieza hoy</h2>
+        <p class="section-sub" data-reveal>Una sola inversión. Acceso de por vida.</p>
+
+        <div class="price-preview" data-reveal>
+          <span class="preview-badge">🎓 Curso completo 5×1</span>
+          <div class="price-preview-frame">
+            <img src="img/trabajos/curso.webp" alt="Vista previa del Curso Completo de Resina Epóxica 5x1" loading="lazy">
+          </div>
+          <p class="preview-caption">📦 Todo esto aprenderás: mesas, pisos, cocinas, paredes y manualidades</p>
+        </div>
+
+        <div class="price-card" data-reveal>
+          <div class="price-badge">50% de descuento</div>
+
+          <!-- Cabecera: precio -->
+          <div class="price-head">
+            <h3 class="price-name">Paquete Completo de Resina 5 en 1</h3>
+            <div class="price-amount">
+              <span class="price-old">$70</span>
+              <span class="price-now">$35</span>
+              <span class="price-cur">USD</span>
+            </div>
+            <p class="price-note">Pago único · Acceso de por vida · Sin mensualidades</p>
+            <p class="price-currency-note">
+              <span aria-hidden="true">🌎</span> ¿No manejas dólares? Tranquilo: <strong>pagas en tu moneda local</strong> con tarjeta, Yape, PagoEfectivo, OXXO y más. Esto es lo que pagarías hoy:
+            </p>
+            <img src="img/CertGarantiaMetodosProf/moneda.webp" alt="Precio aproximado en soles, pesos mexicanos y pesos colombianos" class="price-currencies-img" loading="lazy">
+          </div>
+
+          <!-- Cuerpo: 2 columnas equilibradas -->
+          <div class="price-body">
+            <div class="price-col">
+              <!-- Contador regresivo -->
+              <div class="countdown" id="countdown" aria-label="Tiempo restante de la oferta">
+                <p class="countdown-label">⏰ La oferta termina en:</p>
+                <div class="countdown-timer">
+                  <div class="cd-unit"><span id="cd-days">00</span><small>días</small></div>
+                  <div class="cd-sep">:</div>
+                  <div class="cd-unit"><span id="cd-hours">00</span><small>horas</small></div>
+                  <div class="cd-sep">:</div>
+                  <div class="cd-unit"><span id="cd-mins">00</span><small>min</small></div>
+                  <div class="cd-sep">:</div>
+                  <div class="cd-unit"><span id="cd-secs">00</span><small>seg</small></div>
+                </div>
+              </div>
+
+              <!-- Escasez de cupos -->
+              <div class="stock" id="stock">
+                <span class="stock-flame" aria-hidden="true">🔥</span>
+                <p>¡Solo quedan <strong id="stock-count">5</strong> cupos disponibles a este precio!</p>
+              </div>
+              <div class="stock-bar" aria-hidden="true"><span id="stockBar"></span></div>
+            </div>
+
+            <div class="price-col">
+              <p class="price-includes-title">✅ Todo lo que obtienes hoy:</p>
+              <ul class="price-features">
+                <li><span class="pf-check" aria-hidden="true">✓</span> 200 clases grabadas (5 cursos en 1)</li>
+                <li><span class="pf-check" aria-hidden="true">✓</span> Pisos, mesas, cocinas, paredes y manualidades</li>
+                <li><span class="pf-check" aria-hidden="true">✓</span> 6 regalos valorados en +$579</li>
+                <li><span class="pf-check" aria-hidden="true">✓</span> Proveedores por país + fórmula de material</li>
+                <li><span class="pf-check" aria-hidden="true">✓</span> Soporte por WhatsApp y Zoom con el profesor</li>
+                <li><span class="pf-check" aria-hidden="true">✓</span> Certificado de culminación (Hotmart)</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Pie: CTA + pagos + garantía -->
+          <div class="price-foot">
+            <a href="https://go.hotmart.com/B107766290U?ap=1492" class="btn btn-primary btn-lg btn-block btn-shine" id="cta-buy" target="_blank" rel="noopener">Quiero inscribirme ahora</a>
+
+            <div class="payments">
+              <p class="payments-label">Pago 100% seguro con:</p>
+              <img src="img/CertGarantiaMetodosProf/metodos-pago.webp" alt="Métodos de pago aceptados: Visa, Mastercard, PayPal, Google Pay, Yape, PagoEfectivo, Mercado Pago y más" loading="lazy" onerror="this.style.display='none'">
+            </div>
+
+            <div class="guarantee">
+              <span class="guarantee-icon" aria-hidden="true">🛡️</span>
+              <p><strong>Garantía de 7 días.</strong> Si no es para ti, te devolvemos tu dinero. Sin preguntas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 5. QUÉ INCLUYE EL CURSO (módulos) ===== -->
     <section class="section curriculum" id="incluye" aria-labelledby="incluye-title">
       <div class="container">
         <h2 id="incluye-title" class="section-title" data-reveal>El paquete completo 5 en 1</h2>
@@ -635,94 +722,6 @@
         </div>
 
         <p class="bonus-closer" data-reveal>Pagas <strong>$35</strong> por el curso… y te llevas <strong>$579 en regalos</strong> sin costo.</p>
-      </div>
-    </section>
-
-    <!-- ===== 9. PRECIO + GARANTÍA (subido: justo después de los bonos) ===== -->
-    <section class="section pricing" id="precio" aria-labelledby="price-title">
-      <div class="container">
-        <h2 id="price-title" class="section-title" data-reveal>Empieza hoy</h2>
-        <p class="section-sub" data-reveal>Una sola inversión. Acceso de por vida.</p>
-
-        <div class="price-preview" data-reveal>
-          <span class="preview-badge">🎓 Curso completo 5×1</span>
-          <div class="price-preview-frame">
-            <img src="img/trabajos/curso.webp" alt="Vista previa del Curso Completo de Resina Epóxica 5x1" loading="lazy">
-          </div>
-          <p class="preview-caption">📦 Todo esto aprenderás: mesas, pisos, cocinas, paredes y manualidades</p>
-        </div>
-
-        <div class="price-card" data-reveal>
-          <div class="price-badge">50% de descuento</div>
-
-          <!-- Cabecera: precio -->
-          <div class="price-head">
-            <h3 class="price-name">Paquete Completo de Resina 5 en 1</h3>
-            <div class="price-amount">
-              <span class="price-old">$70</span>
-              <span class="price-now">$35</span>
-              <span class="price-cur">USD</span>
-            </div>
-            <p class="price-note">Pago único · Acceso de por vida · Sin mensualidades</p>
-            <p class="price-currency-note">
-              <span aria-hidden="true">🌎</span> ¿No manejas dólares? Tranquilo: <strong>pagas en tu moneda local</strong> con tarjeta, Yape, PagoEfectivo, OXXO y más. Esto es lo que pagarías hoy:
-            </p>
-            <img src="img/CertGarantiaMetodosProf/moneda.webp" alt="Precio aproximado en soles, pesos mexicanos y pesos colombianos" class="price-currencies-img" loading="lazy">
-          </div>
-
-          <!-- Cuerpo: 2 columnas equilibradas -->
-          <div class="price-body">
-            <div class="price-col">
-              <!-- Contador regresivo -->
-              <div class="countdown" id="countdown" aria-label="Tiempo restante de la oferta">
-                <p class="countdown-label">⏰ La oferta termina en:</p>
-                <div class="countdown-timer">
-                  <div class="cd-unit"><span id="cd-days">00</span><small>días</small></div>
-                  <div class="cd-sep">:</div>
-                  <div class="cd-unit"><span id="cd-hours">00</span><small>horas</small></div>
-                  <div class="cd-sep">:</div>
-                  <div class="cd-unit"><span id="cd-mins">00</span><small>min</small></div>
-                  <div class="cd-sep">:</div>
-                  <div class="cd-unit"><span id="cd-secs">00</span><small>seg</small></div>
-                </div>
-              </div>
-
-              <!-- Escasez de cupos -->
-              <div class="stock" id="stock">
-                <span class="stock-flame" aria-hidden="true">🔥</span>
-                <p>¡Solo quedan <strong id="stock-count">5</strong> cupos disponibles a este precio!</p>
-              </div>
-              <div class="stock-bar" aria-hidden="true"><span id="stockBar"></span></div>
-            </div>
-
-            <div class="price-col">
-              <p class="price-includes-title">✅ Todo lo que obtienes hoy:</p>
-              <ul class="price-features">
-                <li><span class="pf-check" aria-hidden="true">✓</span> 200 clases grabadas (5 cursos en 1)</li>
-                <li><span class="pf-check" aria-hidden="true">✓</span> Pisos, mesas, cocinas, paredes y manualidades</li>
-                <li><span class="pf-check" aria-hidden="true">✓</span> 6 regalos valorados en +$579</li>
-                <li><span class="pf-check" aria-hidden="true">✓</span> Proveedores por país + fórmula de material</li>
-                <li><span class="pf-check" aria-hidden="true">✓</span> Soporte por WhatsApp y Zoom con el profesor</li>
-                <li><span class="pf-check" aria-hidden="true">✓</span> Certificado de culminación (Hotmart)</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Pie: CTA + pagos + garantía -->
-          <div class="price-foot">
-            <a href="https://go.hotmart.com/B107766290U?ap=1492" class="btn btn-primary btn-lg btn-block btn-shine" id="cta-buy" target="_blank" rel="noopener">Quiero inscribirme ahora</a>
-
-            <div class="payments">
-              <p class="payments-label">Pago 100% seguro con:</p>
-              <img src="img/CertGarantiaMetodosProf/metodos-pago.webp" alt="Métodos de pago aceptados: Visa, Mastercard, PayPal, Google Pay, Yape, PagoEfectivo, Mercado Pago y más" loading="lazy" onerror="this.style.display='none'">
-            </div>
-
-            <div class="guarantee">
-              <span class="guarantee-icon" aria-hidden="true">🛡️</span>
-              <p><strong>Garantía de 7 días.</strong> Si no es para ti, te devolvemos tu dinero. Sin preguntas.</p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 

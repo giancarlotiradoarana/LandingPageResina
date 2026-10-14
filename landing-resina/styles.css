@@ -611,7 +611,7 @@ a { color: inherit; text-decoration: none; }
   50% { transform: scale(1.12); box-shadow: 0 0 0 8px rgba(245,158,11,0); }
 }
 
-/* Video de Wistia */
+/* Video del hero */
 .hero-video {
   position: relative;
   width: 100%;
@@ -623,43 +623,15 @@ a { color: inherit; text-decoration: none; }
   /* Reserva el espacio del video desde el inicio para evitar que salte al cargar (CLS) */
   aspect-ratio: 16 / 9;
 }
-.hero-video wistia-player {
+.hero-video video {
   display: block;
   width: 100%;
   height: 100%;
+  object-fit: cover;
   border-radius: 20px;
-  overflow: hidden;
+  background: #0a3d3a;
 }
 
-/* Texto "Cargando video..." mientras el player de Wistia no está listo */
-.video-loading {
-  position: absolute;
-  left: 50%; bottom: 14px;
-  transform: translateX(-50%);
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(10,61,58,.82);
-  color: #ecfeff;
-  font-size: .82rem;
-  font-weight: 600;
-  padding: 7px 14px;
-  border-radius: 999px;
-  backdrop-filter: blur(4px);
-  white-space: nowrap;
-  pointer-events: none;
-}
-.video-loading-spinner {
-  width: 13px; height: 13px;
-  border: 2px solid rgba(255,255,255,.35);
-  border-top-color: #fff;
-  border-radius: 50%;
-  animation: videoSpin .8s linear infinite;
-}
-@keyframes videoSpin { to { transform: rotate(360deg); } }
-/* Cuando el player de Wistia ya cargó (se define), ocultamos el texto */
-.hero-video:has(wistia-player:defined) .video-loading { display: none; }
 .hero-visual {
   position: relative;
   width: 100%;
