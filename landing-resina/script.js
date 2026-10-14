@@ -466,12 +466,32 @@
       }
     }
 
+    // Alterna play/pausa (para tocar en cualquier parte del video)
+    function togglePlay() {
+      if (video.paused || video.ended) {
+        startPlay();
+      } else {
+        video.pause();
+      }
+    }
+
     if (playBtn) {
       playBtn.addEventListener('click', function (e) {
         e.preventDefault();
         startPlay();
       });
     }
+
+    // Tocar/clic en cualquier parte del video arranca (o pausa) la reproducción.
+    // Mientras está pausado, cualquier toque reproduce; una vez andando,
+    // dejamos que los controles nativos manejen el resto.
+    wrap.addEventListener('click', function (e) {
+      // Si tocó directamente el botón grande, ya lo maneja su propio listener
+      if (playBtn && (e.target === playBtn || playBtn.contains(e.target))) return;
+      if (video.paused || video.ended) {
+        startPlay();
+      }
+    });
 
     // Oculta/muestra el botón según el estado real del video
     video.addEventListener('play', function () { wrap.classList.add('is-playing'); });
