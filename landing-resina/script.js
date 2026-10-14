@@ -449,6 +449,37 @@
   // Carrusel de galería de trabajos (sin puntos, son muchas) con autoplay que se pausa al interactuar
   initCarousel({ viewport: 'galViewport', track: 'galTrack', prev: 'galPrev', next: 'galNext', autoplay: true, autoplayDelay: 2800 });
 
+  // ---- Video del hero: botón de play grande + tocar para reproducir ----
+  (function initHeroVideo() {
+    var wrap = document.getElementById('heroVideoWrap');
+    var video = document.getElementById('heroVideo');
+    var playBtn = document.getElementById('heroVideoPlay');
+    if (!wrap || !video) return;
+
+    function startPlay() {
+      var p = video.play();
+      if (p && typeof p.catch === 'function') {
+        p.catch(function () {
+          // Si el navegador bloquea el play, al menos muestra los controles nativos
+          video.setAttribute('controls', 'controls');
+        });
+      }
+    }
+
+    if (playBtn) {
+      playBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        startPlay();
+      });
+    }
+
+    // Oculta/muestra el botón según el estado real del video
+    video.addEventListener('play', function () { wrap.classList.add('is-playing'); });
+    video.addEventListener('playing', function () { wrap.classList.add('is-playing'); });
+    video.addEventListener('pause', function () { wrap.classList.remove('is-playing'); });
+    video.addEventListener('ended', function () { wrap.classList.remove('is-playing'); });
+  })();
+
   // ---- Contador regresivo (2 días, persistente por visitante) ----
   (function initCountdown() {
     var daysEl = document.getElementById('cd-days');

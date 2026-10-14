@@ -40,7 +40,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261013c" />
+  <link rel="stylesheet" href="styles.css?v=20261013d" />
 
   <!-- Precarga la portada del video (carga rápido, evita hueco) -->
   <link rel="preload" as="image" href="img/Logo/portada.webp" />
@@ -175,8 +175,9 @@
             <span class="video-cue-icon" aria-hidden="true">▶</span>
             Dale play al Video, y mira resultados reales de los alumnos 👇
           </p>
-          <div class="hero-video">
+          <div class="hero-video" id="heroVideoWrap">
             <video
+              id="heroVideo"
               controls
               playsinline
               preload="none"
@@ -185,6 +186,9 @@
               <source src="video/presentacion.mp4" type="video/mp4">
               Tu navegador no soporta el video.
             </video>
+            <button type="button" class="hero-video__play" id="heroVideoPlay" aria-label="Reproducir video">
+              <svg viewBox="0 0 24 24" width="34" height="34" fill="#fff" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            </button>
           </div>
         </div>
       </div>
@@ -1024,7 +1028,7 @@
     </div>
   </div>
 
-  <script src="script.js?v=20261013c" defer></script>
+  <script src="script.js?v=20261013d" defer></script>
 
   <!-- ===== DATOS ESTRUCTURADOS (Schema.org) para SEO ===== -->
   <script type="application/ld+json">
