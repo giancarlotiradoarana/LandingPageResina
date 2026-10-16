@@ -267,13 +267,43 @@ a { color: inherit; text-decoration: none; }
 .hero-grid {
   position: relative;
   z-index: 2;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px;
-  align-items: center;
   max-width: 1240px;
   margin: 0 auto;
 }
+/* ===== PC: 2 columnas (texto izquierda, video derecha) ===== */
+.hero-copy {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 56px;
+  align-items: center;
+  grid-template-areas:
+    "eyebrow   media"
+    "title     media"
+    "sub       media"
+    "sub2      media"
+    "bullets   media"
+    "bonus     media"
+    "price     media"
+    "curlabel  media"
+    "curimg    media"
+    "actions   media"
+    "proof     media"
+    "link      media";
+}
+.hero-copy { text-align: left; }
+.hero-copy > .eyebrow        { grid-area: eyebrow; justify-self: start; }
+.hero-copy > #hero-title     { grid-area: title; }
+.hero-copy > .hero-sub       { grid-area: sub; margin-bottom: 12px; }
+.hero-copy > .hero-sub-2     { grid-area: sub2; }
+.hero-copy > .hero-media     { grid-area: media; align-self: center; width: 100%; margin: 10px 0 26px; }
+.hero-copy > .hero-bullets   { grid-area: bullets; }
+.hero-copy > .hero-bonus     { grid-area: bonus; }
+.hero-copy > .hero-price     { grid-area: price; }
+.hero-copy > .hero-currencies-label { grid-area: curlabel; }
+.hero-copy > .hero-currencies-img   { grid-area: curimg; }
+.hero-copy > .hero-actions   { grid-area: actions; }
+.hero-copy > .hero-proof     { grid-area: proof; }
+.hero-copy > .hero-link      { grid-area: link; }
 
 /* Blobs orgánicos animados de fondo */
 .hero-blob {
@@ -381,7 +411,7 @@ a { color: inherit; text-decoration: none; }
 .hero-bullets li {
   font-weight: 500;
   color: #ecfeff;
-  padding-left: 34px;
+  padding-left: 0;
   position: relative;
 }
 /* Bloque destacado de 6 bonos en el hero */
@@ -437,20 +467,7 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 560px) {
   .hero-bonus { flex-direction: column; align-items: flex-start; gap: 10px; text-align: left; }
 }
-.hero-bullets li::before {
-  content: "✓";
-  position: absolute;
-  left: 0; top: 50%;
-  transform: translateY(-50%);
-  width: 22px; height: 22px;
-  display: grid; place-items: center;
-  background: var(--teal-600);
-  color: #fff;
-  font-size: .75rem;
-  font-weight: 900;
-  border-radius: 50%;
-  box-shadow: 0 0 0 4px rgba(13,148,136,.25);
-}
+/* Los bullets del hero ahora empiezan con emoji, no con el check verde */
 /* Ancla de precio en el hero: discreta y con aire */
 .hero-price {
   display: inline-flex;
@@ -1051,7 +1068,36 @@ a { color: inherit; text-decoration: none; }
 .module-topics strong { color: var(--teal-700); }
 
 /* Título del módulo */
-.module-title { font-size: 1.05rem; line-height: 1.25; color: var(--ink); }
+.module-title { font-size: 1.05rem; line-height: 1.3; color: var(--ink); }
+
+/* Etiqueta de ganancia por módulo (pastilla verde con el precio que se cobra) */
+.module-earn {
+  display: inline-block;
+  margin-left: 2px;
+  vertical-align: middle;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .01em;
+  color: #0f5132;
+  background: #d1fae5;
+  border: 1px solid #6ee7b7;
+  border-radius: 999px;
+  padding: 3px 10px;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+/* Variante "caliente" para la pieza estrella (mesas) */
+.module-earn-hot {
+  color: #7c2d12;
+  background: #ffedd5;
+  border-color: #fdba74;
+}
+/* Variante del módulo clave (negocio) */
+.module-earn-key {
+  color: #713f12;
+  background: #fef3c7;
+  border-color: #fcd34d;
+}
 
 /* Frase gancho destacada del módulo */
 .module-hook {
@@ -1558,20 +1604,23 @@ a { color: inherit; text-decoration: none; }
 }
 .price-features li {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 12px;
   color: var(--ink);
   font-size: .96rem;
   font-weight: 500;
+  line-height: 1.5;
   background: var(--teal-50);
   border-radius: 10px;
-  padding: 10px 14px;
+  padding: 12px 16px;
   transition: transform .18s ease;
 }
+.price-features li strong { font-weight: 700; }
 .price-features li:hover { transform: translateX(4px); }
 .pf-check {
   flex-shrink: 0;
   width: 24px; height: 24px;
+  margin-top: 1px;
   display: grid; place-items: center;
   background: linear-gradient(135deg, #10b981, var(--teal-600));
   color: #fff;
@@ -2624,11 +2673,20 @@ a { color: inherit; text-decoration: none; }
   .nav-cta { display: flex; margin-top: 14px; justify-content: center; }
   .site-header { position: sticky; }
   .header-inner { position: relative; }
-  .hero-grid { grid-template-columns: 1fr; gap: 24px; text-align: center; }
-  /* En móvil: primero el mensaje (titular + promesa), luego el video.
-     Antes el video iba arriba y la gente llegaba sin entender de qué se trataba. */
-  .hero-copy { order: 1; }
-  .hero-media { order: 2; }
+  .hero-grid { text-align: center; }
+  /* En móvil: una sola columna apilada en el orden del DOM
+     (titular → promesa → video → bullets → bonos → precio → CTA).
+     Desactivamos el grid de 2 columnas de escritorio. */
+  .hero-copy {
+    display: block;
+    grid-template-columns: none;
+    grid-template-areas: none;
+    column-gap: 0;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .hero-copy > .eyebrow { justify-self: center; }
+  .hero-copy > .hero-media { margin: 6px auto 22px; }
   .hero-sub, .hero-bullets { margin-left: auto; margin-right: auto; }
   .hero-sub { font-size: 1.02rem; margin-bottom: 18px; }
   .hero-bullets { display: inline-grid; text-align: left; gap: 9px; margin-bottom: 22px; }
