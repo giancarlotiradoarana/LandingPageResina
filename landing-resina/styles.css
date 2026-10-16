@@ -2625,8 +2625,10 @@ a { color: inherit; text-decoration: none; }
   .site-header { position: sticky; }
   .header-inner { position: relative; }
   .hero-grid { grid-template-columns: 1fr; gap: 24px; text-align: center; }
-  .hero-copy { order: 2; }
-  .hero-media { order: 1; }
+  /* En móvil: primero el mensaje (titular + promesa), luego el video.
+     Antes el video iba arriba y la gente llegaba sin entender de qué se trataba. */
+  .hero-copy { order: 1; }
+  .hero-media { order: 2; }
   .hero-sub, .hero-bullets { margin-left: auto; margin-right: auto; }
   .hero-sub { font-size: 1.02rem; margin-bottom: 18px; }
   .hero-bullets { display: inline-grid; text-align: left; gap: 9px; margin-bottom: 22px; }
