@@ -176,7 +176,18 @@ a { color: inherit; text-decoration: none; }
   min-height: 24px;
 }
 .topbar strong { font-weight: 800; }
-.topbar-msg { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.topbar-msg {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: rgba(255,255,255,.5);
+  border: 1px solid rgba(255,255,255,.55);
+  padding: 4px 16px 4px 5px;
+  border-radius: 999px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.5);
+}
 /* Descuento destacado: pastilla roja que salta a la vista */
 .topbar-off {
   display: inline-block;
@@ -198,25 +209,57 @@ a { color: inherit; text-decoration: none; }
 }
 .topbar-was { color: #7a4a00; opacity: .7; font-weight: 700; }
 .topbar-flame { animation: flicker 1.6s ease-in-out infinite; }
-.topbar-timer {
+/* Etiqueta "Termina en" antes del contador */
+.topbar-label {
   font-weight: 900;
-  color: #fff;
-  background: linear-gradient(135deg, #2a1c08, #1a1205);
-  padding: 5px 15px;
-  border-radius: 999px;
-  font-variant-numeric: tabular-nums;
-  letter-spacing: .06em;
+  font-size: 1rem;
+  color: #1a1205;
+  letter-spacing: .01em;
+}
+/* Contenedor del contador: cajitas tipo reloj digital */
+.topbar-timer {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  border: 1px solid rgba(255,255,255,.12);
-  box-shadow: 0 3px 10px -2px rgba(0,0,0,.5);
-  animation: timerBlink 1.6s steps(1) infinite;
+  gap: 5px;
 }
-/* Parpadeo sutil del contador para dar sensación de urgencia */
-@keyframes timerBlink {
-  0%, 100% { box-shadow: 0 3px 10px -2px rgba(0,0,0,.5); }
-  50% { box-shadow: 0 3px 10px -2px rgba(0,0,0,.5), 0 0 0 3px rgba(239,68,68,.45); }
+.tb-box {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #2a1c08, #141008);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 9px;
+  padding: 3px 9px 4px;
+  min-width: 42px;
+  box-shadow: 0 3px 9px -2px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.08);
+}
+.tb-box b {
+  font-size: 1.05rem;
+  font-weight: 900;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .02em;
+}
+.tb-box i {
+  font-size: .56rem;
+  font-style: normal;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: #fbbf24;
+  margin-top: 2px;
+}
+.tb-colon {
+  color: #2a1c00;
+  font-weight: 900;
+  font-size: 1.1rem;
+  animation: colonBlink 1s steps(1) infinite;
+}
+@keyframes colonBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .25; }
 }
 
 .site-header {

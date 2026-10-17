@@ -488,12 +488,16 @@
       if (hoursEl) hoursEl.textContent = pad(h);
       if (minsEl) minsEl.textContent = pad(m);
       if (secsEl) secsEl.textContent = pad(s);
-      // En la barra: si falta menos de 1 hora, muestra solo min:seg (más urgente y limpio)
+      // En la barra: cajitas separadas (más pro). Si falta <1h, muestra min:seg; si no, h:min:seg
       if (topTimer) {
+        function box(val, lab) {
+          return '<span class="tb-box"><b>' + val + '</b><i>' + lab + '</i></span>';
+        }
+        var sep = '<span class="tb-colon">:</span>';
         if (diff < 60 * 60 * 1000) {
-          topTimer.textContent = '⏰ ' + pad(totalMin) + 'm ' + pad(s) + 's';
+          topTimer.innerHTML = box(pad(totalMin), 'min') + sep + box(pad(s), 'seg');
         } else {
-          topTimer.textContent = '⏰ ' + pad(h) + 'h ' + pad(m) + 'm ' + pad(s) + 's';
+          topTimer.innerHTML = box(pad(h), 'hrs') + sep + box(pad(m), 'min') + sep + box(pad(s), 'seg');
         }
       }
     }
