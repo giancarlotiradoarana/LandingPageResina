@@ -164,29 +164,36 @@ a { color: inherit; text-decoration: none; }
   pointer-events: none;
 }
 .topbar-inner { position: relative; z-index: 1; }
-/* Precio $35 destacado en la barra */
-.topbar-msg { font-size: .9rem; }
-.topbar-msg strong { font-weight: 900; color: #1a1205; font-size: 1.05rem; }
 .topbar-inner {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px 32px;
+  gap: 10px 20px;
   flex-wrap: wrap;
   min-height: 24px;
 }
 .topbar strong { font-weight: 800; }
+/* Bloque del precio en la barra: sin cápsula, texto limpio y centrado */
 .topbar-msg {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   flex-wrap: wrap;
   justify-content: center;
-  background: rgba(255,255,255,.5);
-  border: 1px solid rgba(255,255,255,.55);
-  padding: 4px 16px 4px 5px;
-  border-radius: 999px;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.5);
+  font-size: .9rem;
+}
+.topbar-msg strong { font-weight: 900; color: #1a1205; font-size: 1.05rem; }
+.topbar-txt { color: #2a1c00; }
+/* Mantiene "por $35  $70" siempre junto, sin partirse en líneas feas */
+.topbar-price-wrap { white-space: nowrap; }
+.topbar-price-wrap strong { margin-left: 2px; }
+/* Separa y diferencia el precio tachado del actual */
+.topbar-was {
+  margin-left: 8px;
+  color: #8a5a10;
+  opacity: .85;
+  font-weight: 700;
+  font-size: .92rem;
 }
 /* Descuento destacado: pastilla roja que salta a la vista */
 .topbar-off {
@@ -207,7 +214,6 @@ a { color: inherit; text-decoration: none; }
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.07); }
 }
-.topbar-was { color: #7a4a00; opacity: .7; font-weight: 700; }
 .topbar-flame { animation: flicker 1.6s ease-in-out infinite; }
 /* Etiqueta "Termina en" antes del contador */
 .topbar-label {
