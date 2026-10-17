@@ -439,20 +439,30 @@ a { color: inherit; text-decoration: none; }
 }
 
 .eyebrow {
-  display: inline-flex;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 8px;
-  font-size: .8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  color: #99f6e4;
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(153,246,228,.25);
-  padding: 7px 16px;
-  border-radius: 999px;
   margin-bottom: 22px;
+  padding: 0;
+  background: none;
+  border: none;
+}
+/* Cada dato como chip individual */
+.eyebrow span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: .76rem;
+  font-weight: 800;
+  letter-spacing: .02em;
+  color: #bbf7e4;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(153,246,228,.28);
+  padding: 6px 13px;
+  border-radius: 999px;
   backdrop-filter: blur(6px);
+  white-space: nowrap;
 }
 .eyebrow-dot {
   width: 8px; height: 8px; border-radius: 50%;
@@ -494,22 +504,41 @@ a { color: inherit; text-decoration: none; }
 @keyframes drawLine { to { transform: scaleX(1); } }
 
 .hero-sub {
-  font-size: 1.15rem;
-  color: #d1faf5;
-  max-width: 540px;
+  font-size: 1.18rem;
+  color: #eafff9;
+  max-width: 560px;
   margin-bottom: 26px;
+  line-height: 1.5;
 }
+/* Resalta las palabras clave de la promesa */
+.hero-sub strong { color: #fde68a; font-weight: 800; }
+/* Segunda frase de la promesa: un poco más tenue, como apoyo */
+.hero-sub-2 { font-size: 1.04rem; color: #b8e6de; }
 .hero-bullets {
   list-style: none;
   margin-bottom: 32px;
   display: grid;
-  gap: 12px;
+  gap: 10px;
 }
 .hero-bullets li {
-  font-weight: 500;
+  font-weight: 600;
   color: #ecfeff;
-  padding-left: 0;
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 16px 11px 14px;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.14);
+  border-left: 3px solid var(--amber);
+  border-radius: 12px;
+  line-height: 1.35;
+  backdrop-filter: blur(4px);
+  transition: background .2s ease, transform .2s ease;
+}
+.hero-bullets li:hover {
+  background: rgba(255,255,255,.11);
+  transform: translateX(3px);
 }
 /* Bloque destacado de 6 bonos en el hero */
 .hero-bonus {
@@ -2784,7 +2813,7 @@ a { color: inherit; text-decoration: none; }
     max-width: 640px;
     margin: 0 auto;
   }
-  .hero-copy > .eyebrow { justify-self: center; }
+  .hero-copy > .eyebrow { justify-self: center; justify-content: center; }
   .hero-copy > .hero-media { margin: 6px auto 22px; }
   .hero-sub, .hero-bullets { margin-left: auto; margin-right: auto; }
   .hero-sub { font-size: 1.02rem; margin-bottom: 18px; }
