@@ -8,22 +8,13 @@
 
   // ---- Evitar que la página cargue desplazada (salto en móvil) ----
   var topInterval = null;
+  // Al recargar, la página empieza arriba (no restaura la posición previa).
+  // Se hace UNA sola vez, sin forzar en bucle, para no pelear con el scroll del usuario.
   if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
   }
   if (!window.location.hash) {
-    var forceTop = function () { window.scrollTo(0, 0); };
-    forceTop();
-    var tries = 0;
-    topInterval = setInterval(function () {
-      forceTop();
-      if (++tries >= 20) { clearInterval(topInterval); topInterval = null; } // ~1s
-    }, 50);
-    // Si el usuario interactúa, dejamos de forzar (no molestar)
-    var stopForce = function () { if (topInterval) { clearInterval(topInterval); topInterval = null; } };
-    window.addEventListener('touchstart', stopForce, { passive: true, once: true });
-    window.addEventListener('wheel', stopForce, { passive: true, once: true });
-    window.addEventListener('load', function () { if (!topInterval) window.scrollTo(0, 0); });
+    window.scrollTo(0, 0);
   }
 
   // ---- Scroll suave y confiable para enlaces internos (#seccion) ----
