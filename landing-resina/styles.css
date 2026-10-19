@@ -599,34 +599,49 @@ a { color: inherit; text-decoration: none; }
   display: inline-flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 8px 14px;
+  gap: 10px 14px;
   margin-bottom: 20px;
   font-size: .98rem;
   color: #d1faf5;
+  padding: 12px 18px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 16px;
+  backdrop-filter: blur(4px);
 }
 .hero-price-old {
   font-weight: 600;
-  color: #8aa6a2;
+  color: #9fb7b3;
+  font-size: 1.05rem;
 }
-.hero-price-old s { text-decoration-color: rgba(138,166,162,.8); }
+.hero-price-old s { text-decoration-color: rgba(159,183,179,.9); text-decoration-thickness: 2px; }
 .hero-price-now {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
   font-weight: 600;
   color: #d1faf5;
 }
 .hero-price-now strong {
   font-weight: 900;
   color: #ffffff;
-  font-size: 1.25rem;
+  font-size: 2rem;
+  line-height: 1;
+  letter-spacing: -.02em;
 }
+/* Pastilla roja del descuento (coherente con la barra superior) */
 .hero-price-off {
-  font-size: .74rem;
-  font-weight: 800;
+  font-size: .82rem;
+  font-weight: 900;
   letter-spacing: .03em;
-  color: #ffe9c2;
-  background: rgba(245,158,11,.18);
-  border: 1px solid rgba(245,158,11,.5);
-  padding: 4px 11px;
+  color: #fff;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  border: 1px solid rgba(255,255,255,.4);
+  padding: 5px 13px;
   border-radius: 999px;
+  box-shadow: 0 3px 10px -2px rgba(220,38,38,.6), inset 0 1px 0 rgba(255,255,255,.3);
+  text-shadow: 0 1px 2px rgba(0,0,0,.2);
+  animation: offPulse 1.6s ease-in-out infinite;
 }
 /* Monedas en el hero (etiqueta + imagen) */
 .hero-currencies-label {
