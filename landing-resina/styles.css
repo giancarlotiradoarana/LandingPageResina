@@ -356,8 +356,14 @@ a { color: inherit; text-decoration: none; }
 .hero {
   position: relative;
   background:
-    radial-gradient(1200px 500px at 80% -10%, rgba(13,148,136,.35), transparent 60%),
-    linear-gradient(160deg, #0a3d3a, var(--teal-900) 45%, var(--teal-700));
+    /* Brillo turquesa fuerte arriba a la derecha */
+    radial-gradient(800px 500px at 90% 0%, rgba(45,212,191,.55), transparent 50%),
+    /* Brillo azulado a la izquierda, zona media-alta */
+    radial-gradient(650px 500px at -10% 30%, rgba(14,165,233,.35), transparent 50%),
+    /* Toque cálido (ámbar) marcado cerca del precio/CTA, abajo */
+    radial-gradient(650px 460px at 50% 95%, rgba(245,158,11,.22), transparent 55%),
+    /* Base degradada vertical bien marcada: muy oscuro arriba -> verde claro abajo */
+    linear-gradient(170deg, #052421 0%, #0a3d3a 30%, #0f766e 65%, #14b8a6 100%);
   color: var(--white);
   padding: 72px 0 120px;
   overflow: hidden;
@@ -555,7 +561,7 @@ a { color: inherit; text-decoration: none; }
   position: relative;
   overflow: hidden;
 }
-/* Botón visible "Ver los 6 bonos" (verde oscuro para contrastar con el bloque ámbar) */
+/* Botón visible "Ver los 6 bonos" (blanco: contrasta con el fondo turquesa y el bloque ámbar) */
 .hero-bonus-btn {
   align-self: flex-start;
   display: inline-flex;
@@ -564,20 +570,20 @@ a { color: inherit; text-decoration: none; }
   margin-top: 2px;
   font-size: .9rem;
   font-weight: 800;
-  color: #ffffff;
-  background: var(--teal-700);
+  color: var(--teal-900);
+  background: #ffffff;
   padding: 10px 20px;
   border-radius: 999px;
   text-decoration: none;
-  box-shadow: 0 5px 16px -4px rgba(13,148,136,.7);
+  box-shadow: 0 6px 18px -4px rgba(0,0,0,.45);
   transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
   position: relative;
   z-index: 1;
 }
 .hero-bonus-btn:hover {
   transform: translateY(-2px);
-  background: var(--teal-900);
-  box-shadow: 0 8px 22px -4px rgba(13,148,136,.9);
+  background: #f0fdfa;
+  box-shadow: 0 10px 24px -4px rgba(0,0,0,.55);
 }
 /* Brillo que cruza el bloque para llamar la atención */
 .hero-bonus::before {
@@ -917,24 +923,48 @@ a { color: inherit; text-decoration: none; }
    TRUST BAR
    ============================================ */
 .trust-bar {
-  background: var(--teal-50);
+  background: linear-gradient(180deg, #f0fdfa, #ffffff);
   border-bottom: 1px solid #e2f5f2;
-  padding: 22px 0;
+  padding: 32px 0;
 }
 .trust-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
+  gap: 16px;
 }
 .trust-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 2px;
+  gap: 4px;
+  background: #ffffff;
+  border: 1px solid #e2f5f2;
+  border-radius: 16px;
+  padding: 22px 16px 18px;
+  box-shadow: 0 6px 18px -10px rgba(15,23,42,.18);
+  transition: transform .2s ease, box-shadow .2s ease;
 }
-.trust-item strong { color: var(--teal-900); font-size: 1rem; }
-.trust-item span { color: var(--slate); font-size: .86rem; }
+.trust-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px -12px rgba(13,148,136,.4);
+}
+/* Ícono dentro de un círculo de color */
+.trust-ico {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal-50), #d1fae5);
+  border: 1px solid #a7f3d0;
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: 8px;
+  box-shadow: 0 4px 12px -4px rgba(13,148,136,.4);
+}
+.trust-item strong { color: var(--teal-900); font-size: 1.05rem; }
+.trust-item span { color: var(--slate); font-size: .86rem; line-height: 1.35; }
 
 /* ============================================
    PAIN
