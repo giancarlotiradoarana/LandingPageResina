@@ -383,21 +383,18 @@ a { color: inherit; text-decoration: none; }
   grid-template-areas:
     "title     media"
     "sub       media"
-    "sub2      media"
-    "bullets   media"
-    "bonus     media"
-    "price     media"
+    "actions   media"
     "curlabel  media"
     "curimg    media"
-    "actions   media"
+    "bullets   media"
+    "bonus     media"
     "proof     media"
     "link      media";
 }
 .hero-copy { text-align: left; }
 .hero-copy > .eyebrow        { grid-area: eyebrow; justify-self: start; }
 .hero-copy > #hero-title     { grid-area: title; }
-.hero-copy > .hero-sub       { grid-area: sub; margin-bottom: 12px; }
-.hero-copy > .hero-sub-2     { grid-area: sub2; }
+.hero-copy > .hero-sub       { grid-area: sub; margin-bottom: 16px; }
 .hero-copy > .hero-media     { grid-area: media; align-self: center; width: 100%; margin: 10px 0 26px; }
 .hero-copy > .hero-bullets   { grid-area: bullets; }
 .hero-copy > .hero-bonus     { grid-area: bonus; }
@@ -518,33 +515,37 @@ a { color: inherit; text-decoration: none; }
 }
 /* Resalta las palabras clave de la promesa */
 .hero-sub strong { color: #fde68a; font-weight: 800; }
-/* Segunda frase de la promesa: un poco más tenue, como apoyo */
-.hero-sub-2 { font-size: 1.04rem; color: #b8e6de; }
 .hero-bullets {
   list-style: none;
   margin-bottom: 32px;
   display: grid;
   gap: 10px;
+  max-width: 460px;
 }
 .hero-bullets li {
-  font-weight: 600;
-  color: #ecfeff;
+  font-weight: 700;
+  color: #f0fffc;
   position: relative;
   display: flex;
+  width: 100%;
   align-items: center;
-  gap: 10px;
-  padding: 11px 16px 11px 14px;
-  background: rgba(255,255,255,.07);
-  border: 1px solid rgba(255,255,255,.14);
-  border-left: 3px solid var(--amber);
-  border-radius: 12px;
-  line-height: 1.35;
-  backdrop-filter: blur(4px);
-  transition: background .2s ease, transform .2s ease;
+  justify-content: flex-start;
+  text-align: left;
+  gap: 12px;
+  padding: 13px 18px 13px 16px;
+  background: rgba(3, 32, 30, .55);
+  border: 1px solid rgba(45, 212, 191, .3);
+  border-left: 4px solid var(--amber);
+  border-radius: 14px;
+  line-height: 1.3;
+  box-shadow: 0 8px 22px -10px rgba(0,0,0,.6);
+  transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
 }
 .hero-bullets li:hover {
-  background: rgba(255,255,255,.11);
-  transform: translateX(3px);
+  background: rgba(3, 32, 30, .75);
+  border-color: rgba(45, 212, 191, .5);
+  transform: translateX(4px);
+  box-shadow: 0 10px 24px -10px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.15);
 }
 /* Bloque destacado de 6 bonos en el hero */
 .hero-bonus {
@@ -2878,9 +2879,9 @@ a { color: inherit; text-decoration: none; }
   }
   .hero-copy > .eyebrow { justify-self: center; justify-content: center; }
   .hero-copy > .hero-media { margin: 6px auto 22px; }
-  .hero-sub, .hero-bullets { margin-left: auto; margin-right: auto; }
+  .hero-sub { margin-left: auto; margin-right: auto; }
   .hero-sub { font-size: 1.02rem; margin-bottom: 18px; }
-  .hero-bullets { display: inline-grid; text-align: left; gap: 9px; margin-bottom: 22px; }
+  .hero-bullets { display: grid; text-align: left; gap: 9px; margin: 0 0 22px 0; max-width: 100%; }
   .hero-actions, .hero-proof { justify-content: center; }
   .hero-price { justify-content: center; }
   .hero-currencies-label { text-align: center; }
