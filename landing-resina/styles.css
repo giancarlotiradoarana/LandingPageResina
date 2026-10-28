@@ -490,7 +490,7 @@ a { color: inherit; text-decoration: none; }
 @keyframes drawLine { to { transform: scaleX(1); } }
 
 .hero-sub {
-  font-size: 1.18rem;
+  font-size: 1.3rem;
   color: #eafff9;
   max-width: 560px;
   margin-bottom: 26px;
@@ -2846,7 +2846,7 @@ a { color: inherit; text-decoration: none; }
   .hero-copy > .eyebrow { justify-self: center; justify-content: center; }
   .hero-copy > .hero-media { margin: 6px auto 22px; }
   .hero-sub { margin-left: auto; margin-right: auto; }
-  .hero-sub { font-size: 1.02rem; margin-bottom: 18px; }
+  .hero-sub { font-size: 1.1rem; margin-bottom: 18px; }
   .hero-bullets { display: grid; text-align: left; gap: 9px; margin: 0 0 22px 0; max-width: 100%; }
   .hero-actions, .hero-proof { justify-content: center; }
   .hero-price { justify-content: center; }
