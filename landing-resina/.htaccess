@@ -9,10 +9,15 @@
   CacheLookup off
 </IfModule>
 
-# ---------- 0b. REDIRECCIÓN WWW -> NON-WWW (unifica el dominio) ----------
+# ---------- 0b. REDIRECCIÓN HTTP -> HTTPS y WWW -> NON-WWW ----------
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  # Redirige www.resinovo.com -> resinovo.com (301 permanente)
+
+  # 1) Fuerza HTTPS: http://... -> https://... (301 permanente)
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+  # 2) Redirige www.resinovo.com -> resinovo.com (301 permanente)
   RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
   RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
 </IfModule>
