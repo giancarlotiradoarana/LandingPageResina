@@ -2363,6 +2363,15 @@ a { color: inherit; text-decoration: none; }
   border-radius: 10px;
   margin-left: 6px;
 }
+
+/* Línea de remate valor vs precio bajo el ticket de regalos */
+.bonus-closer {
+  text-align: center;
+  margin: 24px auto 0;
+  font-size: 1.15rem;
+  color: var(--ink);
+}
+.bonus-closer strong { color: var(--teal-700); font-weight: 800; }
 .bonus-closer {
   text-align: center;
   margin-top: 26px;
@@ -2693,6 +2702,10 @@ a { color: inherit; text-decoration: none; }
   object-fit: cover;
   pointer-events: none;
   transition: transform .5s ease;
+}
+/* Zoom suave al pasar el cursor (solo PC con mouse) */
+@media (hover: hover) {
+  .gal-slide:hover img { transform: scale(1.07); }
 }
 
 /* ============================================
