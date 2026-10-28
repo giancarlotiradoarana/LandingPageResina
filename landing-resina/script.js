@@ -77,35 +77,6 @@
     });
   })();
 
-  // ---- Menú hamburguesa (móvil) ----
-  (function initMenu() {
-    var toggle = document.getElementById('navToggle');
-    var nav = document.getElementById('headerNav');
-    if (!toggle || !nav) return;
-
-    function closeMenu() {
-      nav.classList.remove('open');
-      toggle.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    }
-
-    toggle.addEventListener('click', function () {
-      var isOpen = nav.classList.toggle('open');
-      toggle.classList.toggle('open', isOpen);
-      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    });
-
-    // Cerrar al hacer clic en cualquier enlace
-    nav.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', closeMenu);
-    });
-
-    // Cerrar al hacer clic fuera del menú
-    document.addEventListener('click', function (e) {
-      if (!nav.contains(e.target) && !toggle.contains(e.target)) closeMenu();
-    });
-  })();
-
   // ---- Scroll reveal con IntersectionObserver ----
   var revealTargets = document.querySelectorAll('[data-reveal], [data-reveal-group], .reveal-left, .reveal-right');
   if (revealTargets.length) {
@@ -164,9 +135,6 @@
     updateBA(range.value);
   }
 
-  // ---- Header compacto al hacer scroll ----
-  var header = document.querySelector('.site-header');
-
   // ---- Barra CTA fija en móvil ----
   var sticky = document.getElementById('stickyCta');
   var pricing = document.getElementById('precio');
@@ -175,8 +143,6 @@
 
   var onScroll = function () {
     var y = window.scrollY || window.pageYOffset;
-
-    if (header) header.classList.toggle('scrolled', y > 20);
 
     if (sticky && hero) {
       var pastHero = y > showAfter;

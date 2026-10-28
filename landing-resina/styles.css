@@ -60,7 +60,7 @@ a { color: inherit; text-decoration: none; }
 }
 .container-narrow { max-width: 780px; }
 
-.section { padding: 72px 0; }
+.section { padding: 52px 0; }
 
 .section-title {
   font-size: clamp(1.8rem, 4.5vw, 2.7rem);
@@ -143,7 +143,9 @@ a { color: inherit; text-decoration: none; }
    ============================================ */
 /* Barra de urgencia superior */
 .topbar {
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 50;
   background: linear-gradient(100deg, #b45309 0%, #ea8a0b 45%, #f59e0b 100%);
   color: #2a1c00;
   font-size: .92rem;
@@ -169,11 +171,34 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px 20px;
-  flex-wrap: wrap;
+  gap: 10px 16px;
+  flex-wrap: nowrap;
   min-height: 24px;
 }
 .topbar strong { font-weight: 800; }
+
+/* CTA dentro de la barra de urgencia: es el centro de atención de esta barra */
+.topbar-cta {
+  margin-left: auto;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #fff;
+  font-weight: 900;
+  font-size: 1.02rem;
+  letter-spacing: .01em;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(0,0,0,.28);
+  transform: scale(1);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.topbar-cta:hover {
+  background: linear-gradient(135deg, #16a34a, #15803d);
+  color: #fff;
+  transform: scale(1.04);
+  box-shadow: 0 6px 20px rgba(0,0,0,.32);
+}
 /* Bloque del precio en la barra: sin cápsula, texto limpio y centrado */
 .topbar-msg {
   display: inline-flex;
@@ -199,6 +224,7 @@ a { color: inherit; text-decoration: none; }
 /* Descuento destacado: pastilla roja que salta a la vista */
 .topbar-off {
   display: inline-block;
+  white-space: nowrap;
   background: linear-gradient(135deg, #ef4444, #dc2626);
   color: #fff;
   font-weight: 900;
@@ -277,21 +303,7 @@ a { color: inherit; text-decoration: none; }
   50% { opacity: .25; }
 }
 
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(255,255,255,.9);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid #eef2f7;
-}
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  height: 64px;
-}
+/* Logo (se usa en el footer) */
 .logo {
   font-size: 1.25rem;
   font-weight: 800;
@@ -302,61 +314,8 @@ a { color: inherit; text-decoration: none; }
   flex-shrink: 0;
 }
 .logo strong { color: var(--teal-700); }
-.logo-mark { color: var(--amber); }
 .logo-img { height: 54px; width: auto; display: block; }
 .logo-img-footer { height: 48px; }
-
-/* Menú de navegación */
-.header-nav {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  margin: 0 auto;
-}
-.header-nav > a:not(.nav-cta) {
-  font-size: .95rem;
-  font-weight: 600;
-  color: var(--slate);
-  position: relative;
-  transition: color .2s ease;
-}
-.header-nav > a:not(.nav-cta)::after {
-  content: "";
-  position: absolute;
-  left: 0; bottom: -6px;
-  width: 100%; height: 2px;
-  background: var(--teal-600);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform .25s ease;
-}
-.header-nav > a:not(.nav-cta):hover { color: var(--teal-700); }
-.header-nav > a:not(.nav-cta):hover::after { transform: scaleX(1); }
-/* El CTA dentro del menú solo se ve en móvil */
-.nav-cta { display: none; }
-
-/* Botón hamburguesa (solo móvil) */
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  width: 44px; height: 44px;
-  padding: 0;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-}
-.nav-toggle span {
-  display: block;
-  width: 24px; height: 2.5px;
-  background: var(--ink);
-  border-radius: 2px;
-  transition: transform .3s ease, opacity .3s ease;
-}
-.nav-toggle.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
-.nav-toggle.open span:nth-child(2) { opacity: 0; }
-.nav-toggle.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
 
 /* ============================================
    HERO
@@ -423,6 +382,9 @@ a { color: inherit; text-decoration: none; }
 .hero-proof-pc .avatars img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
 .hero-proof-pc .stars { color: var(--amber); font-size: 1.05rem; letter-spacing: 2px; }
 .hero-proof-pc .proof-text { color: #d1faf5; font-weight: 600; font-size: .92rem; }
+
+/* Mini prueba social: oculta en PC, solo se muestra en móvil (debajo del subtítulo) */
+.hero-proof-mini { display: none; }
 
 /* Blobs orgánicos animados de fondo */
 .hero-blob {
@@ -512,13 +474,15 @@ a { color: inherit; text-decoration: none; }
 .hl-underline {
   position: relative;
   white-space: nowrap;
+  color: #4ade80; /* verde dinero brillante: resalta la cifra de ganancia */
+  font-weight: 900;
 }
 .hl-underline::after {
   content: "";
   position: absolute;
   left: 0; bottom: -6px;
   width: 100%; height: 12px;
-  background: no-repeat center/100% url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12'%3E%3Cpath d='M2 8 C50 2 150 2 198 6' stroke='%23f59e0b' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background: no-repeat center/100% url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12'%3E%3Cpath d='M2 8 C50 2 150 2 198 6' stroke='%23fbbf24' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
   transform: scaleX(0);
   transform-origin: left;
   animation: drawLine 1s ease .8s forwards;
@@ -2624,10 +2588,6 @@ a { color: inherit; text-decoration: none; }
 .final-cta > * { position: relative; z-index: 1; }
 @keyframes driftPattern { to { background-position: 280px 280px; } }
 
-/* Header se compacta al hacer scroll */
-.site-header.scrolled { box-shadow: 0 6px 20px rgba(15,23,42,.08); }
-.site-header.scrolled .header-inner { height: 56px; }
-.site-header.scrolled .logo-img { height: 46px; transition: height .2s ease; }
 .logo-img { transition: height .2s ease; }
 
 /* ============================================
@@ -2858,35 +2818,6 @@ a { color: inherit; text-decoration: none; }
 }
 
 @media (max-width: 900px) {
-  .nav-toggle { display: flex; }
-  .header-cta { display: none; }
-  /* Menú desplegable en panel */
-  .header-nav {
-    position: absolute;
-    top: 100%; left: 0; right: 0;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    margin: 0;
-    background: #fff;
-    border-bottom: 1px solid #eef2f7;
-    box-shadow: 0 12px 24px rgba(15,23,42,.1);
-    padding: 8px 20px 20px;
-    transform: translateY(-12px);
-    opacity: 0;
-    visibility: hidden;
-    transition: transform .28s ease, opacity .28s ease, visibility .28s ease;
-  }
-  .header-nav.open { transform: translateY(0); opacity: 1; visibility: visible; }
-  .header-nav > a:not(.nav-cta) {
-    padding: 14px 4px;
-    border-bottom: 1px solid #f1f5f9;
-    font-size: 1.05rem;
-  }
-  .header-nav > a:not(.nav-cta)::after { display: none; }
-  .nav-cta { display: flex; margin-top: 14px; justify-content: center; }
-  .site-header { position: sticky; }
-  .header-inner { position: relative; }
   .hero-grid { text-align: center; }
   /* En móvil: una sola columna apilada en el orden del DOM
      (titular → promesa → video → bullets → bonos → precio → CTA).
@@ -2907,9 +2838,36 @@ a { color: inherit; text-decoration: none; }
   .hero-actions, .hero-proof { justify-content: center; }
   .hero-price { justify-content: center; }
   /* Prueba social centrada y compacta en móvil */
-  .hero-proof-pc { justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
-  .hero-proof-pc .proof-text { font-size: .86rem; text-align: center; }
-  .hero-proof-pc .stars { font-size: .95rem; }
+  /* Mini prueba social visible solo en móvil, justo bajo el subtítulo */
+  .hero-proof-mini {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 10px;
+    margin: 14px 0 0;
+  }
+  .hero-proof-mini-avatars { display: inline-flex; flex-shrink: 0; }
+  .hero-proof-mini-avatars span {
+    width: 34px; height: 34px; border-radius: 50%;
+    border: 2px solid var(--teal-900);
+    overflow: hidden; margin-left: -12px;
+  }
+  .hero-proof-mini-avatars span:first-child { margin-left: 0; }
+  .hero-proof-mini-avatars img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+  .hero-proof-mini-text {
+    display: flex;
+    align-items: center;
+    color: #d1faf5;
+    font-weight: 600;
+    font-size: .84rem;
+    line-height: 1.2;
+    text-align: left;
+    white-space: nowrap;
+  }
+  .hero-proof-mini-stars { color: var(--amber); letter-spacing: 2px; font-size: .95rem; }
+  /* En móvil ocultamos la prueba social de abajo: ya está la mini arriba */
+  .hero-proof-pc { display: none; }
   .hero-currencies-label { text-align: center; }
   .hero-currencies-img { margin-left: auto; margin-right: auto; }
   /* En móvil el hero debe ser corto: el link extra lo pasamos a sticky/botones */
@@ -2935,8 +2893,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 @media (max-width: 560px) {
-  .section { padding: 52px 0; }
-  .header-cta { display: none; }
+  .section { padding: 38px 0; }
   .trust-grid { grid-template-columns: repeat(2, 1fr); }
   .benefits-grid, .pain-grid { grid-template-columns: 1fr; }
   .perks-grid { grid-template-columns: 1fr; }
@@ -2978,6 +2935,10 @@ a { color: inherit; text-decoration: none; }
   .topbar-countdown { gap: 5px; }
   .tb-box { min-width: 30px; padding: 2px 6px 3px; border-radius: 7px; }
   .tb-box b { font-size: .82rem; }
+  /* Ocultar "Termina en:" en móvil: el reloj + contador ya comunican la urgencia */
+  .topbar-label { display: none; }
+  /* CTA sigue siendo el más destacado, también en móvil */
+  .topbar-cta { font-size: .86rem; font-weight: 900; padding: 8px 15px; margin-left: 8px; }
   .tb-box i { font-size: .48rem; }
   .tb-colon { font-size: .9rem; }
   .sticky-cta { display: block; }
@@ -3227,8 +3188,11 @@ a { color: inherit; text-decoration: none; }
   .he-ico { width: 46px; height: 46px; font-size: 1.5rem; flex-shrink: 0; }
 }
 
-/* Prueba social: dentro del hero, visible en PC y móvil */
+/* Prueba social del hero: visible en PC. En móvil se usa la mini de arriba. */
 .hero-proof-pc { display: flex; }
+@media (max-width: 900px) {
+  .hero-proof-pc { display: none; }
+}
 /* La prueba social de la sección extra se elimina (ya está en el hero) */
 .hero-extra .he-proof { display: none; }
 
