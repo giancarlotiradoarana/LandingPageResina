@@ -608,4 +608,29 @@
     setTimeout(tick, randInt(5000, 9000));
   })();
 
+  // ---- Video del hero: botón de play grande / tocar para reproducir ----
+  (function initHeroVideo() {
+    var video = document.getElementById('heroVideo');
+    var playBtn = document.getElementById('heroVideoPlay');
+    if (!video) return;
+
+    var started = false;
+    function startVideo() {
+      if (!started) {
+        video.setAttribute('controls', '');  // muestra los controles al arrancar
+        started = true;
+      }
+      video.play();
+      if (playBtn) playBtn.classList.add('hidden');
+    }
+
+    if (playBtn) playBtn.addEventListener('click', startVideo);
+
+    // Tocar el video: la primera vez arranca; después alterna play/pausa
+    video.addEventListener('click', function () {
+      if (!started) { startVideo(); return; }
+      if (video.paused) { video.play(); } else { video.pause(); }
+    });
+  })();
+
 })();

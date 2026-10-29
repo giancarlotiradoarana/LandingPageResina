@@ -40,19 +40,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261027s10" />
+  <link rel="stylesheet" href="styles.css?v=20261027s11" />
 
-  <!-- ===== Reproductor de video Wistia (streaming, carga rápido en móvil) ===== -->
-  <script src="https://fast.wistia.com/player.js" async></script>
-  <script src="https://fast.wistia.com/embed/1zou2lsxh0.js" async type="module"></script>
-  <style>
-    wistia-player[media-id='1zou2lsxh0']:not(:defined) {
-      background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/1zou2lsxh0/swatch');
-      display: block;
-      filter: blur(5px);
-      padding-top: 56.56%;
-    }
-  </style>
 
   <!-- ===== Microsoft Clarity (mapa de calor + grabaciones, gratis) =====
        1. Entra a https://clarity.microsoft.com y crea un proyecto (gratis).
@@ -125,10 +114,20 @@
           <div class="hero-media reveal">
             <p class="video-cue">
               <span class="video-cue-icon" aria-hidden="true">▶</span>
-              3 min que te harán empezar hoy 👇
+              Toca para ver el video (solo 3 min) 👇
             </p>
             <div class="hero-video" id="heroVideoWrap">
-              <wistia-player media-id="1zou2lsxh0" aspect="1.7679558011049723"></wistia-player>
+              <video
+                id="heroVideo"
+                class="hero-video-el"
+                preload="metadata"
+                playsinline>
+                <source src="video/presentacion.mp4#t=0.1" type="video/mp4">
+                Tu navegador no soporta el video. <a href="video/presentacion.mp4">Descárgalo aquí</a>.
+              </video>
+              <button class="hero-video-play" id="heroVideoPlay" aria-label="Reproducir video">
+                <span class="hero-video-play-icon" aria-hidden="true">▶</span>
+              </button>
             </div>
           </div>
 
@@ -937,7 +936,7 @@
     </div>
   </div>
 
-  <script src="script.js?v=20261027s10" defer></script>
+  <script src="script.js?v=20261027s11" defer></script>
 
   <!-- ===== DATOS ESTRUCTURADOS (Schema.org) para SEO ===== -->
   <script type="application/ld+json">

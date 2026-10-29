@@ -14,3 +14,6 @@ landing-resina/img/**/LEEME.txt
 
 # Respaldo local de imágenes (no subir al repo)
 landing-resina/img_backup/
+
+# Respaldo local del video original sin comprimir (no subir al repo)
+landing-resina/video/presentacion-original.mp4
