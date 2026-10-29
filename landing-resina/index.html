@@ -40,7 +40,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261027s8" />
+  <link rel="stylesheet" href="styles.css?v=20261027s9" />
 
   <!-- ===== Reproductor de video Wistia (streaming, carga rápido en móvil) ===== -->
   <script src="https://fast.wistia.com/player.js" async></script>
@@ -115,21 +115,17 @@
             Domina la <strong>resina epóxica</strong>, amplía tu oferta y empieza a cobrar más <strong>esta misma semana</strong>.
           </p>
 
-          <!-- Mini prueba social: SOLO en móvil, para dar credibilidad arriba -->
-          <div class="hero-proof-mini reveal" aria-hidden="false">
-            <span class="hero-proof-mini-avatars" aria-hidden="true">
-              <span><img src="img/avatar/alumno-1.webp" alt="" loading="lazy" onerror="this.remove()"></span>
-              <span><img src="img/avatar/alumno-4.webp" alt="" loading="lazy" onerror="this.remove()"></span>
-            </span>
-            <span class="hero-proof-mini-text">
-              <span>+2.100 alumnos ya cobran por sus trabajos</span>
-            </span>
-          </div>
+          <!-- Chips: aclara que es online y de acceso inmediato (evita que crean que es presencial) -->
+          <ul class="hero-chips reveal" aria-label="Características del curso">
+            <li>💻 100% online</li>
+            <li>📱 Celular o PC</li>
+            <li>⚡ Acceso inmediato</li>
+          </ul>
 
           <div class="hero-media reveal">
             <p class="video-cue">
               <span class="video-cue-icon" aria-hidden="true">▶</span>
-              3 minutos que te harán querer empezar hoy 👇
+              3 min que te harán empezar hoy 👇
             </p>
             <div class="hero-video" id="heroVideoWrap">
               <wistia-player media-id="1zou2lsxh0" aspect="1.7679558011049723"></wistia-player>
@@ -138,6 +134,17 @@
 
           <div class="hero-actions reveal">
             <a href="https://go.hotmart.com/B107766290U?ap=1492" class="btn btn-primary btn-lg btn-shine" target="_blank" rel="noopener">¡Sí, quiero cobrar por mis trabajos!</a>
+          </div>
+
+          <!-- Mini prueba social (solo móvil): tras el video + CTA, como refuerzo -->
+          <div class="hero-proof-mini reveal" aria-hidden="false">
+            <span class="hero-proof-mini-avatars" aria-hidden="true">
+              <span><img src="img/avatar/alumno-1.webp" alt="" loading="lazy" onerror="this.remove()"></span>
+              <span><img src="img/avatar/alumno-4.webp" alt="" loading="lazy" onerror="this.remove()"></span>
+            </span>
+            <span class="hero-proof-mini-text">
+              <span>+2.100 alumnos ya cobran por sus trabajos</span>
+            </span>
           </div>
 
           <p class="hero-currencies-label reveal">Paga en tu moneda local:</p>
@@ -930,7 +937,7 @@
     </div>
   </div>
 
-  <script src="script.js?v=20261027s8" defer></script>
+  <script src="script.js?v=20261027s9" defer></script>
 
   <!-- ===== DATOS ESTRUCTURADOS (Schema.org) para SEO ===== -->
   <script type="application/ld+json">
