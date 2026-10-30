@@ -138,26 +138,23 @@
   // ---- Barra CTA fija en móvil ----
   var sticky = document.getElementById('stickyCta');
   var pricing = document.getElementById('precio');
-  var hero = document.querySelector('.hero');
-  var showAfter = hero ? hero.offsetHeight * 0.45 : 400;
 
+  // El sticky CTA se muestra DESDE EL INICIO (clave: muchos usuarios no bajan del hero
+  // y nunca veían el botón de compra). Solo se oculta cuando el usuario está viendo la
+  // sección de precio, que ya tiene su propio botón grande.
   var onScroll = function () {
-    var y = window.scrollY || window.pageYOffset;
-
-    if (sticky && hero) {
-      var pastHero = y > showAfter;
-      var atPricing = false;
-      if (pricing) {
-        var rect = pricing.getBoundingClientRect();
-        atPricing = rect.top < window.innerHeight && rect.bottom > 0;
-      }
-      if (pastHero && !atPricing) {
-        sticky.classList.add('visible');
-        sticky.setAttribute('aria-hidden', 'false');
-      } else {
-        sticky.classList.remove('visible');
-        sticky.setAttribute('aria-hidden', 'true');
-      }
+    if (!sticky) return;
+    var atPricing = false;
+    if (pricing) {
+      var rect = pricing.getBoundingClientRect();
+      atPricing = rect.top < window.innerHeight && rect.bottom > 0;
+    }
+    if (!atPricing) {
+      sticky.classList.add('visible');
+      sticky.setAttribute('aria-hidden', 'false');
+    } else {
+      sticky.classList.remove('visible');
+      sticky.setAttribute('aria-hidden', 'true');
     }
   };
 
@@ -168,9 +165,6 @@
       ticking = true;
     }
   }, { passive: true });
-  window.addEventListener('resize', function () {
-    showAfter = hero ? hero.offsetHeight * 0.45 : 400;
-  });
   onScroll();
 
   // ---- Acordeón exclusivo en los módulos ----
