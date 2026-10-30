@@ -3305,3 +3305,36 @@ a { color: inherit; text-decoration: none; }
   color: var(--slate, #475569);
   margin: -6px 0 12px;
 }
+
+/* ============================================
+   FRASES PUENTE / SCROLL (mantener el momentum: que la gente siga bajando)
+   ============================================ */
+.scroll-bridge {
+  text-align: center;
+  margin: 18px auto -28px;  /* margen inferior negativo: acerca la siguiente seccion */
+  max-width: 640px;
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.4;
+  position: relative;
+  z-index: 2;
+}
+.scroll-bridge .sb-arrow {
+  display: block;
+  margin: 4px auto 0;
+  font-size: 1.5rem;
+  color: var(--amber);
+  animation: sbBounce 1.6s ease-in-out infinite;
+}
+@keyframes sbBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+/* Variante sobre fondo oscuro (hero) */
+.scroll-bridge-dark { color: #eafff9; }
+.scroll-bridge-dark .sb-arrow { color: var(--amber); }
+@media (max-width: 560px) {
+  .scroll-bridge { font-size: 1rem; margin-top: 20px; }
+  .scroll-bridge .sb-arrow { font-size: 1.4rem; }
+}
