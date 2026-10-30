@@ -2322,10 +2322,10 @@ a { color: inherit; text-decoration: none; }
 }
 
 .sticky-price { font-size: 1rem; display: flex; flex-direction: column; line-height: 1.1; }
-.sticky-price s { color: var(--slate-300); }
-.sticky-price strong { color: var(--teal-700); font-size: 1.3rem; }
-.sticky-amount { display: inline-flex; align-items: baseline; gap: 6px; }
-.sticky-note { font-size: .68rem; font-weight: 700; color: var(--teal-600); margin-top: 2px; }
+.sticky-price s { color: #94a3b8; font-size: 1rem; font-weight: 600; }
+.sticky-price strong { color: var(--teal-700); font-size: 1.7rem; font-weight: 900; letter-spacing: -.02em; }
+.sticky-amount { display: inline-flex; align-items: baseline; gap: 7px; }
+.sticky-note { font-size: .7rem; font-weight: 700; color: var(--teal-600); margin-top: 3px; }
 
 /* ============================================
    BONOS / REGALOS
