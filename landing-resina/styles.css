@@ -2230,10 +2230,12 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 20px;
   max-width: var(--maxw);
   margin: 0 auto;
 }
+/* El botón no se encoge para que el precio no lo invada */
+.sticky-inner .btn { flex-shrink: 0; }
 /* ============================================
    CONTADOR DE PERSONAS VIENDO (dentro de la barra de urgencia)
    ============================================ */
@@ -2324,8 +2326,20 @@ a { color: inherit; text-decoration: none; }
 .sticky-price { font-size: 1rem; display: flex; flex-direction: column; line-height: 1.1; }
 .sticky-price s { color: #94a3b8; font-size: 1rem; font-weight: 600; }
 .sticky-price strong { color: var(--teal-700); font-size: 1.7rem; font-weight: 900; letter-spacing: -.02em; }
+.sticky-usd { color: var(--teal-600); font-size: .85rem; font-weight: 800; }
 .sticky-amount { display: inline-flex; align-items: baseline; gap: 7px; }
-.sticky-note { font-size: .7rem; font-weight: 700; color: var(--teal-600); margin-top: 3px; }
+/* Nota de moneda local: badge destacado para que se note que paga en su moneda */
+.sticky-note {
+  display: inline-block;
+  font-size: .72rem;
+  font-weight: 800;
+  color: #0f766e;
+  background: #d1faf0;
+  border: 1px solid #5eead4;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-top: 4px;
+}
 
 /* ============================================
    BONOS / REGALOS
