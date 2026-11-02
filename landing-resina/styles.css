@@ -351,13 +351,17 @@ a { color: inherit; text-decoration: none; }
   grid-template-areas:
     "title     media"
     "sub       media"
+    "chips     media"
     "actions   media"
+    "learn     media"
     "curlabel  media"
     "curimg    media"
     "proofpc   media";
 }
 .hero-copy > #hero-title     { grid-area: title; }
 .hero-copy > .hero-sub       { grid-area: sub; margin-bottom: 20px; }
+.hero-copy > .hero-chips     { grid-area: chips; }
+.hero-copy > .hero-learn     { grid-area: learn; }
 /* Video grande a la derecha, centrado verticalmente */
 .hero-copy > .hero-media     { grid-area: media; align-self: center; width: 100%; margin: 0; }
 .hero-copy > .hero-media .hero-video { max-width: 100%; }
@@ -473,10 +477,11 @@ a { color: inherit; text-decoration: none; }
 /* Subrayado dibujado a mano, se anima al cargar */
 .hl-underline {
   position: relative;
-  white-space: nowrap;
-  color: #4ade80; /* verde dinero brillante: resalta la cifra de ganancia */
+  color: #4ade80; /* verde dinero brillante: resalta la frase destacada */
   font-weight: 900;
 }
+/* Palabra en blanco dentro de la frase destacada (ej. "más") */
+.hl-white { color: #fff; }
 .hl-underline::after {
   content: "";
   position: absolute;
@@ -3351,4 +3356,45 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 560px) {
   .scroll-bridge { font-size: 1rem; margin-top: 20px; }
   .scroll-bridge .sb-arrow { font-size: 1.4rem; }
+}
+
+/* Refuerzo "aprendes a hacerlo y venderlo" en el hero */
+.hero-learn {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin: 16px 0 0;
+  padding: 11px 16px;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 14px;
+  color: #eafff9;
+  max-width: 540px;
+}
+/* El texto fluye normal (no como items flex) */
+.hero-learn-text {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.hero-learn-text strong { color: #fde68a; font-weight: 800; }
+/* Check en círculo (más pro que el emoji) */
+.hero-learn-ico {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(34,197,94,.4);
+}
+.hero-learn-ico svg { display: block; }
+@media (max-width: 900px) {
+  .hero-learn { margin-left: auto; margin-right: auto; }
+}
+@media (max-width: 560px) {
+  .hero-learn { padding: 10px 14px; gap: 9px; }
+  .hero-learn-text { font-size: .92rem; }
 }
