@@ -17,6 +17,19 @@
     window.scrollTo(0, 0);
   }
 
+  // ---- Fecha de hoy en la barra de urgencia (✦ SOLO HOY · [fecha] ✦) ----
+  (function setTodayDate() {
+    var dateEls = document.querySelectorAll('.marquee-date');
+    if (!dateEls.length) return;
+    var texto = new Date().toLocaleDateString('es-ES', {
+      day: 'numeric',
+      month: 'long'
+    });
+    dateEls.forEach(function (el) {
+      el.textContent = texto;
+    });
+  })();
+
   // ---- Scroll suave y confiable para enlaces internos (#seccion) ----
   document.querySelectorAll('a[href^="#"]').forEach(function (link) {
     link.addEventListener('click', function (e) {
