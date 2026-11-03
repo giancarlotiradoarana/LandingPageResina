@@ -40,7 +40,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261103s22" />
+  <link rel="stylesheet" href="styles.css?v=20261103s23" />
 
 
   <!-- ===== Microsoft Clarity (mapa de calor + grabaciones, gratis) =====
@@ -103,19 +103,22 @@
           <p class="hero-sub reveal">
             Transforma <strong>mesas, pisos, paredes y cocinas</strong> comunes en piezas de lujo que la gente paga muy bien. Con <strong>resina epóxica</strong>, desde tu casa.
           </p>
-
-          <!-- Chips: aclara que es online y de acceso inmediato (evita que crean que es presencial) -->
-          <ul class="hero-chips reveal" aria-label="Características del curso">
-            <li>💻 100% online</li>
-            <li>📱 Celular o PC</li>
-            <li>⚡ Acceso inmediato</li>
+          <ul class="hero-promise reveal" aria-label="Lo que logras">
+            <li>
+              <span class="hp-ico hp-ico--make" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+              </span>
+              <span class="hp-text">Aprendes la técnica para <strong>crear piezas de lujo</strong></span>
+            </li>
+            <li>
+              <span class="hp-ico hp-ico--sell" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </span>
+              <span class="hp-text">Y lo más importante: aprendes a <strong>venderlas y cobrar bien</strong></span>
+            </li>
           </ul>
 
           <div class="hero-media reveal">
-            <p class="video-cue">
-              <span class="video-cue-icon" aria-hidden="true">▶</span>
-              Toca para ver el video (solo 3 min) 👇
-            </p>
             <div class="hero-video is-loading" id="heroVideoWrap">
               <video
                 id="heroVideo"
@@ -144,13 +147,12 @@
             <a href="https://go.hotmart.com/B107766290U?ap=1492" class="btn btn-primary btn-lg btn-shine" target="_blank" rel="noopener">¡Empezar ahora! <span class="btn-arrow" aria-hidden="true">→</span></a>
           </div>
 
-          <!-- Refuerzo: no solo aprendes a hacerlo, aprendes a venderlo -->
-          <div class="hero-learn reveal">
-            <span class="hero-learn-ico" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            </span>
-            <span class="hero-learn-text">Aprendes a <strong>hacerlo</strong> y, lo más importante, a <strong>venderlo</strong>.</span>
-          </div>
+          <!-- Chips: aclara que es online y de acceso inmediato (evita que crean que es presencial) -->
+          <ul class="hero-chips reveal" aria-label="Características del curso">
+            <li>💻 100% online</li>
+            <li>📱 Celular o PC</li>
+            <li>⚡ Acceso inmediato</li>
+          </ul>
 
           <!-- Mini prueba social (solo móvil): tras el video + CTA, como refuerzo -->
           <div class="hero-proof-mini reveal" aria-hidden="false">
@@ -159,7 +161,7 @@
               <span><img src="img/avatar/alumno-4.webp" alt="" loading="lazy" onerror="this.remove()"></span>
             </span>
             <span class="hero-proof-mini-text">
-              <span>+2.100 alumnos ya cobran por sus trabajos</span>
+              <span><strong></strong>+2.100 alumnos</strong> ya cobran por sus trabajos</span>
             </span>
           </div>
 
@@ -981,7 +983,7 @@
     </div>
   </div>
 
-  <script src="script.js?v=20261103s22" defer></script>
+  <script src="script.js?v=20261103s23" defer></script>
 
   <!-- ===== DATOS ESTRUCTURADOS (Schema.org) para SEO ===== -->
   <script type="application/ld+json">

@@ -469,17 +469,17 @@ a { color: inherit; text-decoration: none; }
   grid-template-areas:
     "title     media"
     "sub       media"
-    "chips     media"
+    "sublearn  media"
     "actions   media"
-    "learn     media"
+    "chips     media"
     "curlabel  media"
     "curimg    media"
     "proofpc   media";
 }
 .hero-copy > #hero-title     { grid-area: title; }
-.hero-copy > .hero-sub       { grid-area: sub; margin-bottom: 20px; }
+.hero-copy > .hero-sub       { grid-area: sub; margin-bottom: 12px; }
+.hero-copy > .hero-promise   { grid-area: sublearn; margin-bottom: 20px; }
 .hero-copy > .hero-chips     { grid-area: chips; }
-.hero-copy > .hero-learn     { grid-area: learn; }
 /* Video grande a la derecha, centrado verticalmente */
 .hero-copy > .hero-media     { grid-area: media; align-self: center; width: 100%; margin: 0; }
 .hero-copy > .hero-media .hero-video { max-width: 100%; }
@@ -628,11 +628,11 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   gap: 5px;
   white-space: nowrap;
-  background: rgba(255,255,255,.12);
-  border: 1px solid rgba(255,255,255,.22);
-  color: #eafff9;
+  background: rgba(45,212,191,.14);
+  border: 1px solid rgba(94,234,212,.45);
+  color: #99f6e4;
   font-size: .85rem;
-  font-weight: 600;
+  font-weight: 700;
   padding: 6px 11px;
   border-radius: 999px;
   backdrop-filter: blur(4px);
@@ -647,6 +647,41 @@ a { color: inherit; text-decoration: none; }
 }
 /* Resalta las palabras clave de la promesa */
 .hero-sub strong { color: #fde68a; font-weight: 800; }
+
+/* Promesa del hero: dos beneficios con íconos (crear + vender) */
+.hero-promise {
+  list-style: none;
+  margin: 2px 0 0;
+  padding: 0;
+  max-width: 560px;
+  display: grid;
+  gap: 12px;
+}
+.hero-promise li {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+.hp-ico {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 11px;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,.25);
+}
+.hp-ico svg { display: block; }
+.hp-ico--make { background: linear-gradient(135deg, #2dd4bf, #0d9488); }
+.hp-ico--sell { background: linear-gradient(135deg, #fbbf24, #d97706); color: #fff; }
+.hp-text {
+  font-size: 1.08rem;
+  color: #eafff9;
+  line-height: 1.4;
+  font-weight: 600;
+}
+.hp-text strong { color: #fde68a; font-weight: 800; }
 .hero-bullets {
   list-style: none;
   margin-bottom: 32px;
@@ -809,10 +844,14 @@ a { color: inherit; text-decoration: none; }
 }
 /* Monedas en el hero (etiqueta + imagen) */
 .hero-currencies-label {
-  margin-bottom: 8px;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #d1faf5;
+  margin-bottom: 10px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #fcd34d;
+  letter-spacing: .01em;
+}
+.hero-currencies-label::before {
+  content: "💳 ";
 }
 .hero-currencies-img {
   display: block;
@@ -3038,8 +3077,18 @@ a { color: inherit; text-decoration: none; }
   }
   .hero-copy > .eyebrow { justify-self: center; justify-content: center; }
   .hero-copy > .hero-media { margin: 6px auto 22px; }
+  .hero h1 { font-size: 1.55rem; margin-bottom: 16px; }
   .hero-sub { margin-left: auto; margin-right: auto; }
-  .hero-sub { font-size: 1.1rem; margin-bottom: 18px; }
+  .hero-sub { font-size: 1rem; margin-bottom: 10px; }
+  .hero-promise {
+    margin-left: auto; margin-right: auto;
+    margin-bottom: 20px;
+    width: fit-content;
+    max-width: 100%;
+    text-align: left;
+  }
+  .hero-promise li { align-items: flex-start; }
+  .hp-text { font-size: .95rem; }
   .hero-chips { justify-content: center; gap: 6px; }
   .hero-chips li { font-size: .72rem; padding: 5px 9px; gap: 4px; }
   .hero-bullets { display: grid; text-align: left; gap: 9px; margin: 0 0 22px 0; max-width: 100%; }
@@ -3053,8 +3102,10 @@ a { color: inherit; text-decoration: none; }
     justify-content: center;
     flex-wrap: nowrap;
     gap: 10px;
-    margin: 14px 0 0;
+    margin: -8px 0 0;
   }
+  /* Menos espacio bajo el botón para acercar la prueba social */
+  .hero-actions { margin-bottom: 16px; }
   .hero-proof-mini-avatars { display: inline-flex; flex-shrink: 0; }
   .hero-proof-mini-avatars span {
     width: 34px; height: 34px; border-radius: 50%;
@@ -3066,13 +3117,14 @@ a { color: inherit; text-decoration: none; }
   .hero-proof-mini-text {
     display: flex;
     align-items: center;
-    color: #d1faf5;
+    color: #c8f3ea;
     font-weight: 600;
     font-size: .84rem;
     line-height: 1.2;
     text-align: left;
     white-space: nowrap;
   }
+  .hero-proof-mini-text strong { color: var(--amber); font-weight: 800; }
   .hero-proof-mini-stars { color: var(--amber); letter-spacing: 2px; font-size: .95rem; }
   /* En móvil ocultamos la prueba social de abajo: ya está la mini arriba */
   .hero-proof-pc { display: none; }
@@ -3479,47 +3531,6 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 560px) {
   .scroll-bridge { font-size: 1rem; margin-top: 20px; }
   .scroll-bridge .sb-arrow { font-size: 1.4rem; }
-}
-
-/* Refuerzo "aprendes a hacerlo y venderlo" en el hero */
-.hero-learn {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  margin: 16px 0 0;
-  padding: 11px 16px;
-  background: rgba(255,255,255,.1);
-  border: 1px solid rgba(255,255,255,.2);
-  border-radius: 14px;
-  color: #eafff9;
-  max-width: 540px;
-}
-/* El texto fluye normal (no como items flex) */
-.hero-learn-text {
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1.4;
-}
-.hero-learn-text strong { color: #fde68a; font-weight: 800; }
-/* Check en círculo (más pro que el emoji) */
-.hero-learn-ico {
-  flex-shrink: 0;
-  display: grid;
-  place-items: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #22c55e, #16a34a);
-  color: #fff;
-  box-shadow: 0 3px 10px rgba(34,197,94,.4);
-}
-.hero-learn-ico svg { display: block; }
-@media (max-width: 900px) {
-  .hero-learn { margin-left: auto; margin-right: auto; }
-}
-@media (max-width: 560px) {
-  .hero-learn { padding: 10px 14px; gap: 9px; }
-  .hero-learn-text { font-size: .92rem; }
 }
 
 /* ============================================
