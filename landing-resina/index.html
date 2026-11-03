@@ -40,7 +40,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261027s20" />
+  <link rel="stylesheet" href="styles.css?v=20261027s21" />
 
 
   <!-- ===== Microsoft Clarity (mapa de calor + grabaciones, gratis) =====
@@ -116,7 +116,7 @@
               <span class="video-cue-icon" aria-hidden="true">▶</span>
               Toca para ver el video (solo 3 min) 👇
             </p>
-            <div class="hero-video" id="heroVideoWrap">
+            <div class="hero-video is-loading" id="heroVideoWrap">
               <video
                 id="heroVideo"
                 class="hero-video-el"
@@ -125,6 +125,15 @@
                 <source src="video/presentacion.mp4#t=0.1" type="video/mp4">
                 Tu navegador no soporta el video. <a href="video/presentacion.mp4">Descárgalo aquí</a>.
               </video>
+              <!-- Spinner de carga con porcentaje (se oculta cuando el video está listo) -->
+              <div class="video-loader" id="videoLoader" aria-hidden="true">
+                <svg class="video-loader-ring" viewBox="0 0 100 100">
+                  <circle class="vl-track" cx="50" cy="50" r="42"></circle>
+                  <circle class="vl-fill" id="vlFill" cx="50" cy="50" r="42"></circle>
+                </svg>
+                <span class="video-loader-pct" id="vlPct">0%</span>
+              </div>
+              <!-- Botón de play (aparece cuando el video cargó) -->
               <button class="hero-video-play" id="heroVideoPlay" aria-label="Reproducir video">
                 <span class="hero-video-play-icon" aria-hidden="true">▶</span>
               </button>
@@ -972,7 +981,7 @@
     </div>
   </div>
 
-  <script src="script.js?v=20261027s20" defer></script>
+  <script src="script.js?v=20261027s21" defer></script>
 
   <!-- ===== DATOS ESTRUCTURADOS (Schema.org) para SEO ===== -->
   <script type="application/ld+json">

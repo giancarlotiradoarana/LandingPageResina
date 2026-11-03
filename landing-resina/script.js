@@ -602,12 +602,55 @@
     setTimeout(tick, randInt(5000, 9000));
   })();
 
-  // ---- Video del hero: botón de play grande / tocar para reproducir ----
+  // ---- Video del hero: loader con % + botón de play / tocar para reproducir ----
   (function initHeroVideo() {
     var video = document.getElementById('heroVideo');
     var playBtn = document.getElementById('heroVideoPlay');
+    var wrap = document.getElementById('heroVideoWrap');
+    var fill = document.getElementById('vlFill');
+    var pctEl = document.getElementById('vlPct');
     if (!video) return;
 
+    // ----- Loader con porcentaje mientras el video se prepara -----
+    var CIRC = 264; // circunferencia del círculo (2*PI*42)
+    var shown = 0;
+    var ready = false;
+
+    function setPct(p) {
+      p = Math.max(0, Math.min(100, Math.round(p)));
+      if (pctEl) pctEl.textContent = p + '%';
+      if (fill) fill.style.strokeDashoffset = (CIRC - (CIRC * p / 100)).toFixed(1);
+    }
+
+    function finishLoader() {
+      if (ready) return;
+      ready = true;
+      setPct(100);
+      // pequeña pausa para que se vea el 100% y luego mostramos el play
+      setTimeout(function () {
+        if (wrap) wrap.classList.remove('is-loading');
+      }, 250);
+    }
+
+    // Progreso: combina el buffer real del video con un avance suave,
+    // para que el usuario vea movimiento aunque el navegador no reporte seguido.
+    var fakeTimer = setInterval(function () {
+      if (ready) { clearInterval(fakeTimer); return; }
+      // avance suave hasta 90% como máximo (el 100% lo da el evento real)
+      if (shown < 90) {
+        shown += Math.random() * 7 + 2;
+        if (shown > 90) shown = 90;
+        setPct(shown);
+      }
+    }, 180);
+
+    // Cuando el navegador ya puede mostrar/reproducir el video -> listo
+    video.addEventListener('loadeddata', finishLoader);
+    video.addEventListener('canplay', finishLoader);
+    // Respaldo: si en 6s no disparó ningún evento, igual mostramos el play
+    setTimeout(finishLoader, 6000);
+
+    // ----- Reproducción -----
     var started = false;
     function startVideo() {
       if (!started) {
@@ -622,9 +665,13 @@
 
     // Tocar el video: la primera vez arranca; después alterna play/pausa
     video.addEventListener('click', function () {
+      if (!ready) return; // aún cargando, no hacer nada
       if (!started) { startVideo(); return; }
       if (video.paused) { video.play(); } else { video.pause(); }
     });
+
+    // Forzamos la carga de metadata para que el loader tenga algo que esperar
+    try { video.load(); } catch (e) {}
   })();
 
 })();

@@ -3405,3 +3405,43 @@ a { color: inherit; text-decoration: none; }
   .hero-learn { padding: 10px 14px; gap: 9px; }
   .hero-learn-text { font-size: .92rem; }
 }
+
+/* ============================================
+   SPINNER DE CARGA DEL VIDEO (con porcentaje)
+   ============================================ */
+.video-loader {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 96px;
+  height: 96px;
+  display: grid;
+  place-items: center;
+  z-index: 3;
+}
+.video-loader-ring { width: 96px; height: 96px; transform: rotate(-90deg); }
+.video-loader-ring .vl-track {
+  fill: none;
+  stroke: rgba(255,255,255,.15);
+  stroke-width: 7;
+}
+.video-loader-ring .vl-fill {
+  fill: none;
+  stroke: #e11d2a;
+  stroke-width: 7;
+  stroke-linecap: round;
+  /* circunferencia 2*PI*42 ≈ 264 */
+  stroke-dasharray: 264;
+  stroke-dashoffset: 264;
+  transition: stroke-dashoffset .25s ease;
+}
+.video-loader-pct {
+  position: absolute;
+  font-family: var(--font);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #fff;
+}
+/* Mientras carga: se ve el loader, se oculta el play */
+.hero-video.is-loading .hero-video-play { display: none; }
+.hero-video:not(.is-loading) .video-loader { display: none; }
