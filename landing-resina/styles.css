@@ -1770,6 +1770,12 @@ a { color: inherit; text-decoration: none; }
   font-weight: 600;
   margin-top: 16px;
 }
+/* Hints de galería y testimonios: negro y con más peso para que se vean al instante */
+.gallery .wa-hint,
+.wa-proof .wa-hint {
+  color: #0f172a;
+  font-weight: 800;
+}
 
 /* ============================================
    INSTRUCTOR
@@ -2934,6 +2940,79 @@ a { color: inherit; text-decoration: none; }
   object-fit: cover;
   pointer-events: none;
   transition: transform .5s ease;
+}
+/* Slide de portada (collage cuadrado): se muestra completo, sin recorte */
+.gal-slide--cover {
+  aspect-ratio: 3 / 4;
+  background: linear-gradient(160deg, var(--teal-700), var(--teal-900));
+}
+.gal-slide--cover img {
+  object-fit: contain;
+  padding: 10px;
+}
+/* Slide CTA intercalado en la galería */
+.gal-slide--cta {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 12px;
+  padding: 24px 20px;
+  background: linear-gradient(160deg, var(--teal-700), var(--teal-900));
+  color: #fff;
+  cursor: pointer;
+  transition: transform .2s ease;
+}
+/* Flecha "hay más" pegada al borde derecho del slide CTA */
+.gal-slide--cta::after {
+  content: "›";
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: rgba(255,255,255,.55);
+  animation: gctaNudge 1.3s ease-in-out infinite;
+}
+/* Pista "sigue deslizando" dentro del slide CTA */
+.gcta-more {
+  margin-top: 8px;
+  font-size: .82rem;
+  font-weight: 600;
+  color: #fde68a;
+  animation: gctaNudge 1.4s ease-in-out infinite;
+}
+@keyframes gctaNudge {
+  0%, 100% { transform: translateX(0); opacity: .85; }
+  50% { transform: translateX(5px); opacity: 1; }
+}
+.gal-slide--cta:hover { transform: translateY(-3px); }
+.gcta-emoji { font-size: 2.4rem; line-height: 1; }
+.gcta-title {
+  font-family: var(--display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+.gcta-title strong { color: #fcd34d; }
+.gcta-text {
+  font-size: .98rem;
+  color: #d1faf5;
+  line-height: 1.4;
+  max-width: 230px;
+}
+.gcta-btn {
+  margin-top: 6px;
+  background: linear-gradient(135deg, #fbbf24, var(--amber, #f59e0b));
+  color: #3a2600;
+  font-weight: 800;
+  font-size: 1rem;
+  padding: 11px 22px;
+  border-radius: 999px;
+  box-shadow: 0 6px 16px rgba(0,0,0,.25);
 }
 /* Zoom suave al pasar el cursor (solo PC con mouse) */
 @media (hover: hover) {

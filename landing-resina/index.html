@@ -40,7 +40,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261103s25" />
+  <link rel="stylesheet" href="styles.css?v=20261106s26" />
 
 
   <!-- ===== Microsoft Clarity (mapa de calor + grabaciones, gratis) =====
@@ -201,49 +201,67 @@
     <!-- ===== GALERÍA DE TRABAJOS (subida: es lo más tocado según Clarity) ===== -->
     <section class="section gallery" aria-labelledby="gallery-title">
       <div class="container">
-        <h2 id="gallery-title" class="section-title" data-reveal>Mira lo que vas a poder crear</h2>
+        <h2 id="gallery-title" class="section-title" data-reveal>Mira lo que vas a poder crear y venderlos</h2>
         <p class="section-sub" data-reveal>+40 trabajos reales hechos por alumnos del curso. Desliza y míralos.</p>
 
         <div class="carousel gallery-carousel" data-reveal>
           <button class="carousel-btn carousel-prev" id="galPrev" aria-label="Anterior">‹</button>
           <div class="carousel-viewport" id="galViewport">
             <div class="carousel-track" id="galTrack">
-              <!-- Destacados primero: personas mostrando sus trabajos (prueba social real) -->
+              <!-- Portada: collage de las 4 especialidades (imagen cuadrada, se muestra completa) -->
+              <figure class="gal-slide gal-slide--cover"><img src="img/trabajos/curso.webp" alt="Especialista en resina epóxica: mesas, pisos, paredes y cocina" loading="lazy"></figure>
+              <!-- Destacados: personas mostrando sus trabajos (prueba social real) -->
               <figure class="gal-slide"><img src="img/trabajos/trabajo-34.webp" alt="Alumno mostrando su trabajo en resina epóxica" loading="lazy"></figure>
               <figure class="gal-slide"><img src="img/trabajos/trabajo-46.webp" alt="Alumno mostrando su trabajo en resina epóxica" loading="lazy"></figure>
               <figure class="gal-slide"><img src="img/trabajos/trabajo-29.webp" alt="Alumno mostrando su trabajo en resina epóxica" loading="lazy"></figure>
+              <figure class="gal-slide"><img src="img/trabajos/trabajo-26.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
+              <figure class="gal-slide"><img src="img/trabajos/trabajo-23.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
+              <figure class="gal-slide"><img src="img/trabajos/trabajo-30.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
+              <figure class="gal-slide"><img src="img/trabajos/trabajo-31.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
+              <figure class="gal-slide"><img src="img/trabajos/trabajo-36.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
+              <figure class="gal-slide"><img src="img/trabajos/trabajo-37.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>   
+              <figure class="gal-slide"><img src="img/trabajos/trabajo-38.webp" alt="Alumno mostrando su trabajo en resina epóxica" loading="lazy"></figure>
+              <figure class="gal-slide"><img src="img/trabajos/trabajo-45.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
+              <figure class="gal-slide"><img src="img/trabajos/trabajo-18.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
+               <!-- Slide CTA intercalado: invita a crear y ganar -->
+              <a class="gal-slide gal-slide--cta" href="https://go.hotmart.com/B107766290U?ap=1492" target="_blank" rel="noopener">
+                <span class="gcta-emoji" aria-hidden="true">💰</span>
+                <span class="gcta-title">Haz estos trabajos y <strong>genera ingresos</strong></span>
+                <span class="gcta-text">Aprende a crearlos y cobra por ellos desde tu casa</span>
+                <span class="gcta-btn">Empezar ahora →</span>
+                <span class="gcta-more">👉 Sigue deslizando, hay más trabajos</span>
+              </a>
               <figure class="gal-slide"><img src="img/trabajos/trabajo-5.webp" alt="Alumno mostrando su trabajo en resina epóxica" loading="lazy"></figure>
               <figure class="gal-slide"><img src="img/trabajos/trabajo-7.webp" alt="Alumno mostrando su trabajo en resina epóxica" loading="lazy"></figure>
               <figure class="gal-slide"><img src="img/trabajos/trabajo-25.webp" alt="Alumno mostrando su trabajo en resina epóxica" loading="lazy"></figure>
               <figure class="gal-slide"><img src="img/trabajos/trabajo-35.webp" alt="Alumno mostrando su trabajo en resina epóxica" loading="lazy"></figure>
-              <figure class="gal-slide"><img src="img/trabajos/trabajo-38.webp" alt="Alumno mostrando su trabajo en resina epóxica" loading="lazy"></figure>
               <figure class="gal-slide"><img src="img/trabajos/trabajo-32.webp" alt="Alumno mostrando su trabajo en resina epóxica" loading="lazy"></figure>
               <figure class="gal-slide"><img src="img/trabajos/trabajo-33.webp" alt="Alumno mostrando su trabajo en resina epóxica" loading="lazy"></figure>
               <figure class="gal-slide"><img src="img/trabajos/trabajo-14.webp" alt="Alumno mostrando su trabajo en resina epóxica" loading="lazy"></figure>
               <figure class="gal-slide"><img src="img/trabajos/trabajo-17.webp" alt="Alumno mostrando su trabajo en resina epóxica" loading="lazy"></figure>
               <!-- Resto de trabajos (piezas terminadas) -->
               <figure class="gal-slide"><img src="img/trabajos/trabajo-1.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
+              <figure class="gal-slide"><img src="img/trabajos/trabajo-12.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
               <figure class="gal-slide"><img src="img/trabajos/trabajo-6.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
               <figure class="gal-slide"><img src="img/trabajos/trabajo-9.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
               <figure class="gal-slide"><img src="img/trabajos/trabajo-11.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
-              <figure class="gal-slide"><img src="img/trabajos/trabajo-12.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
               <figure class="gal-slide"><img src="img/trabajos/trabajo-15.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
-              <figure class="gal-slide"><img src="img/trabajos/trabajo-18.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
               <figure class="gal-slide"><img src="img/trabajos/trabajo-20.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
+              <!-- Segundo slide CTA (mitad de galería) -->
+              <a class="gal-slide gal-slide--cta" href="https://go.hotmart.com/B107766290U?ap=1492" target="_blank" rel="noopener">
+                <span class="gcta-emoji" aria-hidden="true">🚀</span>
+                <span class="gcta-title">Tú también puedes <strong>crear esto</strong></span>
+                <span class="gcta-text">Empieza hoy y cobra por tus trabajos desde casa</span>
+                <span class="gcta-btn">Quiero empezar →</span>
+                <span class="gcta-more">👉 Sigue deslizando, hay más trabajos</span>
+              </a>
               <figure class="gal-slide"><img src="img/trabajos/trabajo-21.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
               <figure class="gal-slide"><img src="img/trabajos/trabajo-22.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
-              <figure class="gal-slide"><img src="img/trabajos/trabajo-23.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
               <figure class="gal-slide"><img src="img/trabajos/trabajo-24.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
-              <figure class="gal-slide"><img src="img/trabajos/trabajo-26.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
               <figure class="gal-slide"><img src="img/trabajos/trabajo-28.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
-              <figure class="gal-slide"><img src="img/trabajos/trabajo-30.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
-              <figure class="gal-slide"><img src="img/trabajos/trabajo-31.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
-              <figure class="gal-slide"><img src="img/trabajos/trabajo-36.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
-              <figure class="gal-slide"><img src="img/trabajos/trabajo-37.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
               <figure class="gal-slide"><img src="img/trabajos/trabajo-39.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
               <figure class="gal-slide"><img src="img/trabajos/trabajo-40.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
               <figure class="gal-slide"><img src="img/trabajos/trabajo-43.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
-              <figure class="gal-slide"><img src="img/trabajos/trabajo-45.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
               <figure class="gal-slide"><img src="img/trabajos/trabajo-3.webp" alt="Alumno mostrando su trabajo en resina epóxica" loading="lazy"></figure>
             </div>
           </div>
@@ -275,14 +293,14 @@
 
             <div class="carousel-viewport" id="waViewport">
               <div class="carousel-track" id="waTrack">
-                <figure class="wa-slide"><img src="img/wsp/wsp-2.webp" alt="Mensaje real de un alumno satisfecho por WhatsApp" loading="lazy"></figure>
                 <figure class="wa-slide"><img src="img/wsp/wsp-3.webp" alt="Mensaje real de un alumno satisfecho por WhatsApp" loading="lazy"></figure>
                 <figure class="wa-slide"><img src="img/wsp/wsp-6.webp" alt="Mensaje real de un alumno satisfecho por WhatsApp" loading="lazy"></figure>
                 <figure class="wa-slide"><img src="img/wsp/wsp-7.webp" alt="Mensaje real de un alumno satisfecho por WhatsApp" loading="lazy"></figure>
                 <figure class="wa-slide"><img src="img/wsp/wsp-5.webp" alt="Mensaje real de un alumno satisfecho por WhatsApp" loading="lazy"></figure>
                 <figure class="wa-slide"><img src="img/wsp/wsp-8.webp" alt="Mensaje real de un alumno satisfecho por WhatsApp" loading="lazy"></figure>
                 <figure class="wa-slide"><img src="img/wsp/wsp-4.webp" alt="Mensaje real de un alumno satisfecho por WhatsApp" loading="lazy"></figure>
-                <figure class="wa-slide"><img src="img/wsp/wsp-1.webp" alt="Mensaje real de un alumno satisfecho por WhatsApp" loading="lazy"></figure>
+                <figure class="wa-slide"><img src="img/wsp/wsp-2.webp" alt="Mensaje real de un alumno satisfecho por WhatsApp" loading="lazy"></figure>
+                <figure class="wa-slide"><img src="img/wsp/wsp-1.webp" alt="Mensaje real de un alumno satisfecho por WhatsApp" loading="lazy"></figure>     
               </div>
             </div>
 
@@ -983,7 +1001,7 @@
     </div>
   </div>
 
-  <script src="script.js?v=20261103s25" defer></script>
+  <script src="script.js?v=20261106s26" defer></script>
 
   <!-- ===== DATOS ESTRUCTURADOS (Schema.org) para SEO ===== -->
   <script type="application/ld+json">
