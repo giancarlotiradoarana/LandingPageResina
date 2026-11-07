@@ -38,7 +38,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261106s28" />
+  <link rel="stylesheet" href="styles.css?v=20261106s29" />
   <meta name="google-site-verification" content="GwWKWOrIXwZ40dyh-EvgQWgT7LcACfMETSy7uyxHlLo" />
 
   <script type="text/javascript">
@@ -142,9 +142,46 @@
 
           <!-- Chips: aclara que es online y de acceso inmediato (evita que crean que es presencial) -->
           <ul class="hero-chips reveal" aria-label="Características del curso">
-            <li>💻 100% online</li>
-            <li>📱 Celular o PC</li>
-            <li>⚡ Acceso inmediato</li>
+            <li>
+              <span class="chip-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 20h20"/></svg>
+              </span>
+              100% online
+            </li>
+            <li>
+              <span class="chip-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>
+              </span>
+              Celular o PC
+            </li>
+            <li>
+              <span class="chip-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/></svg>
+              </span>
+              Acceso inmediato
+            </li>
+          </ul>
+
+          <!-- Barra de confianza: reduce el miedo a comprar desde el inicio -->
+          <ul class="hero-trustbar reveal" aria-label="Garantías de compra">
+            <li>
+              <span class="tb-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V5l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+              </span>
+              <span class="tb-txt"><strong>7 días</strong><br>de garantía</span>
+            </li>
+            <li>
+              <span class="tb-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+              </span>
+              <span class="tb-txt">Pago 100% seguro<br><strong>Hotmart</strong></span>
+            </li>
+            <li>
+              <span class="tb-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v4h4"/></svg>
+              </span>
+              <span class="tb-txt">Devolución<br><strong>100%</strong></span>
+            </li>
           </ul>
 
           <!-- Mini prueba social (solo móvil): tras el video + CTA, como refuerzo -->
@@ -188,6 +225,61 @@
       <!-- Separador de ola -->
       <div class="wave-divider" aria-hidden="true">
         <svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,45 C240,90 480,0 720,30 C960,60 1200,90 1440,45 L1440,90 L0,90 Z"></path></svg>
+      </div>
+    </section>
+
+    <!-- ===== 3. PROBLEMA / DOLOR (subido: conecta con el visitante justo tras el hero) ===== -->
+    <section class="section pain" aria-labelledby="pain-title">
+      <div class="container">
+        <h2 id="pain-title" class="section-title" data-reveal>¿Alguna de estas te suena familiar?</h2>
+        <p class="section-sub" data-reveal>Si marcas al menos una, este curso fue hecho para ti.</p>
+        <div class="pain-grid" data-reveal-group>
+          <div class="pain-card pain-c1">
+            <span class="pain-emoji" aria-hidden="true">💸</span>
+            <h3 class="pain-title-card">Trabajas de sol a sol y la plata no alcanza</h3>
+            <p>Te matas en trabajos donde todos cobran lo mismo. Necesitas una habilidad de alto valor que te deje cobrar el doble por el mismo esfuerzo.</p>
+            <span class="pain-check" aria-hidden="true">Me pasa ✓</span>
+          </div>
+          <div class="pain-card pain-c2">
+            <span class="pain-emoji" aria-hidden="true">🙅</span>
+            <h3 class="pain-title-card">Pierdes clientes que piden acabados que no sabes hacer</h3>
+            <p>Te preguntan por mesones de resina, pisos 3D o barras de lujo y tienes que decir que no. Ese trabajo se lo lleva otro.</p>
+            <span class="pain-check" aria-hidden="true">Me pasa ✓</span>
+          </div>
+          <div class="pain-card pain-c3">
+            <span class="pain-emoji" aria-hidden="true">📉</span>
+            <h3 class="pain-title-card">Ofreces lo mismo de siempre y no puedes subir precios</h3>
+            <p>Compites por precio con todos los demás. Necesitas un acabado premium que pocos saben hacer para cobrar más por tu trabajo.</p>
+            <span class="pain-check" aria-hidden="true">Me pasa ✓</span>
+          </div>
+          <div class="pain-card pain-c4">
+            <span class="pain-emoji" aria-hidden="true">👩‍👧</span>
+            <h3 class="pain-title-card">Necesitas generar dinero desde casa</h3>
+            <p>Quieres ingresos en tus tiempos, sin descuidar a tu familia y sin un gran capital. Solo tu celular y ganas de aprender.</p>
+            <span class="pain-check" aria-hidden="true">Me pasa ✓</span>
+          </div>
+          <div class="pain-card pain-c5">
+            <span class="pain-emoji" aria-hidden="true">🏠</span>
+            <h3 class="pain-title-card">Renovar tu casa te sale carísimo</h3>
+            <p>Sueñas con pisos, cocina y muebles de lujo, pero los presupuestos te espantan. Aprende a hacerlo tú y ahorra miles.</p>
+            <span class="pain-check" aria-hidden="true">Me pasa ✓</span>
+          </div>
+          <div class="pain-card pain-c6">
+            <span class="pain-emoji" aria-hidden="true">📺</span>
+            <h3 class="pain-title-card">Los tutoriales gratis solo te hacen perder material</h3>
+            <p>Seguiste videos de YouTube y el resultado nunca quedó bien. Dejaste de tirar dinero: aquí tienes el método completo y probado.</p>
+            <span class="pain-check" aria-hidden="true">Me pasa ✓</span>
+          </div>
+        </div>
+
+        <div class="gallery-cta" data-reveal>
+          <a href="https://go.hotmart.com/B107766290U?ap=1492" class="btn btn-primary btn-lg btn-shine" target="_blank" rel="noopener">Sí, quiero cambiar esto</a>
+        </div>
+
+        <p class="scroll-bridge" data-reveal>
+          Hay una salida. Mira todo lo que vas a poder crear
+          <span class="sb-arrow" aria-hidden="true">👇</span>
+        </p>
       </div>
     </section>
 
@@ -484,89 +576,94 @@
         </div>
 
         <p class="scroll-bridge" data-reveal>
-          Y todo esto cuesta menos de lo que imaginas
+          Y esta es la persona que te va a enseñar
           <span class="sb-arrow" aria-hidden="true">👇</span>
         </p>
       </div>
     </section>
 
-    <!-- ===== 9. PRECIO + GARANTÍA ===== -->
-    <section class="section pricing" id="precio" aria-labelledby="price-title">
-      <div class="container">
-        <h2 id="price-title" class="section-title" data-reveal>Empieza hoy mismo</h2>
-        <p class="section-sub" data-reveal>Un solo pago. Acceso de por vida. Sin mensualidades.</p>
-
-        <div class="price-card" data-reveal>
-          <div class="price-badge">50% de descuento</div>
-
-          <div class="price-preview">
-            <div class="price-preview-frame">
-              <img src="img/trabajos/curso.webp?v=2" alt="Vista previa del Curso Completo de Resina Epóxica 5x1" loading="lazy">
-            </div>
-          </div>
-
-          <!-- Cabecera: precio -->
-          <div class="price-head">
-            <div class="price-amount">
-              <span class="price-old">$70</span>
-              <span class="price-now">$35</span>
-              <span class="price-cur">USD</span>
-            </div>
-            <p class="price-currency-note">
-              <span aria-hidden="true">🌎</span> ¿No manejas dólares? Tranquilo: <strong>pagas en tu moneda local</strong> con tarjeta, Yape, PagoEfectivo, OXXO y más. Esto es lo que pagarías hoy:
-            </p>
-            <img src="img/CertGarantiaMetodosProf/moneda.webp" alt="Precio aproximado en soles, pesos mexicanos y pesos colombianos" class="price-currencies-img" loading="lazy">
-          </div>
-
-          <!-- Cuerpo: contador + CTA + escasez -->
-          <div class="price-body">
-            <div class="price-col">
-              <!-- Contador regresivo -->
-              <div class="countdown" id="countdown" aria-label="Tiempo restante de la oferta">
-                <p class="countdown-label">⏰ La oferta termina en:</p>
-                <div class="countdown-timer">
-                  <div class="cd-unit"><span id="cd-days">00</span><small>días</small></div>
-                  <div class="cd-sep">:</div>
-                  <div class="cd-unit"><span id="cd-hours">00</span><small>horas</small></div>
-                  <div class="cd-sep">:</div>
-                  <div class="cd-unit"><span id="cd-mins">00</span><small>min</small></div>
-                  <div class="cd-sep">:</div>
-                  <div class="cd-unit"><span id="cd-secs">00</span><small>seg</small></div>
-                </div>
-              </div>
-
-              <!-- CTA principal -->
-              <a href="https://go.hotmart.com/B107766290U?ap=1492" class="btn btn-primary btn-lg btn-block btn-shine" id="cta-buy" target="_blank" rel="noopener">¡Sí, quiero empezar por $35!</a>
-              <p class="cta-trust">🔒 Pago 100% seguro · ⚡ Acceso inmediato</p>
-
-              <!-- Escasez de cupos -->
-              <div class="stock" id="stock">
-                <span class="stock-flame" aria-hidden="true">🔥</span>
-                <p>¡Solo quedan <strong id="stock-count">5</strong> cupos disponibles a este precio!</p>
-              </div>
-              <div class="stock-bar" aria-hidden="true"><span id="stockBar"></span></div>
-            </div>
-          </div>
-
-          <!-- Pie: pagos + garantía -->
-          <div class="price-foot">
-            <div class="payments">
-              <p class="payments-label">Pago 100% seguro con:</p>
-              <img src="img/CertGarantiaMetodosProf/metodos-pago.webp" alt="Métodos de pago aceptados: Visa, Mastercard, PayPal, Google Pay, Yape, PagoEfectivo, Mercado Pago y más" loading="lazy" onerror="this.style.display='none'">
-            </div>
-
-            <div class="guarantee">
-              <span class="guarantee-icon" aria-hidden="true">🛡️</span>
-              <p><strong>Garantía de 7 días.</strong> Si no es para ti, te devolvemos tu dinero. Sin preguntas.</p>
-            </div>
-          </div>
+    <!-- ===== 8. INSTRUCTOR / AUTORIDAD (subido: autoridad antes del precio) ===== -->
+    <section class="section instructor" id="profesor" aria-labelledby="inst-title">
+      <div class="container instructor-inner">
+        <div class="instructor-photo reveal-left">
+          <img src="img/CertGarantiaMetodosProf/profesor.webp" alt="Yair Ruiz, profesor del curso de resina epóxica" loading="lazy">
+          <span class="instructor-badge">👨‍🏫 Yair Ruiz · El Profe</span>
+        </div>
+        <div class="instructor-copy reveal-right">
+          <h2 id="inst-title" class="section-title left">Conoce a tu profesor</h2>
+          <p>
+            <strong>Yair Ruiz</strong> vive de la resina epóxica. <strong>+5 años</strong> creando piezas que se venden por cientos de dólares y <strong>+3 años</strong> formando a más de <strong>2.100 alumnos</strong> que hoy cobran por sus propios trabajos.
+          </p>
+          <p>
+            En este curso <strong>no se guarda nada</strong>: te entrega las mismas fórmulas, trucos y secretos con los que construyó su negocio. Lo que a él le tomó años de prueba y error, tú lo aprendes en semanas. Ahora te toca a ti.
+          </p>
+          <ul class="instructor-stats">
+            <li><strong data-count="2100" data-prefix="+">+2.100</strong><span>estudiantes</span></li>
+            <li><strong data-count="200" data-suffix="">200</strong><span>clases grabadas</span></li>
+            <li><strong data-count="5" data-suffix="+">5+</strong><span>años de experiencia</span></li>
+          </ul>
         </div>
       </div>
     </section>
 
+    <!-- ===== OBJECIONES / POR QUÉ LA RESINA (subido: resuelve dudas antes del precio) ===== -->
+    <section class="section objections" id="porque" aria-labelledby="obj-title">
+      <div class="obj-glow" aria-hidden="true"></div>
+      <div class="container">
+        <span class="obj-eyebrow" data-reveal>Resolvamos tus dudas</span>
+        <h2 id="obj-title" class="section-title" data-reveal>¿Por qué la resina epóxica es tu mejor oportunidad?</h2>
+        <p class="section-sub obj-sub" data-reveal>Estas son las preguntas que te estás haciendo ahora mismo. Te las respondo claro.</p>
 
+        <div class="obj-grid" data-reveal-group>
+          <article class="obj-card">
+            <span class="obj-icon" aria-hidden="true">💎</span>
+            <h3>¿Por qué la resina y no otro oficio?</h3>
+            <p>Porque es el acabado que todos quieren colgar en su casa y muy pocos saben hacer. Conviertes mesas comunes en piezas de lujo.</p>
+            <p>Resultado: cobras más por el mismo trabajo y casi no tienes competencia que te baje el precio.</p>
+          </article>
 
+          <article class="obj-card">
+            <span class="obj-icon" aria-hidden="true">📦</span>
+            <h3>¿Será difícil conseguir los materiales?</h3>
+            <p>Para nada. La resina y todo lo que necesitas se consigue fácil en ferreterías y tiendas online de tu país.</p>
+            <p>Y para que no gastes de más, te damos la lista exacta de proveedores baratos por país. Empiezas con poco.</p>
+          </article>
 
+          <article class="obj-card">
+            <span class="obj-icon" aria-hidden="true">💰</span>
+            <h3>¿De verdad se gana dinero con esto?</h3>
+            <p>Una mesa de resina se vende entre $300 y $1.000. Un mesón de cocina, de $200 a $600. Con uno o dos trabajos recuperas el curso varias veces.</p>
+            <p>Dentro te enseñamos a poner precio y cobrar sin miedo desde tu primer proyecto.</p>
+          </article>
+
+          <article class="obj-card">
+            <span class="obj-icon" aria-hidden="true">🏆</span>
+            <h3>¿Y si mis trabajos no quedan bien?</h3>
+            <p>Por eso son 200 clases paso a paso: aprendes el método profesional que evita los errores que arruinan una pieza.</p>
+            <p>Dejas de improvisar y entregas acabados que tus clientes presumen y recomiendan a otros.</p>
+          </article>
+
+          <article class="obj-card">
+            <span class="obj-icon" aria-hidden="true">🚀</span>
+            <h3>¿Sirve si empiezo desde cero?</h3>
+            <p>Está hecho justo para principiantes. Partimos de lo más básico, sin experiencia previa, con cada paso explicado.</p>
+            <p>Solo sigues el método y practicas. Muchos consiguieron su primer trabajo pagado en las primeras semanas.</p>
+          </article>
+
+          <article class="obj-card">
+            <span class="obj-icon" aria-hidden="true">🎯</span>
+            <h3>¿Qué gano con el paquete 5×1?</h3>
+            <p>No aprendes una sola cosa: dominas mesas, pisos, paredes y cocinas en un mismo curso.</p>
+            <p>Son 5 formas distintas de cobrar. Si un cliente no quiere una, le ofreces otra. Nunca te quedas sin trabajo.</p>
+          </article>
+        </div>
+
+        <p class="scroll-bridge" data-reveal>
+          Y todavía hay más: mira todo lo que te llevas de regalo
+          <span class="sb-arrow" aria-hidden="true">👇</span>
+        </p>
+      </div>
+    </section>
 
     <!-- ===== 6. REGALOS / BONOS ===== -->
     <section class="section bonuses" id="bonos" aria-labelledby="bonus-title">
@@ -639,147 +736,87 @@
         <div class="gallery-cta" data-reveal>
           <a href="https://go.hotmart.com/B107766290U?ap=1492" class="btn btn-primary btn-lg btn-shine" target="_blank" rel="noopener">Quiero el curso + los 6 regalos</a>
         </div>
+
+        <p class="scroll-bridge" data-reveal>
+          Y todo esto cuesta menos de lo que imaginas
+          <span class="sb-arrow" aria-hidden="true">👇</span>
+        </p>
       </div>
     </section>
 
-    <!-- ===== OBJECIONES / POR QUÉ LA RESINA ===== -->
-    <section class="section objections" id="porque" aria-labelledby="obj-title">
-      <div class="obj-glow" aria-hidden="true"></div>
+    <!-- ===== 9. PRECIO + GARANTÍA (bajado: llega tras dolor, valor, autoridad y objeciones) ===== -->
+    <section class="section pricing" id="precio" aria-labelledby="price-title">
       <div class="container">
-        <span class="obj-eyebrow" data-reveal>Resolvamos tus dudas</span>
-        <h2 id="obj-title" class="section-title" data-reveal>¿Por qué la resina epóxica es tu mejor oportunidad?</h2>
-        <p class="section-sub obj-sub" data-reveal>Estas son las preguntas que te estás haciendo ahora mismo. Te las respondo claro.</p>
+        <h2 id="price-title" class="section-title" data-reveal>Empieza hoy mismo</h2>
+        <p class="section-sub" data-reveal>Un solo pago. Acceso de por vida. Sin mensualidades.</p>
 
-        <div class="obj-grid" data-reveal-group>
-          <article class="obj-card">
-            <span class="obj-icon" aria-hidden="true">💎</span>
-            <h3>¿Por qué la resina y no otro oficio?</h3>
-            <p>Porque es el acabado que todos quieren colgar en su casa y muy pocos saben hacer. Conviertes mesas comunes en piezas de lujo.</p>
-            <p>Resultado: cobras más por el mismo trabajo y casi no tienes competencia que te baje el precio.</p>
-          </article>
+        <div class="price-card" data-reveal>
+          <div class="price-badge">50% de descuento</div>
 
-          <article class="obj-card">
-            <span class="obj-icon" aria-hidden="true">📦</span>
-            <h3>¿Será difícil conseguir los materiales?</h3>
-            <p>Para nada. La resina y todo lo que necesitas se consigue fácil en ferreterías y tiendas online de tu país.</p>
-            <p>Y para que no gastes de más, te damos la lista exacta de proveedores baratos por país. Empiezas con poco.</p>
-          </article>
+          <div class="price-preview">
+            <div class="price-preview-frame">
+              <img src="img/trabajos/curso.webp?v=2" alt="Vista previa del Curso Completo de Resina Epóxica 5x1" loading="lazy">
+            </div>
+          </div>
 
-          <article class="obj-card">
-            <span class="obj-icon" aria-hidden="true">💰</span>
-            <h3>¿De verdad se gana dinero con esto?</h3>
-            <p>Una mesa de resina se vende entre $300 y $1.000. Un mesón de cocina, de $200 a $600. Con uno o dos trabajos recuperas el curso varias veces.</p>
-            <p>Dentro te enseñamos a poner precio y cobrar sin miedo desde tu primer proyecto.</p>
-          </article>
+          <!-- Cabecera: precio -->
+          <div class="price-head">
+            <div class="price-amount">
+              <span class="price-old">$70</span>
+              <span class="price-now">$35</span>
+              <span class="price-cur">USD</span>
+            </div>
+            <p class="price-currency-note">
+              <span aria-hidden="true">🌎</span> ¿No manejas dólares? Tranquilo: <strong>pagas en tu moneda local</strong> con tarjeta, Yape, PagoEfectivo, OXXO y más. Esto es lo que pagarías hoy:
+            </p>
+            <img src="img/CertGarantiaMetodosProf/moneda.webp" alt="Precio aproximado en soles, pesos mexicanos y pesos colombianos" class="price-currencies-img" loading="lazy">
+          </div>
 
-          <article class="obj-card">
-            <span class="obj-icon" aria-hidden="true">🏆</span>
-            <h3>¿Y si mis trabajos no quedan bien?</h3>
-            <p>Por eso son 200 clases paso a paso: aprendes el método profesional que evita los errores que arruinan una pieza.</p>
-            <p>Dejas de improvisar y entregas acabados que tus clientes presumen y recomiendan a otros.</p>
-          </article>
+          <!-- Cuerpo: contador + CTA + escasez -->
+          <div class="price-body">
+            <div class="price-col">
+              <!-- Contador regresivo -->
+              <div class="countdown" id="countdown" aria-label="Tiempo restante de la oferta">
+                <p class="countdown-label">⏰ La oferta termina en:</p>
+                <div class="countdown-timer">
+                  <div class="cd-unit"><span id="cd-days">00</span><small>días</small></div>
+                  <div class="cd-sep">:</div>
+                  <div class="cd-unit"><span id="cd-hours">00</span><small>horas</small></div>
+                  <div class="cd-sep">:</div>
+                  <div class="cd-unit"><span id="cd-mins">00</span><small>min</small></div>
+                  <div class="cd-sep">:</div>
+                  <div class="cd-unit"><span id="cd-secs">00</span><small>seg</small></div>
+                </div>
+              </div>
 
-          <article class="obj-card">
-            <span class="obj-icon" aria-hidden="true">🚀</span>
-            <h3>¿Sirve si empiezo desde cero?</h3>
-            <p>Está hecho justo para principiantes. Partimos de lo más básico, sin experiencia previa, con cada paso explicado.</p>
-            <p>Solo sigues el método y practicas. Muchos consiguieron su primer trabajo pagado en las primeras semanas.</p>
-          </article>
+              <!-- CTA principal -->
+              <a href="https://go.hotmart.com/B107766290U?ap=1492" class="btn btn-primary btn-lg btn-block btn-shine" id="cta-buy" target="_blank" rel="noopener">¡Sí, quiero empezar por $35!</a>
+              <p class="cta-trust">🔒 Pago 100% seguro · ⚡ Acceso inmediato</p>
 
-          <article class="obj-card">
-            <span class="obj-icon" aria-hidden="true">🎯</span>
-            <h3>¿Qué gano con el paquete 5×1?</h3>
-            <p>No aprendes una sola cosa: dominas mesas, pisos, paredes y cocinas en un mismo curso.</p>
-            <p>Son 5 formas distintas de cobrar. Si un cliente no quiere una, le ofreces otra. Nunca te quedas sin trabajo.</p>
-          </article>
-        </div>
+              <!-- Escasez de cupos -->
+              <div class="stock" id="stock">
+                <span class="stock-flame" aria-hidden="true">🔥</span>
+                <p>¡Solo quedan <strong id="stock-count">5</strong> cupos disponibles a este precio!</p>
+              </div>
+              <div class="stock-bar" aria-hidden="true"><span id="stockBar"></span></div>
+            </div>
+          </div>
 
-        <div class="obj-cta" data-reveal>
-          <p>Ya tienes las respuestas. Lo único que falta eres tú. 👇</p>
-          <a href="https://go.hotmart.com/B107766290U?ap=1492" class="btn btn-primary btn-lg btn-shine" target="_blank" rel="noopener">Quiero empezar por $35</a>
+          <!-- Pie: pagos + garantía -->
+          <div class="price-foot">
+            <div class="payments">
+              <p class="payments-label">Pago 100% seguro con:</p>
+              <img src="img/CertGarantiaMetodosProf/metodos-pago.webp" alt="Métodos de pago aceptados: Visa, Mastercard, PayPal, Google Pay, Yape, PagoEfectivo, Mercado Pago y más" loading="lazy" onerror="this.style.display='none'">
+            </div>
+
+            <div class="guarantee">
+              <span class="guarantee-icon" aria-hidden="true">🛡️</span>
+              <p><strong>Garantía de 7 días.</strong> Si no es para ti, te devolvemos tu dinero. Sin preguntas.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-
-    <!-- ===== 3. PROBLEMA / DOLOR ===== -->
-    <section class="section pain" aria-labelledby="pain-title">
-      <div class="container">
-        <h2 id="pain-title" class="section-title" data-reveal>¿Alguna de estas te suena familiar?</h2>
-        <p class="section-sub" data-reveal>Si marcas al menos una, este curso fue hecho para ti.</p>
-        <div class="pain-grid" data-reveal-group>
-          <div class="pain-card pain-c1">
-            <span class="pain-emoji" aria-hidden="true">💸</span>
-            <h3 class="pain-title-card">Trabajas de sol a sol y la plata no alcanza</h3>
-            <p>Te matas en trabajos donde todos cobran lo mismo. Necesitas una habilidad de alto valor que te deje cobrar el doble por el mismo esfuerzo.</p>
-            <span class="pain-check" aria-hidden="true">Me pasa ✓</span>
-          </div>
-          <div class="pain-card pain-c2">
-            <span class="pain-emoji" aria-hidden="true">🙅</span>
-            <h3 class="pain-title-card">Pierdes clientes que piden acabados que no sabes hacer</h3>
-            <p>Te preguntan por mesones de resina, pisos 3D o barras de lujo y tienes que decir que no. Ese trabajo se lo lleva otro.</p>
-            <span class="pain-check" aria-hidden="true">Me pasa ✓</span>
-          </div>
-          <div class="pain-card pain-c3">
-            <span class="pain-emoji" aria-hidden="true">📉</span>
-            <h3 class="pain-title-card">Ofreces lo mismo de siempre y no puedes subir precios</h3>
-            <p>Compites por precio con todos los demás. Necesitas un acabado premium que pocos saben hacer para cobrar más por tu trabajo.</p>
-            <span class="pain-check" aria-hidden="true">Me pasa ✓</span>
-          </div>
-          <div class="pain-card pain-c4">
-            <span class="pain-emoji" aria-hidden="true">👩‍👧</span>
-            <h3 class="pain-title-card">Necesitas generar dinero desde casa</h3>
-            <p>Quieres ingresos en tus tiempos, sin descuidar a tu familia y sin un gran capital. Solo tu celular y ganas de aprender.</p>
-            <span class="pain-check" aria-hidden="true">Me pasa ✓</span>
-          </div>
-          <div class="pain-card pain-c5">
-            <span class="pain-emoji" aria-hidden="true">🏠</span>
-            <h3 class="pain-title-card">Renovar tu casa te sale carísimo</h3>
-            <p>Sueñas con pisos, cocina y muebles de lujo, pero los presupuestos te espantan. Aprende a hacerlo tú y ahorra miles.</p>
-            <span class="pain-check" aria-hidden="true">Me pasa ✓</span>
-          </div>
-          <div class="pain-card pain-c6">
-            <span class="pain-emoji" aria-hidden="true">📺</span>
-            <h3 class="pain-title-card">Los tutoriales gratis solo te hacen perder material</h3>
-            <p>Seguiste videos de YouTube y el resultado nunca quedó bien. Dejaste de tirar dinero: aquí tienes el método completo y probado.</p>
-            <span class="pain-check" aria-hidden="true">Me pasa ✓</span>
-          </div>
-        </div>
-
-        <div class="gallery-cta" data-reveal>
-          <a href="https://go.hotmart.com/B107766290U?ap=1492" class="btn btn-primary btn-lg btn-shine" target="_blank" rel="noopener">Sí, quiero cambiar esto</a>
-        </div>
-      </div>
-    </section>
-
-
-
-
-
-    <!-- ===== 8. INSTRUCTOR / AUTORIDAD ===== -->
-    <section class="section instructor" id="profesor" aria-labelledby="inst-title">
-      <div class="container instructor-inner">
-        <div class="instructor-photo reveal-left">
-          <img src="img/CertGarantiaMetodosProf/profesor.webp" alt="Yair Ruiz, profesor del curso de resina epóxica" loading="lazy">
-          <span class="instructor-badge">👨‍🏫 Yair Ruiz · El Profe</span>
-        </div>
-        <div class="instructor-copy reveal-right">
-          <h2 id="inst-title" class="section-title left">Conoce a tu profesor</h2>
-          <p>
-            <strong>Yair Ruiz</strong> vive de la resina epóxica. <strong>+5 años</strong> creando piezas que se venden por cientos de dólares y <strong>+3 años</strong> formando a más de <strong>2.100 alumnos</strong> que hoy cobran por sus propios trabajos.
-          </p>
-          <p>
-            En este curso <strong>no se guarda nada</strong>: te entrega las mismas fórmulas, trucos y secretos con los que construyó su negocio. Lo que a él le tomó años de prueba y error, tú lo aprendes en semanas. Ahora te toca a ti.
-          </p>
-          <ul class="instructor-stats">
-            <li><strong data-count="2100" data-prefix="+">+2.100</strong><span>estudiantes</span></li>
-            <li><strong data-count="200" data-suffix="">200</strong><span>clases grabadas</span></li>
-            <li><strong data-count="5" data-suffix="+">5+</strong><span>años de experiencia</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-
 
     <!-- ===== CERTIFICADO ===== -->
     <section class="section certificate" aria-labelledby="cert-title">
@@ -994,7 +1031,7 @@
     </div>
   </div>
 
-  <script src="script.js?v=20261106s28" defer></script>
+  <script src="script.js?v=20261106s29" defer></script>
 
   <!-- ===== DATOS ESTRUCTURADOS (Schema.org) para SEO ===== -->
   <script type="application/ld+json">

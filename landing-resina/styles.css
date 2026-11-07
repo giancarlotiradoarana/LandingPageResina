@@ -472,6 +472,7 @@ a { color: inherit; text-decoration: none; }
     "sublearn  media"
     "actions   media"
     "chips     media"
+    "trustbar  media"
     "curlabel  media"
     "curimg    media"
     "proofpc   media";
@@ -480,6 +481,7 @@ a { color: inherit; text-decoration: none; }
 .hero-copy > .hero-sub       { grid-area: sub; margin-bottom: 12px; }
 .hero-copy > .hero-promise   { grid-area: sublearn; margin-bottom: 20px; }
 .hero-copy > .hero-chips     { grid-area: chips; }
+.hero-copy > .hero-trustbar  { grid-area: trustbar; }
 /* Video grande a la derecha, centrado verticalmente */
 .hero-copy > .hero-media     { grid-area: media; align-self: center; width: 100%; margin: 0; }
 .hero-copy > .hero-media .hero-video { max-width: 100%; }
@@ -626,16 +628,82 @@ a { color: inherit; text-decoration: none; }
 .hero-chips li {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 7px;
   white-space: nowrap;
-  background: rgba(45,212,191,.14);
-  border: 1px solid rgba(94,234,212,.45);
-  color: #99f6e4;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.22);
+  color: #ffffff;
   font-size: .85rem;
   font-weight: 700;
-  padding: 6px 11px;
+  padding: 7px 14px 7px 7px;
   border-radius: 999px;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 12px -6px rgba(0,0,0,.4);
+}
+/* Ícono del chip en círculo de acento */
+.chip-ico {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #5eead4, #0d9488);
+  color: #06201d;
+}
+.chip-ico svg { display: block; width: 15px; height: 15px; }
+/* El 3er chip (acceso inmediato) con acento dorado */
+.hero-chips li:nth-child(3) .chip-ico {
+  background: linear-gradient(135deg, #fde68a, #f59e0b);
+  color: #3a2600;
+}
+
+/* Barra de confianza: tarjetas blancas con contraste fuerte sobre el verde */
+.hero-trustbar {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  max-width: 560px;
+}
+.hero-trustbar li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  padding: 10px 8px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px -10px rgba(0,0,0,.5);
+  font-size: .8rem;
+  font-weight: 700;
+  color: #0f2e2a;
+  line-height: 1.25;
+}
+.hero-trustbar li strong {
+  color: #0d9488;
+  font-weight: 800;
+}
+/* Ícono en círculo con gradiente, sobre la tarjeta blanca */
+.tb-ico {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #34d399, #0d9488);
+  color: #fff;
+  box-shadow: 0 4px 10px -2px rgba(13,148,136,.5);
+}
+.tb-ico svg { display: block; width: 17px; height: 17px; }
+/* El 2º ícono (pago) en dorado para diferenciar y dar riqueza visual */
+.hero-trustbar li:nth-child(2) .tb-ico {
+  background: linear-gradient(135deg, #fbbf24, #d97706);
+  box-shadow: 0 4px 10px -2px rgba(217,119,6,.5);
 }
 
 .hero-sub {
@@ -3181,20 +3249,34 @@ a { color: inherit; text-decoration: none; }
   }
   .hero-promise li { align-items: flex-start; }
   .hp-text { font-size: .95rem; }
-  .hero-chips { justify-content: center; gap: 6px; }
-  .hero-chips li { font-size: .72rem; padding: 5px 9px; gap: 4px; }
+  .hero-chips { justify-content: center; flex-wrap: nowrap; gap: 5px; padding: 0 2px; }
+  .hero-chips li { font-size: .66rem; padding: 4px 9px 4px 4px; gap: 4px; }
+  .chip-ico { width: 20px; height: 20px; }
+  .chip-ico svg { width: 11px; height: 11px; }
+  .hero-trustbar {
+    margin-left: auto; margin-right: auto;
+    gap: 8px;
+  }
+  .hero-trustbar li { font-size: .72rem; padding: 9px 6px; gap: 5px; }
+  .tb-ico { width: 30px; height: 30px; }
+  .tb-ico svg { width: 16px; height: 16px; }
   .hero-bullets { display: grid; text-align: left; gap: 9px; margin: 0 0 22px 0; max-width: 100%; }
   .hero-actions, .hero-proof { justify-content: center; }
   .hero-price { justify-content: center; }
   /* Prueba social centrada y compacta en móvil */
-  /* Mini prueba social visible solo en móvil, justo bajo el subtítulo */
+  /* Mini prueba social: tarjeta blanca tipo "valoración", coherente con la trustbar */
   .hero-proof-mini {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: nowrap;
-    gap: 16px;
-    margin: 24px 0 4px;
+    gap: 13px;
+    margin: 16px auto 4px;
+    max-width: 560px;
+    padding: 13px 16px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px -10px rgba(0,0,0,.5);
   }
   /* Espaciado del bloque chips → prueba social → monedas */
   .hero-actions { margin-bottom: 20px; }
@@ -3202,10 +3284,10 @@ a { color: inherit; text-decoration: none; }
   .hero-currencies-label { margin-top: 22px; }
   .hero-proof-mini-avatars { display: inline-flex; flex-shrink: 0; }
   .hero-proof-mini-avatars span {
-    width: 38px; height: 38px; border-radius: 50%;
-    border: 2px solid #eafff9;
-    box-shadow: 0 2px 6px rgba(0,0,0,.3);
-    overflow: hidden; margin-left: -13px;
+    width: 40px; height: 40px; border-radius: 50%;
+    border: 2px solid #ffffff;
+    box-shadow: 0 2px 6px rgba(0,0,0,.2);
+    overflow: hidden; margin-left: -14px;
   }
   .hero-proof-mini-avatars span:first-child { margin-left: 0; }
   .hero-proof-mini-avatars img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
@@ -3213,22 +3295,21 @@ a { color: inherit; text-decoration: none; }
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 3px;
+    gap: 2px;
     text-align: left;
-    line-height: 1.35;
+    line-height: 1.3;
   }
   .hpm-stars {
-    color: #fbbf24;
-    font-size: .8rem;
-    letter-spacing: 3px;
-    text-shadow: 0 1px 2px rgba(0,0,0,.2);
+    color: #f59e0b;
+    font-size: .9rem;
+    letter-spacing: 2px;
   }
   .hpm-line {
-    color: #eafff9;
+    color: #334155;
     font-weight: 600;
-    font-size: .88rem;
+    font-size: .82rem;
   }
-  .hpm-line strong { color: var(--amber); font-weight: 800; }
+  .hpm-line strong { color: #0d9488; font-weight: 800; }
   /* En móvil ocultamos la prueba social de abajo: ya está la mini arriba */
   .hero-proof-pc { display: none; }
   .hero-currencies-label { text-align: center; }
