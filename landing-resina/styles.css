@@ -1284,11 +1284,11 @@ a { color: inherit; text-decoration: none; }
 .pain-title-card {
   font-size: 1.05rem;
   font-weight: 800;
-  color: var(--ink);
+  color: var(--teal-900);
   margin-bottom: 8px;
   line-height: 1.25;
 }
-.pain-card p { color: var(--slate); font-size: .94rem; font-weight: 400; }
+.pain-card p { color: #64748b; font-size: .94rem; font-weight: 500; }
 
 /* "Sí, eso quiero" que aparece al hover */
 .pain-check {
@@ -1438,7 +1438,7 @@ a { color: inherit; text-decoration: none; }
 .module:nth-child(5) { --m-accent: #7c3aed; --m-accent-soft: #f5f3ff; }
 
 .module summary {
-  cursor: pointer;
+  cursor: default;
   list-style: none;
   padding: 20px 20px 20px 22px;
   font-weight: 700;
@@ -1448,6 +1448,8 @@ a { color: inherit; text-decoration: none; }
   gap: 16px;
   position: relative;
 }
+/* Mostrar siempre todo el contenido del módulo (sin acordeón ni botón) */
+.module-body { display: block !important; }
 /* Franja de color lateral que anuncia que es "clickeable" */
 .module summary::before {
   content: "";
@@ -1457,30 +1459,7 @@ a { color: inherit; text-decoration: none; }
   background: var(--m-accent);
 }
 .module summary::-webkit-details-marker { display: none; }
-.module summary::after {
-  content: "Ver más +";
-  flex-shrink: 0;
-  display: inline-flex;
-  align-items: center;
-  gap: 2px;
-  padding: 8px 14px;
-  background: var(--m-accent);
-  color: #fff;
-  font-size: .8rem;
-  font-weight: 800;
-  letter-spacing: .01em;
-  line-height: 1;
-  border-radius: 999px;
-  box-shadow: 0 4px 12px -3px var(--m-accent);
-  transition: transform .25s ease, filter .2s ease;
-  animation: modulePulse 2.4s ease-in-out infinite;
-}
-.module summary:hover::after { filter: brightness(1.08); transform: scale(1.05); }
-.module[open] summary::after { content: "Cerrar ×"; animation: none; }
-@keyframes modulePulse {
-  0%, 100% { box-shadow: 0 4px 12px -3px var(--m-accent); }
-  50% { box-shadow: 0 4px 18px 0 var(--m-accent); }
-}
+/* Botón "Ver más" eliminado: el contenido se muestra siempre */
 .module-num {
   font-family: var(--display, inherit);
   color: #fff;
@@ -1509,7 +1488,6 @@ a { color: inherit; text-decoration: none; }
   color: var(--slate);
   line-height: 1.35;
 }
-.module[open] .module-teaser { display: none; }
 .module-body { padding: 0 22px 22px 62px; }
 .module-body > p { color: var(--slate); margin-bottom: 14px; }
 .module-topics {
@@ -1520,9 +1498,35 @@ a { color: inherit; text-decoration: none; }
 }
 .module-topics li {
   position: relative;
-  padding-left: 0;
+  padding-left: 34px;
+  min-height: 24px;
+  display: block;
   font-size: .94rem;
+  line-height: 1.5;
   color: var(--ink);
+}
+/* Check en círculo con el color del módulo (dibujado con CSS, sin emoji) */
+.module-topics li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, color-mix(in srgb, var(--m-accent) 70%, #ffffff), var(--m-accent));
+  box-shadow: 0 3px 8px -2px var(--m-accent), inset 0 1px 0 rgba(255,255,255,.4);
+}
+.module-topics li::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 6px;
+  width: 5px;
+  height: 10px;
+  border: solid #fff;
+  border-width: 0 2.5px 2.5px 0;
+  transform: rotate(45deg);
 }
 .module-topics strong { color: var(--teal-700); }
 
@@ -2761,9 +2765,8 @@ a { color: inherit; text-decoration: none; }
 .benefit:hover::before { transform: scaleX(1); }
 .benefit:hover .benefit-icon { transform: rotate(-8deg) scale(1.08); }
 
-/* Módulos con animación al abrir */
+/* Módulos: contenido siempre visible (sin acordeón) */
 .module summary { transition: background .2s ease; }
-.module summary:hover { background: var(--m-accent-soft); }
 .module[open] { border-color: var(--m-accent); box-shadow: var(--shadow); }
 .module[open] summary { background: var(--m-accent-soft); }
 .module[open] .module-body { animation: fadeInModule .4s ease; }

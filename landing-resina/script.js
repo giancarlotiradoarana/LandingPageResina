@@ -180,15 +180,7 @@
   }, { passive: true });
   onScroll();
 
-  // ---- Acordeón exclusivo en los módulos ----
-  var modules = document.querySelectorAll('.modules .module');
-  modules.forEach(function (m) {
-    m.addEventListener('toggle', function () {
-      if (m.open) {
-        modules.forEach(function (other) { if (other !== m) other.open = false; });
-      }
-    });
-  });
+  // ---- Módulos: se muestran siempre abiertos (sin acordeón) ----
 
   // ---- Carrusel de capturas de WhatsApp ----
   function initCarousel(cfg) {
