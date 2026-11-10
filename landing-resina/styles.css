@@ -668,6 +668,10 @@ a { color: inherit; text-decoration: none; }
   gap: 10px;
   max-width: 560px;
 }
+/* Trustbar reubicada dentro de la galería: centrada y con aire */
+.gallery .hero-trustbar {
+  margin: 18px auto 0;
+}
 .hero-trustbar li {
   display: flex;
   flex-direction: column;
@@ -1062,10 +1066,12 @@ a { color: inherit; text-decoration: none; }
 /* Botón de play grande encima del video (sin portada) */
 .hero-video-play {
   position: absolute;
-  inset: 0;
-  margin: auto;
-  width: 84px;
-  height: 84px;
+  /* Bajado respecto al centro para no tapar la cara del instructor */
+  left: 50%;
+  top: 68%;
+  transform: translate(-50%, -50%);
+  width: 72px;
+  height: 72px;
   display: grid;
   place-items: center;
   border: none;
@@ -1078,7 +1084,7 @@ a { color: inherit; text-decoration: none; }
   z-index: 2;
   transition: transform .15s ease;
 }
-.hero-video-play:hover { transform: scale(1.08); }
+.hero-video-play:hover { transform: translate(-50%, -50%) scale(1.08); }
 .hero-video-play-icon {
   font-size: 2rem;
   line-height: 1;
@@ -2707,8 +2713,9 @@ a { color: inherit; text-decoration: none; }
 /* Solo ocultamos para animar si el JS está activo (html.js).
    Si el JS no corre (ej. navegador in-app de Facebook), el contenido se ve igual. */
 .js .reveal, .js [data-reveal], .js [data-reveal-group] > * {
+  /* translateY reducido (16px) para que el contenido se perciba antes al asomar */
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(16px);
   transition: opacity .7s cubic-bezier(.2,.7,.3,1), transform .7s cubic-bezier(.2,.7,.3,1);
 }
 .js .reveal.in, .js [data-reveal].in, .js [data-reveal-group].in > * { opacity: 1; transform: none; }
@@ -3341,6 +3348,8 @@ a { color: inherit; text-decoration: none; }
 
 @media (max-width: 560px) {
   .section { padding: 38px 0; }
+  /* En móvil reducimos el hueco entre el subtítulo y la rejilla de tarjetas */
+  .pain-grid { margin-top: 20px; }
   .gallery { padding-top: 14px; }
   .trust-grid { grid-template-columns: repeat(2, 1fr); }
   .benefits-grid, .pain-grid { grid-template-columns: 1fr; }
@@ -3714,6 +3723,38 @@ a { color: inherit; text-decoration: none; }
 @keyframes sbBounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(8px); }
+}
+/* Frase puente dentro del hero, justo bajo el CTA: márgenes compactos */
+.hero-bridge { margin: 14px auto 16px; }
+
+/* Invitación a ver el video: indicación centrada con presencia, pegada al video */
+.hero-video-cue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  /* Más aire arriba (lo separa de los bullets) y menos abajo (lo acerca al video) */
+  margin: 18px auto 8px;
+  text-align: center;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: .98rem;
+  line-height: 1.3;
+  text-shadow: 0 1px 3px rgba(0,0,0,.35);
+}
+.hero-video-cue .hvc-text strong {
+  color: #fcd34d;
+  font-weight: 900;
+}
+/* Triángulo play dorado que late para dirigir la mirada al video */
+.hero-video-cue .hvc-play {
+  color: #fbbf24;
+  font-size: .85rem;
+  animation: cueBounce 1.3s ease-in-out infinite;
+}
+@keyframes cueBounce {
+  0%, 100% { transform: translateX(0); opacity: .9; }
+  50% { transform: translateX(4px); opacity: 1; }
 }
 /* Variante sobre fondo oscuro (hero) */
 .scroll-bridge-dark {

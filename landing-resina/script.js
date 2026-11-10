@@ -103,7 +103,7 @@
             io.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+      }, { threshold: 0.01, rootMargin: '0px 0px 120px 0px' });
       revealTargets.forEach(function (el) { io.observe(el); });
     }
   }

@@ -1,0 +1,61 @@
+﻿"Nombre del proyecto","Curso Resina"
+"Intervalo de fechas","11/10/2026 00:00 - 11/10/2026 23:59"
+
+
+"Dirección URL visitada coincide con regex","^https://resinovo\.com/(\?.*)?$"
+
+"Vistas de página","247"
+"Total de clics","15"
+
+"Métricas","Pulsar"
+
+"Clasificación","Element label","CSS selector","Pulsaciones"," % de toques"
+"1","Crea piezas de lujo en mesas, pisos, paredes y cocinas. Paso a paso, con resina epóxica y desde tu casa.","HTML>BODY:nth-of-type(1)>MAIN:nth-of-type(1)>SECTION.hero:nth-of-type(1)>DIV.container.hero-grid:nth-of-type(4)>DIV.hero-copy:nth-of-type(1)>P.hero-sub.reveal:nth-of-type(1)","5","33,33%"
+"2","#heroVideo","#heroVideo","3","20%"
+"3","Aprende resina epóxica desde cero, aunque nunca hayas tocado una gota
+
+Crea piezas de lujo en mesas, pisos, paredes y cocinas. Paso a paso, con resina epóxica y desde tu casa.
+
+Aprendes la técnica para crear piezas de lujo
+Y lo más importante: aprendes a venderlas y cobrar bien
+▶
+¡Empezar ahora!
+→
+▫▫▫% online
+Celular o PC
+Acceso inmediato
+▫ días
+de garantía
+Pago ▫▫▫% seguro
+Hotmart
+Devolución
+▫▫▫%
+★★★★★
++▫.▫▫▫ alumnos en Latinoamérica ya cobran por sus trabajos","HTML>BODY:nth-of-type(1)>MAIN:nth-of-type(1)>SECTION.hero:nth-of-type(1)>DIV.container.hero-grid:nth-of-type(4)","3","20%"
+"4","¡Empezar ahora!
+→","HTML>BODY:nth-of-type(1)>MAIN:nth-of-type(1)>SECTION.hero:nth-of-type(1)>DIV.container.hero-grid:nth-of-type(4)>DIV.hero-copy:nth-of-type(1)>DIV.hero-actions.reveal:nth-of-type(2)>A.btn.btn-primary.btn-lg.btn-shine:nth-of-type(1)","1","6,67%"
+"5","¡Lo quiero! 🔥","#stickyCta>DIV.sticky-inner:nth-of-type(1)>A.btn.btn-primary.btn-sm:nth-of-type(1)","1","6,67%"
+"6","Aprende resina epóxica desde cero, aunque nunca hayas tocado una gota
+
+Crea piezas de lujo en mesas, pisos, paredes y cocinas. Paso a paso, con resina epóxica y desde tu casa.
+
+Aprendes la técnica para crear piezas de lujo
+Y lo más importante: aprendes a venderlas y cobrar bien
+▶
+¡Empezar ahora!
+→
+▫▫▫% online
+Celular o PC
+Acceso inmediato
+▫ días
+de garantía
+Pago ▫▫▫% seguro
+Hotmart
+Devolución
+▫▫▫%
+★★★★★
++▫.▫▫▫ alumnos en Latinoamérica ya cobran por sus trabajos
+
+Mira todo lo que vas a poder crear
+👇","HTML>BODY:nth-of-type(1)>MAIN:nth-of-type(1)>SECTION.hero:nth-of-type(1)","1","6,67%"
+"7","▶","#heroVideoPlay>SPAN.hero-video-play-icon:nth-of-type(1)","1","6,67%"
