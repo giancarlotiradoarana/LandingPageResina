@@ -621,37 +621,32 @@ a { color: inherit; text-decoration: none; }
   list-style: none;
   display: flex;
   flex-wrap: nowrap;
-  gap: 8px;
+  gap: 16px;
   margin: 0 0 22px;
   padding: 0;
 }
 .hero-chips li {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
   white-space: nowrap;
-  background: rgba(255,255,255,.1);
-  border: 1px solid rgba(255,255,255,.22);
-  color: #ffffff;
-  font-size: .85rem;
-  font-weight: 700;
-  padding: 7px 14px 7px 7px;
-  border-radius: 999px;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 4px 12px -6px rgba(0,0,0,.4);
+  color: #e6fbf6;
+  font-size: .98rem;
+  font-weight: 600;
+  padding: 0;
 }
 /* Ícono del chip en círculo de acento */
 .chip-ico {
   flex-shrink: 0;
   display: grid;
   place-items: center;
-  width: 26px;
-  height: 26px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: linear-gradient(135deg, #5eead4, #0d9488);
   color: #06201d;
 }
-.chip-ico svg { display: block; width: 15px; height: 15px; }
+.chip-ico svg { display: block; width: 18px; height: 18px; }
 /* El 3er chip (acceso inmediato) con acento dorado */
 .hero-chips li:nth-child(3) .chip-ico {
   background: linear-gradient(135deg, #fde68a, #f59e0b);
@@ -667,10 +662,6 @@ a { color: inherit; text-decoration: none; }
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   max-width: 560px;
-}
-/* Trustbar reubicada dentro de la galería: centrada y con aire */
-.gallery .hero-trustbar {
-  margin: 18px auto 0;
 }
 .hero-trustbar li {
   display: flex;
@@ -1194,6 +1185,11 @@ a { color: inherit; text-decoration: none; }
 }
 .wave-divider svg { width: 100%; height: 90px; display: block; }
 .wave-divider path { fill: var(--bg); }
+/* Si tras el hero viene la seccion verde oscuro (objeciones), quitamos la ola:
+   corte recto, el verde del hero pasa directo al verde oscuro sin curva */
+.hero:has(+ .objections) .wave-divider { display: none; }
+/* Sin ola, recortamos el espacio inferior sobrante del hero para subir la siguiente seccion */
+.hero:has(+ .objections) { padding-bottom: 56px; }
 
 /* ============================================
    TRUST BAR
@@ -1709,7 +1705,7 @@ a { color: inherit; text-decoration: none; }
 /* ============================================
    TESTIMONIALS
    ============================================ */
-.testimonials { background: var(--bg); }
+.testimonials { background: var(--bg); padding-top: 8px; }
 
 /* ============================================
    CARRUSEL DE CAPTURAS DE WHATSAPP
@@ -2963,7 +2959,7 @@ a { color: inherit; text-decoration: none; }
   box-shadow: 0 8px 18px -6px rgba(16,185,129,.6);
 }
 .perk-title {
-  color: #fff;
+  color: #fcd34d;
   font-size: 1.12rem;
   font-weight: 800;
   margin-bottom: 8px;
@@ -3001,7 +2997,7 @@ a { color: inherit; text-decoration: none; }
 /* ============================================
    GALERÍA DE TRABAJOS
    ============================================ */
-.gallery { background: var(--bg); padding-top: 24px; }
+.gallery { background: var(--bg); padding-top: 40px; padding-bottom: 28px; }
 .gallery-carousel { margin-top: 44px; }
 .gallery-cta { text-align: center; margin-top: 32px; }
 .gal-slide {
@@ -3231,6 +3227,14 @@ a { color: inherit; text-decoration: none; }
 @media (min-width: 1024px) {
   .hero .container.hero-grid { max-width: 1200px; }
 }
+/* En PC los dos CTA del hero van en una sola linea */
+@media (min-width: 901px) {
+  .hero-actions { flex-wrap: nowrap; align-items: stretch; }
+  .hero-actions .btn { white-space: nowrap; }
+  /* El video-cue es un refuerzo pensado para movil;
+     en PC el hero tiene otro layout (video a la derecha), asi que lo ocultamos */
+  .hero-copy > .hero-video-cue { display: none; }
+}
 
 @media (max-width: 900px) {
   .hero-grid { text-align: center; }
@@ -3259,10 +3263,10 @@ a { color: inherit; text-decoration: none; }
   }
   .hero-promise li { align-items: flex-start; }
   .hp-text { font-size: .95rem; }
-  .hero-chips { justify-content: center; flex-wrap: nowrap; gap: 5px; padding: 0 2px; }
-  .hero-chips li { font-size: .66rem; padding: 4px 9px 4px 4px; gap: 4px; }
-  .chip-ico { width: 20px; height: 20px; }
-  .chip-ico svg { width: 11px; height: 11px; }
+  .hero-chips { justify-content: center; flex-wrap: nowrap; gap: 11px; padding: 0 2px; }
+  .hero-chips li { font-size: .8rem; padding: 0; gap: 6px; }
+  .chip-ico { width: 26px; height: 26px; }
+  .chip-ico svg { width: 14px; height: 14px; }
   .hero-trustbar {
     margin-left: auto; margin-right: auto;
     gap: 8px;
@@ -3327,6 +3331,8 @@ a { color: inherit; text-decoration: none; }
   /* En móvil el hero debe ser corto: el link extra lo pasamos a sticky/botones */
   .hero-link { display: none; }
   .hero { padding: 24px 0 90px; }
+  /* Sin ola bajo el hero: recorta el espacio inferior en movil tambien */
+  .hero:has(+ .objections) { padding-bottom: 36px; }
   .benefits-grid, .pain-grid { grid-template-columns: repeat(2, 1fr); }
   .perks-grid { grid-template-columns: repeat(2, 1fr); }
   .perks-stats { grid-template-columns: repeat(2, 1fr); }
@@ -3350,7 +3356,7 @@ a { color: inherit; text-decoration: none; }
   .section { padding: 38px 0; }
   /* En móvil reducimos el hueco entre el subtítulo y la rejilla de tarjetas */
   .pain-grid { margin-top: 20px; }
-  .gallery { padding-top: 14px; }
+  .gallery { padding-top: 32px; }
   .trust-grid { grid-template-columns: repeat(2, 1fr); }
   .benefits-grid, .pain-grid { grid-template-columns: 1fr; }
   .perks-grid { grid-template-columns: 1fr; }
@@ -3477,8 +3483,8 @@ a { color: inherit; text-decoration: none; }
 }
 .obj-card h3 {
   font-size: 1.12rem;
-  font-weight: 700;
-  color: #ffffff;
+  font-weight: 800;
+  color: #fcd34d;
   margin-bottom: 10px;
   line-height: 1.35;
 }
@@ -3724,8 +3730,6 @@ a { color: inherit; text-decoration: none; }
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(8px); }
 }
-/* Frase puente dentro del hero, justo bajo el CTA: márgenes compactos */
-.hero-bridge { margin: 14px auto 16px; }
 
 /* Invitación a ver el video: indicación centrada con presencia, pegada al video */
 .hero-video-cue {
