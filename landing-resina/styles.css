@@ -704,17 +704,16 @@ a { color: inherit; text-decoration: none; }
 }
 
 .hero-sub {
-  font-family: var(--display);
-  font-size: 1.42rem;
+  font-family: var(--font);
+  font-size: 1.22rem;
   color: #d4f3ec;
-  max-width: 580px;
+  max-width: 560px;
   margin-bottom: 26px;
-  line-height: 1.55;
-  font-weight: 600;
-  letter-spacing: .1px;
+  line-height: 1.6;
+  font-weight: 500;
 }
 /* Resalta las frases clave en blanco para dar jerarquia dentro del subtitulo */
-.hero-sub strong { color: #ffffff; font-weight: 900; }
+.hero-sub strong { color: #ffffff; font-weight: 700; }
 
 /* Promesa del hero: dos beneficios con íconos (crear + vender) */
 .hero-promise {
@@ -3289,7 +3288,7 @@ a { color: inherit; text-decoration: none; }
   .hero-copy > .hero-media { margin: 6px auto 22px; }
   .hero h1 { font-size: 1.55rem; margin-bottom: 16px; }
   .hero-sub { margin-left: auto; margin-right: auto; }
-  .hero-sub { font-size: 1.12rem; margin-bottom: 10px; }
+  .hero-sub { font-size: 1.02rem; margin-bottom: 10px; line-height: 1.55; }
   .hero-promise {
     margin-left: auto; margin-right: auto;
     margin-bottom: 20px;
