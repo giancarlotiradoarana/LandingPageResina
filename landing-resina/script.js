@@ -679,4 +679,99 @@
     try { video.load(); } catch (e) {}
   })();
 
+  // ---- Barra de progreso de lectura (se llena al bajar por la página) ----
+  (function initReadProgress() {
+    var bar = document.getElementById('readProgressBar');
+    var pctEl = document.getElementById('readProgressPct');
+    if (!bar) return;
+    var rpTicking = false;
+    function update() {
+      var h = document.documentElement;
+      var scrollable = h.scrollHeight - h.clientHeight;
+      var pct = scrollable > 0 ? (h.scrollTop / scrollable) * 100 : 0;
+      pct = Math.max(0, Math.min(100, pct));
+      bar.style.width = pct + '%';
+      if (pctEl) pctEl.textContent = Math.round(pct) + '%';
+    }
+    window.addEventListener('scroll', function () {
+      if (!rpTicking) {
+        window.requestAnimationFrame(function () { update(); rpTicking = false; });
+        rpTicking = true;
+      }
+    }, { passive: true });
+    window.addEventListener('resize', update, { passive: true });
+    update();
+  })();
+
+  // ---- Popup de intención de salida (una vez por visitante) ----
+  (function initExitPopup() {
+    var pop = document.getElementById('exitPop');
+    if (!pop) return;
+    var closeBtn = document.getElementById('exitPopClose');
+    var dismissBtn = document.getElementById('exitPopDismiss');
+    var KEY = 'resina_exit_shown_v1';
+    var shown = false;
+    var armed = false;
+
+    // No mostrar si ya se mostró en una visita anterior
+    try { if (localStorage.getItem(KEY) === '1') shown = true; } catch (e) {}
+
+    // Se "arma" tras unos segundos: evita que salte apenas entra el usuario
+    setTimeout(function () { armed = true; }, 6000);
+    // Marca si el usuario ya exploró (bajó lo suficiente). Sin esto, no mostramos en movil.
+    var hasExplored = false;
+
+    function showPop() {
+      if (shown || !armed) return;
+      shown = true;
+      try { localStorage.setItem(KEY, '1'); } catch (e) {}
+      pop.classList.add('open');
+      pop.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function hidePop() {
+      pop.classList.remove('open');
+      pop.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    // --- Desktop: el mouse sale por arriba (hacia la X / barra de direcciones) ---
+    document.addEventListener('mouseout', function (e) {
+      if (!e.relatedTarget && e.clientY <= 0) showPop();
+    });
+
+    // --- Móvil: solo tras explorar y con un gesto de salida MUY claro ---
+    // Condiciones estrictas para evitar falsos positivos:
+    //   1) El usuario debe haber bajado al menos el 30% de la pagina (ya exploró).
+    //   2) Luego sube muy rápido (gesto fuerte) y llega casi al tope (< 80px).
+    var lastY = window.scrollY;
+    var lastT = Date.now();
+    window.addEventListener('scroll', function () {
+      var y = window.scrollY;
+      var now = Date.now();
+      var dt = now - lastT || 1;
+      var speed = (lastY - y) / dt; // positivo = subiendo
+
+      var h = document.documentElement;
+      var scrollable = h.scrollHeight - h.clientHeight;
+      var pct = scrollable > 0 ? (y / scrollable) * 100 : 0;
+
+      // Marca que exploró cuando pasa el 30% de la pagina
+      if (pct > 30) hasExplored = true;
+
+      // Disparo movil: exploró + sube muy rapido + termina pegado al inicio
+      if (hasExplored && speed > 2.2 && y <= 80) showPop();
+
+      lastY = y;
+      lastT = now;
+    }, { passive: true });
+
+    if (closeBtn) closeBtn.addEventListener('click', hidePop);
+    if (dismissBtn) dismissBtn.addEventListener('click', hidePop);
+    pop.addEventListener('click', function (e) { if (e.target === pop) hidePop(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && pop.classList.contains('open')) hidePop();
+    });
+  })();
+
 })();

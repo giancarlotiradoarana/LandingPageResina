@@ -38,7 +38,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261110s2" />
+  <link rel="stylesheet" href="styles.css?v=20261111s2" />
   <meta name="google-site-verification" content="GwWKWOrIXwZ40dyh-EvgQWgT7LcACfMETSy7uyxHlLo" />
 
   <script type="text/javascript">
@@ -77,6 +77,12 @@
         <span class="marquee-item"><span class="marquee-flag">🔥 SOLO HOY</span><span class="marquee-sep">·</span><span class="marquee-date"></span><span class="marquee-sep">·</span>Especialízate por <strong>$35 USD</strong><span class="marquee-dot"></span><span class="marquee-urgent">Últimas vacantes</span></span>
       </div>
     </div>
+  </div>
+
+  <!-- Barra de progreso de lectura: se llena a medida que el usuario baja -->
+  <div class="read-progress" aria-hidden="true">
+    <span class="read-progress-bar" id="readProgressBar"></span>
+    <span class="read-progress-pct" id="readProgressPct">0%</span>
   </div>
 
   <main>
@@ -278,6 +284,14 @@
               <figure class="gal-slide"><img src="img/trabajos/trabajo-29.webp" alt="Alumno mostrando su trabajo en resina epóxica" loading="lazy"></figure>
               <figure class="gal-slide"><img src="img/trabajos/trabajo-26.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
               <figure class="gal-slide"><img src="img/trabajos/trabajo-23.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
+              <!-- Slide CTA temprano: aparece pronto para quien empieza a deslizar -->
+              <a class="gal-slide gal-slide--cta" href="https://go.hotmart.com/B107766290U?ap=1492" target="_blank" rel="noopener">
+                <span class="gcta-emoji" aria-hidden="true">🤑</span>
+                <span class="gcta-title">¿Te imaginas <strong>cobrando por esto</strong>?</span>
+                <span class="gcta-text">Aprende a crear estas piezas y véndelas desde tu casa</span>
+                <span class="gcta-btn">Quiero aprender →</span>
+                <span class="gcta-more">👉 Sigue deslizando, hay más trabajos</span>
+              </a>
               <figure class="gal-slide"><img src="img/trabajos/trabajo-30.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
               <figure class="gal-slide"><img src="img/trabajos/trabajo-31.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
               <figure class="gal-slide"><img src="img/trabajos/trabajo-36.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
@@ -331,8 +345,11 @@
         </div>
         <p class="wa-hint" data-reveal>👉 Desliza para ver los +40 trabajos</p>
 
-        <div class="gallery-cta" data-reveal>
+        <!-- Cierre de galería reforzado: captura el deseo justo tras ver los trabajos -->
+        <div class="gallery-close" data-reveal>
+          <p class="gallery-close-line">Todo esto lo hicieron <strong>alumnos que empezaron desde cero</strong>. El próximo puedes ser tú.</p>
           <a href="https://go.hotmart.com/B107766290U?ap=1492" class="btn btn-primary btn-lg btn-shine" target="_blank" rel="noopener">Quiero crear y vender esto</a>
+          <p class="gallery-close-trust">🛡️ 7 días de garantía · ⚡ Acceso inmediato</p>
         </div>
 
       </div>
@@ -991,6 +1008,21 @@
     </span>
   </div>
 
+  <!-- ===== POPUP DE INTENCIÓN DE SALIDA ===== -->
+  <div class="exit-pop" id="exitPop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="exitPop-title">
+    <div class="exit-pop-box">
+      <button type="button" class="exit-pop-close" id="exitPopClose" aria-label="Cerrar">&times;</button>
+      <span class="exit-pop-emoji" aria-hidden="true">✋</span>
+      <h3 id="exitPop-title">¡Espera! No te vayas con las manos vacías</h3>
+      <p class="exit-pop-text">
+        Hoy puedes llevarte el curso completo <strong>5×1</strong> con <strong>50% de descuento</strong> y 6 regalos.
+        Solo <strong>$35</strong>, con <strong>7 días de garantía</strong>: si no es para ti, te devolvemos tu dinero.
+      </p>
+      <a href="https://go.hotmart.com/B107766290U?ap=1492" class="btn btn-primary btn-lg btn-shine exit-pop-btn" target="_blank" rel="noopener">Sí, quiero aprovecharlo por $35</a>
+      <button type="button" class="exit-pop-dismiss" id="exitPopDismiss">No gracias, prefiero pagar más después</button>
+    </div>
+  </div>
+
   <!-- ===== BARRA CTA MÓVIL FIJA ===== -->
   <div class="sticky-cta" id="stickyCta" aria-hidden="true">
     <div class="sticky-inner">
@@ -1002,7 +1034,7 @@
     </div>
   </div>
 
-  <script src="script.js?v=20261110s2" defer></script>
+  <script src="script.js?v=20261111s2" defer></script>
 
   <!-- ===== DATOS ESTRUCTURADOS (Schema.org) para SEO ===== -->
   <script type="application/ld+json">
