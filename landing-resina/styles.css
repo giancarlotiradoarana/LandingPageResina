@@ -1742,26 +1742,26 @@ a { color: inherit; text-decoration: none; }
   transition: transform .45s cubic-bezier(.22,.61,.36,1);
   will-change: transform;
 }
-/* Mas separacion entre capturas de testimonios (tienen fondo claro y se "funden") */
-#waTrack { gap: 26px; }
+/* Mas separacion entre capturas + alineadas arriba (cada una con su alto real) */
+#waTrack { gap: 26px; align-items: flex-start; }
+/* El slide-CTA de testimonios: altura comoda propia (las capturas son mas altas) */
+#waTrack .gal-slide--cta { min-height: 460px; justify-content: center; }
 .wa-slide {
   flex: 0 0 auto;
   width: 320px;
-  aspect-ratio: 3 / 4;
+  /* Sin altura fija: cada slide toma el alto real de su captura (no se recorta nada) */
+  align-self: flex-start;
   border-radius: 16px;
   overflow: hidden;
-  /* Borde + sombra mas marcada para separar visualmente las capturas (tienen fondo claro) */
   border: 1px solid #e2e8f0;
   box-shadow: 0 10px 28px -12px rgba(0, 0, 0, .45);
-  background: var(--bg-soft);
+  background: #ffffff;
   user-select: none;
-  display: grid;
-  place-items: center;
 }
 .wa-slide img {
+  display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   pointer-events: none;
   transition: transform .5s ease;
 }
@@ -3149,8 +3149,7 @@ a { color: inherit; text-decoration: none; }
 }
 /* Zoom suave al pasar el cursor (solo PC con mouse) */
 @media (hover: hover) {
-  .gal-slide:hover img,
-  .wa-slide:hover img { transform: scale(1.07); }
+  .gal-slide:hover img { transform: scale(1.07); }
 }
 
 /* ============================================

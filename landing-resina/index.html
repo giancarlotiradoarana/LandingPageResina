@@ -38,7 +38,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261111s7" />
+  <link rel="stylesheet" href="styles.css?v=20261111s8" />
+  <!-- Precarga la 1a imagen de la galeria para que aparezca al instante (la galeria va arriba) -->
+  <link rel="preload" as="image" href="img/trabajos/trabajo-34.webp" fetchpriority="high" />
   <meta name="google-site-verification" content="GwWKWOrIXwZ40dyh-EvgQWgT7LcACfMETSy7uyxHlLo" />
 
   <script type="text/javascript">
@@ -216,9 +218,9 @@
           <button class="carousel-btn carousel-prev" id="galPrev" aria-label="Anterior">‹</button>
           <div class="carousel-viewport" id="galViewport">
             <div class="carousel-track" id="galTrack">
-              <figure class="gal-slide"><img src="img/trabajos/trabajo-34.webp" alt="Alumno mostrando su trabajo en resina epóxica" loading="lazy"></figure>
-              <figure class="gal-slide"><img src="img/trabajos/trabajo-46.webp" alt="Alumno mostrando su trabajo en resina epóxica" loading="lazy"></figure>
-              <figure class="gal-slide"><img src="img/trabajos/trabajo-29.webp" alt="Alumno mostrando su trabajo en resina epóxica" loading="lazy"></figure>
+              <figure class="gal-slide"><img src="img/trabajos/trabajo-34.webp" alt="Alumno mostrando su trabajo en resina epóxica" loading="eager" fetchpriority="high"></figure>
+              <figure class="gal-slide"><img src="img/trabajos/trabajo-46.webp" alt="Alumno mostrando su trabajo en resina epóxica" loading="eager"></figure>
+              <figure class="gal-slide"><img src="img/trabajos/trabajo-29.webp" alt="Alumno mostrando su trabajo en resina epóxica" loading="eager"></figure>
               <figure class="gal-slide"><img src="img/trabajos/trabajo-26.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
               <figure class="gal-slide"><img src="img/trabajos/trabajo-23.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
               <!-- Slide CTA temprano: aparece pronto para quien empieza a deslizar -->
@@ -305,9 +307,9 @@
 
             <div class="carousel-viewport" id="waViewport">
               <div class="carousel-track" id="waTrack">
-                <figure class="wa-slide"><img src="img/wsp/wsp-3.webp" alt="Mensaje real de un alumno satisfecho por WhatsApp" loading="lazy"></figure>
-                <figure class="wa-slide"><img src="img/wsp/wsp-6.webp" alt="Mensaje real de un alumno satisfecho por WhatsApp" loading="lazy"></figure>
-                <figure class="wa-slide"><img src="img/wsp/wsp-7.webp" alt="Mensaje real de un alumno satisfecho por WhatsApp" loading="lazy"></figure>
+                <figure class="wa-slide"><img src="img/wsp/wsp-3.webp" alt="Mensaje real de un alumno satisfecho por WhatsApp" loading="eager" fetchpriority="high"></figure>
+                <figure class="wa-slide"><img src="img/wsp/wsp-6.webp" alt="Mensaje real de un alumno satisfecho por WhatsApp" loading="eager"></figure>
+                <figure class="wa-slide"><img src="img/wsp/wsp-7.webp" alt="Mensaje real de un alumno satisfecho por WhatsApp" loading="eager"></figure>
                 <figure class="wa-slide"><img src="img/wsp/wsp-5.webp" alt="Mensaje real de un alumno satisfecho por WhatsApp" loading="lazy"></figure>
                 <!-- Slide CTA intercalado (mismo diseño que la galería) -->
                 <a class="wa-slide gal-slide--cta" href="https://go.hotmart.com/B107766290U?ap=1492" target="_blank" rel="noopener">
@@ -1032,7 +1034,7 @@
     </div>
   </div>
 
-  <script src="script.js?v=20261111s7" defer></script>
+  <script src="script.js?v=20261111s8" defer></script>
 
   <!-- ===== DATOS ESTRUCTURADOS (Schema.org) para SEO ===== -->
   <script type="application/ld+json">
