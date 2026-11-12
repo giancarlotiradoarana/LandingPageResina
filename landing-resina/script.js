@@ -658,10 +658,8 @@
     // ----- Reproducción -----
     var started = false;
     function startVideo() {
-      if (!started) {
-        video.setAttribute('controls', '');  // muestra los controles al arrancar
-        started = true;
-      }
+      // Sin controles nativos: video limpio estilo reel. Se pausa/reproduce tocando.
+      started = true;
       video.play();
       if (playBtn) playBtn.classList.add('hidden');
     }
@@ -674,6 +672,13 @@
       if (!started) { startVideo(); return; }
       if (video.paused) { video.play(); } else { video.pause(); }
     });
+
+    // Sin controles nativos: mostramos el boton de play cuando esta pausado
+    // y lo ocultamos al reproducir, para que siempre haya senal visual.
+    if (playBtn) {
+      video.addEventListener('play', function () { playBtn.classList.add('hidden'); });
+      video.addEventListener('pause', function () { playBtn.classList.remove('hidden'); });
+    }
 
     // Forzamos la carga de metadata para que el loader tenga algo que esperar
     try { video.load(); } catch (e) {}

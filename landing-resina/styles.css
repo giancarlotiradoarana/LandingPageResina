@@ -712,8 +712,8 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.6;
   font-weight: 500;
 }
-/* Resalta las frases clave en blanco para dar jerarquia dentro del subtitulo */
-.hero-sub strong { color: #ffffff; font-weight: 700; }
+/* Resalta las frases clave en amarillo para dar jerarquia dentro del subtitulo */
+.hero-sub strong { color: #fcd34d; font-weight: 800; }
 
 /* Promesa del hero: dos beneficios con íconos (crear + vender) */
 .hero-promise {
@@ -1045,7 +1045,9 @@ a { color: inherit; text-decoration: none; }
   border-radius: 20px;
   overflow: hidden;
   box-shadow: var(--shadow-lg), 0 0 0 1px rgba(255,255,255,.1);
-  background: #0a3d3a;
+  /* Poster de fondo: si el video no carga (ej. navegador in-app de Facebook),
+     igual se ve la imagen en vez de un recuadro vacio */
+  background: #0a3d3a url("img/hero-video-poster.webp") center/cover no-repeat;
   /* Mismo aspect ratio que tenía el video de Wistia (640x362 = 1.768) para no cambiar el alto/ancho */
   aspect-ratio: 640 / 362;
 }
@@ -1054,7 +1056,7 @@ a { color: inherit; text-decoration: none; }
   width: 100%;
   height: 100%;
   border-radius: 20px;
-  background: #0a3d3a;
+  background: transparent;
   object-fit: cover;
   cursor: pointer;
 }
@@ -1709,7 +1711,11 @@ a { color: inherit; text-decoration: none; }
 /* ============================================
    TESTIMONIALS
    ============================================ */
-.testimonials { background: var(--bg); padding-top: 8px; }
+/* Fondo verde menta suave: alterna con el blanco de la galeria y da ritmo visual */
+.testimonials {
+  background: linear-gradient(170deg, #f0fdfa 0%, #e6fbf5 100%);
+  padding-top: 8px;
+}
 
 /* ============================================
    CARRUSEL DE CAPTURAS DE WHATSAPP
@@ -1736,14 +1742,18 @@ a { color: inherit; text-decoration: none; }
   transition: transform .45s cubic-bezier(.22,.61,.36,1);
   will-change: transform;
 }
+/* Mas separacion entre capturas de testimonios (tienen fondo claro y se "funden") */
+#waTrack { gap: 26px; }
 .wa-slide {
   flex: 0 0 auto;
-  width: 260px;
-  height: 460px;
-  border-radius: 18px;
+  width: 320px;
+  aspect-ratio: 3 / 4;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: var(--shadow);
-  background: linear-gradient(135deg, #dcf1e5, #e8f7ef);
+  /* Borde + sombra mas marcada para separar visualmente las capturas (tienen fondo claro) */
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 28px -12px rgba(0, 0, 0, .45);
+  background: var(--bg-soft);
   user-select: none;
   display: grid;
   place-items: center;
@@ -1751,8 +1761,9 @@ a { color: inherit; text-decoration: none; }
 .wa-slide img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   pointer-events: none;
+  transition: transform .5s ease;
 }
 /* Placeholder mientras no hay imagen real */
 .wa-placeholder {
@@ -3138,7 +3149,8 @@ a { color: inherit; text-decoration: none; }
 }
 /* Zoom suave al pasar el cursor (solo PC con mouse) */
 @media (hover: hover) {
-  .gal-slide:hover img { transform: scale(1.07); }
+  .gal-slide:hover img,
+  .wa-slide:hover img { transform: scale(1.07); }
 }
 
 /* ============================================
@@ -3372,7 +3384,6 @@ a { color: inherit; text-decoration: none; }
   .perks-grid { grid-template-columns: repeat(2, 1fr); }
   .perks-stats { grid-template-columns: repeat(2, 1fr); }
   .transform-stats { grid-template-columns: repeat(2, 1fr); }
-  .wa-slide { width: 240px; }
   .instructor-inner { grid-template-columns: 1fr; text-align: center; }
   .instructor-photo { max-width: 260px; margin: 0 auto; }
   .instructor-stats { margin: 0 auto; }
@@ -3426,7 +3437,8 @@ a { color: inherit; text-decoration: none; }
   .hero-actions { flex-direction: column; }
   .carousel { gap: 6px; }
   .carousel-btn { width: 46px; height: 46px; font-size: 1.6rem; }
-  .wa-slide { width: 78vw; max-width: 300px; }
+  /* Testimonios con el mismo tamano que la galeria en movil */
+  .wa-slide { width: 100%; max-width: none; }
   .topbar { padding: 8px 0; }
   /* Todo en UNA sola línea: no se envuelve, tamaños compactos */
   .topbar-inner { flex-wrap: nowrap; gap: 8px; }

@@ -38,7 +38,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261111s6" />
+  <link rel="stylesheet" href="styles.css?v=20261111s7" />
   <meta name="google-site-verification" content="GwWKWOrIXwZ40dyh-EvgQWgT7LcACfMETSy7uyxHlLo" />
 
   <script type="text/javascript">
@@ -101,7 +101,7 @@
             Aprende <span class="hl-green">resina epóxica</span> y crea acabados de lujo que casi nadie sabe hacer
           </h1>
           <p class="hero-sub reveal">
-            Convierte <strong></strong>pisos, mesas y mesones viejos</strong> en piezas de lujo y cobra por ellas. Te enseñamos paso a paso, <strong>tengas o no experiencia</strong>.
+            Convierte pisos, mesas, paredes y mesones viejos en <strong>piezas de lujo</strong> y <strong>cobra por ellas</strong>. Te enseñamos paso a paso, <strong>tengas o no experiencia</strong>.
           </p>
           <ul class="hero-promise reveal" aria-label="Lo que logras">
             <li>
@@ -123,6 +123,7 @@
                 id="heroVideo"
                 class="hero-video-el"
                 preload="metadata"
+                poster="img/hero-video-poster.webp"
                 playsinline>
                 <source src="video/presentacion.mp4#t=0.1" type="video/mp4">
                 Tu navegador no soporta el video. <a href="video/presentacion.mp4">Descárgalo aquí</a>.
@@ -291,6 +292,56 @@
       </div>
     </section>
 
+    <!-- ===== TESTIMONIOS (subidos: prueba social donde sí hay atención) ===== -->
+    <section class="section testimonials" id="opiniones" aria-labelledby="test-title">
+      <div class="container">
+        <h2 id="test-title" class="section-title" data-reveal>+2.100 alumnos que ya viven de la resina</h2>
+        <p class="section-sub" data-reveal>Mensajes reales de alumnos que ya recuperaron la inversión y hoy cobran por sus trabajos.</p>
+
+        <!-- ===== CARRUSEL DE CAPTURAS DE WHATSAPP ===== -->
+        <div class="wa-proof" data-reveal>
+          <div class="carousel" id="waCarousel">
+            <button class="carousel-btn carousel-prev" id="waPrev" aria-label="Anterior">‹</button>
+
+            <div class="carousel-viewport" id="waViewport">
+              <div class="carousel-track" id="waTrack">
+                <figure class="wa-slide"><img src="img/wsp/wsp-3.webp" alt="Mensaje real de un alumno satisfecho por WhatsApp" loading="lazy"></figure>
+                <figure class="wa-slide"><img src="img/wsp/wsp-6.webp" alt="Mensaje real de un alumno satisfecho por WhatsApp" loading="lazy"></figure>
+                <figure class="wa-slide"><img src="img/wsp/wsp-7.webp" alt="Mensaje real de un alumno satisfecho por WhatsApp" loading="lazy"></figure>
+                <figure class="wa-slide"><img src="img/wsp/wsp-5.webp" alt="Mensaje real de un alumno satisfecho por WhatsApp" loading="lazy"></figure>
+                <!-- Slide CTA intercalado (mismo diseño que la galería) -->
+                <a class="wa-slide gal-slide--cta" href="https://go.hotmart.com/B107766290U?ap=1492" target="_blank" rel="noopener">
+                  <span class="gcta-emoji" aria-hidden="true">💬</span>
+                  <span class="gcta-title">Tú también puedes <strong>cobrar por esto</strong></span>
+                  <span class="gcta-text">Únete a los +2.100 alumnos que ya viven de la resina</span>
+                  <span class="gcta-btn">Empezar ahora →</span>
+                  <span class="gcta-more">👉 Sigue deslizando, hay más mensajes</span>
+                </a>
+                <figure class="wa-slide"><img src="img/wsp/wsp-8.webp" alt="Mensaje real de un alumno satisfecho por WhatsApp" loading="lazy"></figure>
+                <figure class="wa-slide"><img src="img/wsp/wsp-4.webp" alt="Mensaje real de un alumno satisfecho por WhatsApp" loading="lazy"></figure>
+                <figure class="wa-slide"><img src="img/wsp/wsp-2.webp" alt="Mensaje real de un alumno satisfecho por WhatsApp" loading="lazy"></figure>
+                <figure class="wa-slide"><img src="img/wsp/wsp-1.webp" alt="Mensaje real de un alumno satisfecho por WhatsApp" loading="lazy"></figure>     
+              </div>
+            </div>
+
+            <button class="carousel-btn carousel-next" id="waNext" aria-label="Siguiente">›</button>
+          </div>
+
+          <div class="carousel-dots" id="waDots" role="tablist" aria-label="Navegación del carrusel"></div>
+          <p class="wa-hint">👉 Desliza para ver más mensajes</p>
+        </div>
+
+        <div class="gallery-cta" data-reveal>
+          <a href="https://go.hotmart.com/B107766290U?ap=1492" class="btn btn-primary btn-lg btn-shine" target="_blank" rel="noopener">Quiero resultados como estos</a>
+        </div>
+
+        <p class="scroll-bridge" data-reveal>
+          ¿Aún tienes dudas? Aquí te las resuelvo todas
+          <span class="sb-arrow" aria-hidden="true">👇</span>
+        </p>
+      </div>
+    </section>
+
     <!-- ===== OBJECIONES / POR QUÉ LA RESINA (subido: resuelve dudas justo tras el hero) ===== -->
     <section class="section objections" id="porque" aria-labelledby="obj-title">
       <div class="obj-glow" aria-hidden="true"></div>
@@ -335,48 +386,6 @@
             <h3>¿Qué gano con el paquete 5×1?</h3>
             <p>Dominas mesas, pisos, paredes y cocinas: 5 formas distintas de cobrar. Siempre tienes algo que ofrecer y nunca te quedas sin trabajo.</p>
           </article>
-        </div>
-
-        <p class="scroll-bridge" data-reveal>
-          ¿Todavía con dudas? Mira lo que dicen los que ya lo hacen
-          <span class="sb-arrow" aria-hidden="true">👇</span>
-        </p>
-      </div>
-    </section>
-
-    <!-- ===== TESTIMONIOS (subidos: prueba social donde sí hay atención) ===== -->
-    <section class="section testimonials" id="opiniones" aria-labelledby="test-title">
-      <div class="container">
-        <h2 id="test-title" class="section-title" data-reveal>+2.100 alumnos que ya viven de la resina</h2>
-        <p class="section-sub" data-reveal>Mensajes reales de alumnos que ya recuperaron la inversión y hoy cobran por sus trabajos.</p>
-
-        <!-- ===== CARRUSEL DE CAPTURAS DE WHATSAPP ===== -->
-        <div class="wa-proof" data-reveal>
-          <div class="carousel" id="waCarousel">
-            <button class="carousel-btn carousel-prev" id="waPrev" aria-label="Anterior">‹</button>
-
-            <div class="carousel-viewport" id="waViewport">
-              <div class="carousel-track" id="waTrack">
-                <figure class="wa-slide"><img src="img/wsp/wsp-3.webp" alt="Mensaje real de un alumno satisfecho por WhatsApp" loading="lazy"></figure>
-                <figure class="wa-slide"><img src="img/wsp/wsp-6.webp" alt="Mensaje real de un alumno satisfecho por WhatsApp" loading="lazy"></figure>
-                <figure class="wa-slide"><img src="img/wsp/wsp-7.webp" alt="Mensaje real de un alumno satisfecho por WhatsApp" loading="lazy"></figure>
-                <figure class="wa-slide"><img src="img/wsp/wsp-5.webp" alt="Mensaje real de un alumno satisfecho por WhatsApp" loading="lazy"></figure>
-                <figure class="wa-slide"><img src="img/wsp/wsp-8.webp" alt="Mensaje real de un alumno satisfecho por WhatsApp" loading="lazy"></figure>
-                <figure class="wa-slide"><img src="img/wsp/wsp-4.webp" alt="Mensaje real de un alumno satisfecho por WhatsApp" loading="lazy"></figure>
-                <figure class="wa-slide"><img src="img/wsp/wsp-2.webp" alt="Mensaje real de un alumno satisfecho por WhatsApp" loading="lazy"></figure>
-                <figure class="wa-slide"><img src="img/wsp/wsp-1.webp" alt="Mensaje real de un alumno satisfecho por WhatsApp" loading="lazy"></figure>     
-              </div>
-            </div>
-
-            <button class="carousel-btn carousel-next" id="waNext" aria-label="Siguiente">›</button>
-          </div>
-
-          <div class="carousel-dots" id="waDots" role="tablist" aria-label="Navegación del carrusel"></div>
-          <p class="wa-hint">👉 Desliza para ver más mensajes</p>
-        </div>
-
-        <div class="gallery-cta" data-reveal>
-          <a href="https://go.hotmart.com/B107766290U?ap=1492" class="btn btn-primary btn-lg btn-shine" target="_blank" rel="noopener">Quiero resultados como estos</a>
         </div>
 
         <p class="scroll-bridge" data-reveal>
@@ -1023,7 +1032,7 @@
     </div>
   </div>
 
-  <script src="script.js?v=20261111s6" defer></script>
+  <script src="script.js?v=20261111s7" defer></script>
 
   <!-- ===== DATOS ESTRUCTURADOS (Schema.org) para SEO ===== -->
   <script type="application/ld+json">
