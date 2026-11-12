@@ -1191,9 +1191,9 @@ a { color: inherit; text-decoration: none; }
 .wave-divider path { fill: var(--bg); }
 /* Si tras el hero viene la seccion verde oscuro (objeciones), quitamos la ola:
    corte recto, el verde del hero pasa directo al verde oscuro sin curva */
-.hero:has(+ .objections) .wave-divider { display: none; }
+.hero .wave-divider { display: none; }
 /* Sin ola, recortamos el espacio inferior sobrante del hero para subir la siguiente seccion */
-.hero:has(+ .objections) { padding-bottom: 56px; }
+.hero { padding-bottom: 56px; }
 
 /* ============================================
    TRUST BAR
@@ -3367,7 +3367,7 @@ a { color: inherit; text-decoration: none; }
   .hero-link { display: none; }
   .hero { padding: 24px 0 90px; }
   /* Sin ola bajo el hero: recorta el espacio inferior en movil tambien */
-  .hero:has(+ .objections) { padding-bottom: 36px; }
+  .hero { padding-bottom: 36px; }
   .benefits-grid, .pain-grid { grid-template-columns: repeat(2, 1fr); }
   .perks-grid { grid-template-columns: repeat(2, 1fr); }
   .perks-stats { grid-template-columns: repeat(2, 1fr); }
@@ -3545,8 +3545,12 @@ a { color: inherit; text-decoration: none; }
   .obj-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 560px) {
-  .obj-grid { grid-template-columns: 1fr; }
-  .obj-card { padding: 24px 20px; }
+  /* 2 columnas en movil para compactar (menos scroll) */
+  .obj-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .obj-card { padding: 16px 13px; }
+  .obj-card h3 { font-size: .98rem; }
+  .obj-card p { font-size: .84rem; line-height: 1.5; }
+  .obj-icon { width: 42px; height: 42px; font-size: 1.3rem; border-radius: 12px; margin-bottom: 12px; }
 }
 
 /* ============================================
@@ -3987,4 +3991,29 @@ a { color: inherit; text-decoration: none; }
 }
 @media (max-width: 560px) {
   .hero-eyebrow { font-size: .88rem; padding: 9px 13px; }
+}
+
+/* ============================================
+   CTA SECUNDARIO DEL HERO (ver modulos)
+   ============================================ */
+.hero-see-modules {
+  background: #053b36;
+  color: #ffffff;
+  border: 2px solid #fbbf24;
+  font-weight: 800;
+  box-shadow: 0 6px 18px -6px rgba(0, 0, 0, .5);
+  transition: background .2s ease, transform .2s ease;
+  animation: seeModulesPulse 2.2s ease-in-out infinite;
+}
+.hero-see-modules:hover {
+  background: #0a4a44;
+  transform: translateY(-2px);
+}
+/* Latido dorado para que se note que es clicable */
+@keyframes seeModulesPulse {
+  0%, 100% { box-shadow: 0 6px 18px -6px rgba(0,0,0,.5), 0 0 0 0 rgba(251, 191, 36, .5); }
+  50% { box-shadow: 0 6px 18px -6px rgba(0,0,0,.5), 0 0 0 6px rgba(251, 191, 36, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-see-modules { animation: none; }
 }
