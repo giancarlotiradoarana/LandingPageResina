@@ -38,7 +38,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261111s8" />
+  <link rel="stylesheet" href="styles.css?v=20261111s9" />
   <!-- Precarga la 1a imagen de la galeria para que aparezca al instante (la galeria va arriba) -->
   <link rel="preload" as="image" href="img/trabajos/trabajo-34.webp" fetchpriority="high" />
   <meta name="google-site-verification" content="GwWKWOrIXwZ40dyh-EvgQWgT7LcACfMETSy7uyxHlLo" />
@@ -823,7 +823,7 @@
           </ul>
         </div>
         <div class="cert-media reveal-right">
-          <img src="img/CertGarantiaMetodosProf/certificado.webp" alt="Certificado de culminación del curso de resina epóxica" loading="lazy">
+          <img src="img/CertGarantiaMetodosProf/certificado.webp" alt="Certificado de culminación del curso de resina epóxica" loading="eager" decoding="async">
         </div>
       </div>
     </section>
@@ -1012,14 +1012,31 @@
   <div class="exit-pop" id="exitPop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="exitPop-title">
     <div class="exit-pop-box">
       <button type="button" class="exit-pop-close" id="exitPopClose" aria-label="Cerrar">&times;</button>
-      <span class="exit-pop-emoji" aria-hidden="true">✋</span>
-      <h3 id="exitPop-title">¡Espera! No te vayas con las manos vacías</h3>
-      <p class="exit-pop-text">
-        Hoy puedes llevarte el curso completo <strong>5×1</strong> con <strong>50% de descuento</strong> y 6 regalos.
-        Solo <strong>$35</strong>, con <strong>7 días de garantía</strong>: si no es para ti, te devolvemos tu dinero.
-      </p>
-      <a href="https://go.hotmart.com/B107766290U?ap=1492" class="btn btn-primary btn-lg btn-shine exit-pop-btn" target="_blank" rel="noopener">Sí, quiero aprovecharlo por $35</a>
-      <button type="button" class="exit-pop-dismiss" id="exitPopDismiss">No gracias, prefiero pagar más después</button>
+
+      <!-- NIVEL 1: oferta de rescate a $25 -->
+      <div class="exit-step" id="exitStep1">
+        <span class="exit-pop-emoji" aria-hidden="true">✋</span>
+        <h3 id="exitPop-title">¡Espera! Tengo algo para ti</h3>
+        <p class="exit-pop-text">
+          Sé que empezar es una decisión. Por eso, solo por hoy, puedes llevarte el <strong>curso completo</strong> con todos los regalos por <span class="exit-price"><s>$35</s> $25</span>.
+          Con <strong>7 días de garantía</strong>.
+        </p>
+        <a href="https://go.hotmart.com/B107766290U?ap=0690" class="btn btn-primary btn-lg btn-shine exit-pop-btn" target="_blank" rel="noopener" data-exit-buy>Sí, lo quiero por $25</a>
+        <button type="button" class="exit-pop-dismiss" id="exitDismiss1">No, gracias</button>
+      </div>
+
+      <!-- NIVEL 2: último rescate a $17 -->
+      <div class="exit-step" id="exitStep2" hidden>
+        <span class="exit-pop-emoji" aria-hidden="true">🎁</span>
+        <h3>Última oportunidad: el precio más bajo</h3>
+        <p class="exit-pop-text">
+          No quiero que te quedes sin aprender. Te dejo el <strong>mismo curso completo</strong> al precio más bajo que vas a ver: <span class="exit-price"><s>$35</s> $17</span>.
+          Esta oferta no vuelve a aparecer.
+        </p>
+        <a href="https://go.hotmart.com/B107766290U?ap=adc2" class="btn btn-primary btn-lg btn-shine exit-pop-btn" target="_blank" rel="noopener" data-exit-buy>Lo quiero por $17</a>
+        <button type="button" class="exit-pop-dismiss" id="exitDismiss2">No, prefiero dejarlo pasar</button>
+      </div>
+
     </div>
   </div>
 
@@ -1034,7 +1051,7 @@
     </div>
   </div>
 
-  <script src="script.js?v=20261111s8" defer></script>
+  <script src="script.js?v=20261111s9" defer></script>
 
   <!-- ===== DATOS ESTRUCTURADOS (Schema.org) para SEO ===== -->
   <script type="application/ld+json">

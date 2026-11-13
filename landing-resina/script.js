@@ -713,69 +713,91 @@
     var pop = document.getElementById('exitPop');
     if (!pop) return;
     var closeBtn = document.getElementById('exitPopClose');
-    var dismissBtn = document.getElementById('exitPopDismiss');
-    var KEY = 'resina_exit_shown_v1';
-    var shown = false;
+    var step1 = document.getElementById('exitStep1');     // oferta $25
+    var step2 = document.getElementById('exitStep2');     // oferta $17
+    var dismiss1 = document.getElementById('exitDismiss1');
+    var dismiss2 = document.getElementById('exitDismiss2');
+    var KEY = 'resina_exit_done_v2';  // v2: nueva logica de downsell 2 niveles
     var armed = false;
 
-    // No mostrar si ya se mostró en una visita anterior
-    try { if (localStorage.getItem(KEY) === '1') shown = true; } catch (e) {}
+    // "level" = en que nivel va el visitante: 1 = ofrecer $25, 2 = ofrecer $17, 0 = terminado
+    var level = 1;
+    try { if (localStorage.getItem(KEY) === 'done') level = 0; } catch (e) {}
 
     // Se "arma" tras unos segundos: evita que salte apenas entra el usuario
     setTimeout(function () { armed = true; }, 6000);
-    // Marca si el usuario ya exploró (bajó lo suficiente). Sin esto, no mostramos en movil.
     var hasExplored = false;
+    var isOpen = false;
 
-    function showPop() {
-      if (shown || !armed) return;
-      shown = true;
-      try { localStorage.setItem(KEY, '1'); } catch (e) {}
+    function openAtCurrentLevel() {
+      if (!armed || level === 0 || isOpen) return;
+      // Mostrar el paso correspondiente
+      if (level === 1) {
+        if (step1) step1.hidden = false;
+        if (step2) step2.hidden = true;
+      } else if (level === 2) {
+        if (step1) step1.hidden = true;
+        if (step2) step2.hidden = false;
+      }
+      isOpen = true;
       pop.classList.add('open');
       pop.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
     }
-    function hidePop() {
+    function closePop() {
+      isOpen = false;
       pop.classList.remove('open');
       pop.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
     }
+    // Cerrar y avanzar de nivel: si rechaza $25 pasa a $17; si rechaza $17 termina
+    function rejectAndAdvance() {
+      closePop();
+      if (level === 1) {
+        level = 2; // la proxima vez que intente salir, vera el de $17
+      } else {
+        level = 0; // ya no hay mas ofertas
+        try { localStorage.setItem(KEY, 'done'); } catch (e) {}
+      }
+    }
 
-    // --- Desktop: el mouse sale por arriba (hacia la X / barra de direcciones) ---
+    // --- Desktop: el mouse sale por arriba ---
     document.addEventListener('mouseout', function (e) {
-      if (!e.relatedTarget && e.clientY <= 0) showPop();
+      if (!e.relatedTarget && e.clientY <= 0) openAtCurrentLevel();
     });
 
-    // --- Móvil: solo tras explorar y con un gesto de salida MUY claro ---
-    // Condiciones estrictas para evitar falsos positivos:
-    //   1) El usuario debe haber bajado al menos el 30% de la pagina (ya exploró).
-    //   2) Luego sube muy rápido (gesto fuerte) y llega casi al tope (< 80px).
+    // --- Móvil: tras explorar + gesto de salida muy claro ---
     var lastY = window.scrollY;
     var lastT = Date.now();
     window.addEventListener('scroll', function () {
       var y = window.scrollY;
       var now = Date.now();
       var dt = now - lastT || 1;
-      var speed = (lastY - y) / dt; // positivo = subiendo
-
+      var speed = (lastY - y) / dt;
       var h = document.documentElement;
       var scrollable = h.scrollHeight - h.clientHeight;
       var pct = scrollable > 0 ? (y / scrollable) * 100 : 0;
-
-      // Marca que exploró cuando pasa el 30% de la pagina
       if (pct > 30) hasExplored = true;
-
-      // Disparo movil: exploró + sube muy rapido + termina pegado al inicio
-      if (hasExplored && speed > 2.2 && y <= 80) showPop();
-
+      if (hasExplored && speed > 2.2 && y <= 80) openAtCurrentLevel();
       lastY = y;
       lastT = now;
     }, { passive: true });
 
-    if (closeBtn) closeBtn.addEventListener('click', hidePop);
-    if (dismissBtn) dismissBtn.addEventListener('click', hidePop);
-    pop.addEventListener('click', function (e) { if (e.target === pop) hidePop(); });
+    // La X cierra pero NO marca como terminado (puede reaparecer con el otro nivel)
+    if (closeBtn) closeBtn.addEventListener('click', rejectAndAdvance);
+    if (dismiss1) dismiss1.addEventListener('click', rejectAndAdvance);
+    if (dismiss2) dismiss2.addEventListener('click', rejectAndAdvance);
+    pop.addEventListener('click', function (e) { if (e.target === pop) rejectAndAdvance(); });
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && pop.classList.contains('open')) hidePop();
+      if (e.key === 'Escape' && isOpen) rejectAndAdvance();
+    });
+
+    // Si el usuario compra (toca un boton de compra del popup), marcamos terminado
+    pop.querySelectorAll('[data-exit-buy]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        level = 0;
+        try { localStorage.setItem(KEY, 'done'); } catch (e) {}
+      });
     });
   })();
 
