@@ -777,7 +777,7 @@
       var h = document.documentElement;
       var scrollable = h.scrollHeight - h.clientHeight;
       var pct = scrollable > 0 ? (y / scrollable) * 100 : 0;
-      if (pct > 30) hasExplored = true;
+      if (pct > 90) hasExplored = true;
       if (hasExplored && speed > 2.2 && y <= 80) openAtCurrentLevel();
       lastY = y;
       lastT = now;
