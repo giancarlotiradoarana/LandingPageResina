@@ -761,9 +761,9 @@
       }
     }
 
-    // --- Desktop: el mouse sale por arriba ---
+    // --- Desktop: el mouse sale por arriba (solo si ya exploro la pagina) ---
     document.addEventListener('mouseout', function (e) {
-      if (!e.relatedTarget && e.clientY <= 0) openAtCurrentLevel();
+      if (hasExplored && !e.relatedTarget && e.clientY <= 0) openAtCurrentLevel();
     });
 
     // --- Móvil: tras explorar + gesto de salida muy claro ---
