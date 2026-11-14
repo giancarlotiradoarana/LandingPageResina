@@ -3297,7 +3297,7 @@ a { color: inherit; text-decoration: none; }
   }
   .hero-copy > .eyebrow { justify-self: center; justify-content: center; }
   .hero-copy > .hero-media { margin: 6px auto 22px; }
-  .hero h1 { font-size: 1.60rem; margin-bottom: 16px; }
+  .hero h1 { font-size: 1.45rem; margin-bottom: 16px; }
   .hero-sub { margin-left: auto; margin-right: auto; }
   .hero-sub { font-size: 1.16rem; margin-bottom: 10px; line-height: 1.55; }
   .hero-promise {
@@ -3784,7 +3784,7 @@ a { color: inherit; text-decoration: none; }
 /* Invitación a ver el video: indicación centrada con presencia, pegada al video */
 .hero-video-cue {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: center;
   gap: 9px;
   /* Más aire arriba (lo separa de los bullets) y menos abajo (lo acerca al video) */
@@ -3804,6 +3804,9 @@ a { color: inherit; text-decoration: none; }
 .hero-video-cue .hvc-play {
   color: #fbbf24;
   font-size: .85rem;
+  line-height: 1.3;
+  position: relative;
+  top: 1px;
   animation: cueBounce 1.3s ease-in-out infinite;
 }
 @keyframes cueBounce {
