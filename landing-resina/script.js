@@ -218,8 +218,9 @@
     var preloaded = {};
     function preloadNear(centerIndex) {
       var pv = perView();
-      // precarga desde 1 atrás hasta pv+2 posiciones más adelante
-      for (var i = centerIndex - 1; i <= centerIndex + pv + 2; i++) {
+      // precarga desde 2 atras hasta pv+5 posiciones mas adelante (buffer amplio
+      // para que al deslizar nunca se vea el hueco en blanco)
+      for (var i = centerIndex - 2; i <= centerIndex + pv + 5; i++) {
         var slide = slides[i];
         if (!slide) continue;
         var img = slide.querySelector('img');

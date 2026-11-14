@@ -38,9 +38,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261113s10" />
-  <!-- Precarga la 1a imagen de la galeria para que aparezca al instante (la galeria va arriba) -->
+  <link rel="stylesheet" href="styles.css?v=20261113s11" />
+  <!-- Precarga las primeras imagenes de la galeria para que aparezcan al instante (la galeria va arriba) -->
   <link rel="preload" as="image" href="img/trabajos/trabajo-34.webp" fetchpriority="high" />
+  <link rel="preload" as="image" href="img/trabajos/trabajo-46.webp" />
   <meta name="google-site-verification" content="GwWKWOrIXwZ40dyh-EvgQWgT7LcACfMETSy7uyxHlLo" />
 
   <script type="text/javascript">
@@ -205,15 +206,15 @@
         <h2 id="gallery-title" class="section-title" data-reveal>Esto es lo que vas a aprender a crear y vender</h2>
         <p class="section-sub" data-reveal>+40 trabajos reales hechos por alumnos del curso. Desliza y míralos.</p>
 
-        <div class="carousel gallery-carousel" data-reveal>
+        <div class="carousel gallery-carousel">
           <button class="carousel-btn carousel-prev" id="galPrev" aria-label="Anterior">‹</button>
           <div class="carousel-viewport" id="galViewport">
             <div class="carousel-track" id="galTrack">
               <figure class="gal-slide"><img src="img/trabajos/trabajo-34.webp" alt="Alumno mostrando su trabajo en resina epóxica" loading="eager" fetchpriority="high"></figure>
-              <figure class="gal-slide"><img src="img/trabajos/trabajo-46.webp" alt="Alumno mostrando su trabajo en resina epóxica" loading="eager"></figure>
-              <figure class="gal-slide"><img src="img/trabajos/trabajo-29.webp" alt="Alumno mostrando su trabajo en resina epóxica" loading="eager"></figure>
-              <figure class="gal-slide"><img src="img/trabajos/trabajo-26.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
-              <figure class="gal-slide"><img src="img/trabajos/trabajo-23.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
+              <figure class="gal-slide"><img src="img/trabajos/trabajo-46.webp" alt="Alumno mostrando su trabajo en resina epóxica" loading="eager" fetchpriority="high"></figure>
+              <figure class="gal-slide"><img src="img/trabajos/trabajo-29.webp" alt="Alumno mostrando su trabajo en resina epóxica" loading="eager" fetchpriority="high"></figure>
+              <figure class="gal-slide"><img src="img/trabajos/trabajo-26.webp" alt="Trabajo en resina epóxica" loading="eager"></figure>
+              <figure class="gal-slide"><img src="img/trabajos/trabajo-23.webp" alt="Trabajo en resina epóxica" loading="eager"></figure>
               <!-- Slide CTA temprano: aparece pronto para quien empieza a deslizar -->
               <a class="gal-slide gal-slide--cta" href="https://go.hotmart.com/B107766290U?ap=1492" target="_blank" rel="noopener">
                 <span class="gcta-emoji" aria-hidden="true">🤑</span>
@@ -1048,7 +1049,7 @@
     </div>
   </div>
 
-  <script src="script.js?v=20261113s10" defer></script>
+  <script src="script.js?v=20261113s11" defer></script>
 
   <!-- ===== DATOS ESTRUCTURADOS (Schema.org) para SEO ===== -->
   <script type="application/ld+json">
