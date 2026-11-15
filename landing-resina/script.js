@@ -689,22 +689,49 @@
     // Respaldo: si en 12s no llegó a canplaythrough, mostramos el play igual
     setTimeout(finishLoader, 12000);
 
-    // ----- Reproducción -----
+    // ----- Reproducción (robusta para navegadores in-app de Facebook/Instagram) -----
     var started = false;
+
+    // Intenta reproducir y maneja el fallo. Si el navegador bloquea el play
+    // (comun en in-app browsers), reintenta en silencio (muted) y, si aun falla,
+    // activa los controles nativos para que el usuario pueda darle play siempre.
+    function tryPlay() {
+      var p = video.play();
+      if (p && typeof p.then === 'function') {
+        p.then(function () {
+          if (playBtn) playBtn.classList.add('hidden');
+        }).catch(function () {
+          // 1er respaldo: reproducir en silencio (los in-app suelen permitirlo)
+          video.muted = true;
+          var p2 = video.play();
+          if (p2 && typeof p2.then === 'function') {
+            p2.then(function () {
+              if (playBtn) playBtn.classList.add('hidden');
+            }).catch(function () {
+              // 2do respaldo: mostrar controles nativos para que el usuario reproduzca
+              video.setAttribute('controls', 'controls');
+              if (playBtn) playBtn.classList.remove('hidden');
+            });
+          }
+        });
+      } else {
+        if (playBtn) playBtn.classList.add('hidden');
+      }
+    }
+
     function startVideo() {
-      // Sin controles nativos: video limpio estilo reel. Se pausa/reproduce tocando.
       started = true;
-      video.play();
-      if (playBtn) playBtn.classList.add('hidden');
+      // Si el video aun no tiene datos para reproducir, forzamos la carga
+      if (video.readyState < 2) { try { video.load(); } catch (e) {} }
+      tryPlay();
     }
 
     if (playBtn) playBtn.addEventListener('click', startVideo);
 
     // Tocar el video: la primera vez arranca; después alterna play/pausa
     video.addEventListener('click', function () {
-      if (!ready) return; // aún cargando, no hacer nada
       if (!started) { startVideo(); return; }
-      if (video.paused) { video.play(); } else { video.pause(); }
+      if (video.paused) { tryPlay(); } else { video.pause(); }
     });
 
     // Sin controles nativos: mostramos el boton de play cuando esta pausado
