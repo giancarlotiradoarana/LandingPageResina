@@ -151,6 +151,9 @@ a { color: inherit; text-decoration: none; }
    ============================================ */
 /* Barra de urgencia superior */
 .topbar {
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
   position: sticky;
   top: 0;
   z-index: 50;

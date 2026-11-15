@@ -38,7 +38,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261115s2" />
+  <link rel="stylesheet" href="styles.css?v=20261115s3" />
   <!-- Precarga las primeras imagenes de la galeria para que aparezcan al instante (la galeria va arriba) -->
   <link rel="preload" as="image" href="img/trabajos/trabajo-34.webp" fetchpriority="high" />
   <link rel="preload" as="image" href="img/trabajos/trabajo-46.webp" />
@@ -70,8 +70,8 @@
 </head>
 <body>
 
-  <!-- ===== BARRA DE URGENCIA ===== -->
-  <div class="topbar" id="top">
+  <!-- ===== BARRA DE URGENCIA (clicable: lleva al checkout) ===== -->
+  <a class="topbar" id="top" href="https://go.hotmart.com/B107766290U?ap=1492" target="_blank" rel="noopener" aria-label="Aprovechar la oferta de hoy por $35">
     <div class="marquee" aria-label="Oferta del día">
       <div class="marquee-track" id="marqueeTrack">
         <span class="marquee-item"><span class="marquee-flag">🔥 SOLO HOY</span><span class="marquee-sep">·</span><span class="marquee-date"></span><span class="marquee-sep">·</span>Especialízate por <strong>$35 USD</strong><span class="marquee-dot"></span><span class="marquee-urgent">Últimas vacantes</span></span>
@@ -80,7 +80,7 @@
         <span class="marquee-item"><span class="marquee-flag">🔥 SOLO HOY</span><span class="marquee-sep">·</span><span class="marquee-date"></span><span class="marquee-sep">·</span>Especialízate por <strong>$35 USD</strong><span class="marquee-dot"></span><span class="marquee-urgent">Últimas vacantes</span></span>
       </div>
     </div>
-  </div>
+  </a>
 
   <!-- Barra de progreso de lectura: se llena a medida que el usuario baja -->
   <div class="read-progress" aria-hidden="true">
@@ -1020,7 +1020,7 @@
     </div>
   </div>
 
-  <script src="script.js?v=20261115s2" defer></script>
+  <script src="script.js?v=20261115s3" defer></script>
 
   <!-- ===== DATOS ESTRUCTURADOS (Schema.org) para SEO ===== -->
   <script type="application/ld+json">
