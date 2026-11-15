@@ -6,19 +6,18 @@
 
   var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // ---- Conexion lenta: no precargar nada del video (ahorra datos y acelera la pagina) ----
-  // Solo afecta a usuarios con red lenta (2G/3G) o "ahorro de datos" activo.
-  // Para el resto, el video sigue igual (preload="metadata"). El poster se ve siempre.
-  (function tuneVideoForSlowNetwork() {
+  // ---- Ajuste de precarga del video del hero segun la conexion ----
+  // Conexion lenta (2G/3G o ahorro de datos) -> preload="none" (ahorra datos, no bloquea).
+  // Conexion normal -> preload="auto": el video se descarga en segundo plano mientras
+  //   el usuario mira el hero, para que al dar play arranque al instante.
+  (function tuneVideoForNetwork() {
     try {
+      var v = document.getElementById('heroVideo');
+      if (!v) return;
       var c = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-      if (!c) return;
-      var slow = c.saveData === true ||
-                 (typeof c.effectiveType === 'string' && /(^|\b)(slow-2g|2g|3g)\b/.test(c.effectiveType));
-      if (slow) {
-        var v = document.getElementById('heroVideo');
-        if (v) v.setAttribute('preload', 'none');
-      }
+      var slow = c && (c.saveData === true ||
+                 (typeof c.effectiveType === 'string' && /(^|\b)(slow-2g|2g|3g)\b/.test(c.effectiveType)));
+      v.setAttribute('preload', slow ? 'none' : 'auto');
     } catch (e) {}
   })();
 
@@ -653,23 +652,42 @@
       }, 250);
     }
 
-    // Progreso: combina el buffer real del video con un avance suave,
-    // para que el usuario vea movimiento aunque el navegador no reporte seguido.
-    var fakeTimer = setInterval(function () {
-      if (ready) { clearInterval(fakeTimer); return; }
-      // avance suave hasta 90% como máximo (el 100% lo da el evento real)
-      if (shown < 90) {
-        shown += Math.random() * 7 + 2;
-        if (shown > 90) shown = 90;
-        setPct(shown);
-      }
+    // Progreso REAL: refleja cuánto del video se ha descargado (buffer),
+    // para que al llegar a 100% el play sea instantáneo (ya está descargado).
+    function bufferedPct() {
+      try {
+        if (video.buffered && video.buffered.length && video.duration) {
+          var end = video.buffered.end(video.buffered.length - 1);
+          return (end / video.duration) * 100;
+        }
+      } catch (e) {}
+      return 0;
+    }
+
+    // Combina el buffer real con un pequeño avance suave para que siempre
+    // se vea movimiento (algunos navegadores reportan el buffer a saltos).
+    var progressTimer = setInterval(function () {
+      if (ready) { clearInterval(progressTimer); return; }
+      var real = bufferedPct();
+      // target = lo mayor entre el buffer real y un avance suave hasta 95%
+      if (shown < 95) { shown += Math.random() * 3 + 1; }
+      var target = Math.max(shown, real);
+      if (target > 99) target = 99; // el 100% lo marca canplaythrough
+      setPct(target);
     }, 180);
 
-    // Cuando el navegador ya puede mostrar/reproducir el video -> listo
-    video.addEventListener('loadeddata', finishLoader);
-    video.addEventListener('canplay', finishLoader);
-    // Respaldo: si en 6s no disparó ningún evento, igual mostramos el play
-    setTimeout(finishLoader, 6000);
+    // El video reporta descarga -> actualizamos el % al vuelo
+    video.addEventListener('progress', function () {
+      if (ready) return;
+      var real = bufferedPct();
+      if (real > shown) { shown = real; setPct(Math.min(99, real)); }
+    });
+
+    // canplaythrough = el navegador estima que puede reproducir SIN cortes
+    // (es decir, ya hay suficiente video descargado). Ahí sí marcamos 100%.
+    video.addEventListener('canplaythrough', finishLoader);
+    // Respaldo: si en 12s no llegó a canplaythrough, mostramos el play igual
+    setTimeout(finishLoader, 12000);
 
     // ----- Reproducción -----
     var started = false;
