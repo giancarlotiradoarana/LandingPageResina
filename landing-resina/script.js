@@ -6,6 +6,22 @@
 
   var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // ---- Conexion lenta: no precargar nada del video (ahorra datos y acelera la pagina) ----
+  // Solo afecta a usuarios con red lenta (2G/3G) o "ahorro de datos" activo.
+  // Para el resto, el video sigue igual (preload="metadata"). El poster se ve siempre.
+  (function tuneVideoForSlowNetwork() {
+    try {
+      var c = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+      if (!c) return;
+      var slow = c.saveData === true ||
+                 (typeof c.effectiveType === 'string' && /(^|\b)(slow-2g|2g|3g)\b/.test(c.effectiveType));
+      if (slow) {
+        var v = document.getElementById('heroVideo');
+        if (v) v.setAttribute('preload', 'none');
+      }
+    } catch (e) {}
+  })();
+
   // ---- Evitar que la página cargue desplazada (salto en móvil) ----
   var topInterval = null;
   // Al recargar, la página empieza arriba (no restaura la posición previa).
