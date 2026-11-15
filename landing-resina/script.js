@@ -21,6 +21,26 @@
     } catch (e) {}
   })();
 
+  // ---- Video de Vimeo: tocar cualquier parte del video lo reproduce ----
+  (function initVimeoHero() {
+    var iframe = document.getElementById('heroVimeo');
+    var overlay = document.getElementById('heroVideoOverlay');
+    if (!iframe || !overlay || typeof Vimeo === 'undefined') {
+      // Si no cargó el SDK, al menos la capa deja pasar el clic al iframe
+      if (overlay) overlay.classList.add('hidden');
+      return;
+    }
+    var player = new Vimeo.Player(iframe);
+
+    overlay.addEventListener('click', function () {
+      player.play().catch(function () {});
+    });
+    // Ocultar la capa cuando el video empieza a reproducir
+    player.on('play', function () { overlay.classList.add('hidden'); });
+    // Volver a mostrarla si el usuario pausa (para que pueda retomar facil)
+    player.on('pause', function () { overlay.classList.remove('hidden'); });
+  })();
+
   // ---- Evitar que la página cargue desplazada (salto en móvil) ----
   var topInterval = null;
   // Al recargar, la página empieza arriba (no restaura la posición previa).
