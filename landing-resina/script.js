@@ -25,20 +25,41 @@
   (function initVimeoHero() {
     var iframe = document.getElementById('heroVimeo');
     var overlay = document.getElementById('heroVideoOverlay');
-    if (!iframe || !overlay || typeof Vimeo === 'undefined') {
-      // Si no cargó el SDK, al menos la capa deja pasar el clic al iframe
-      if (overlay) overlay.classList.add('hidden');
-      return;
-    }
+    if (!iframe || !overlay) return;
+
+    // El SDK de Vimeo puede tardar en cargar: esperamos a que exista.
+    var tries = 0;
+    (function waitForSDK() {
+      if (typeof Vimeo !== 'undefined' && Vimeo.Player) {
+        setupPlayer();
+      } else if (tries < 40) { // hasta ~8s (40 x 200ms)
+        tries++;
+        setTimeout(waitForSDK, 200);
+      } else {
+        // Sin SDK: ocultamos la capa para que el boton nativo de Vimeo quede usable
+        overlay.classList.add('hidden');
+      }
+    })();
+
+    function setupPlayer() {
     var player = new Vimeo.Player(iframe);
 
-    overlay.addEventListener('click', function () {
-      player.play().catch(function () {});
-    });
+    // Reproduce; si el navegador bloquea el audio (comun en in-app de FB/IG),
+    // reintenta en silencio para que el video arranque igual.
+    function playVideo() {
+      player.play().catch(function () {
+        player.setMuted(true).then(function () {
+          return player.play();
+        }).catch(function () {});
+      });
+    }
+
+    overlay.addEventListener('click', playVideo);
     // Ocultar la capa cuando el video empieza a reproducir
     player.on('play', function () { overlay.classList.add('hidden'); });
     // Volver a mostrarla si el usuario pausa (para que pueda retomar facil)
     player.on('pause', function () { overlay.classList.remove('hidden'); });
+    }
   })();
 
   // ---- Evitar que la página cargue desplazada (salto en móvil) ----
