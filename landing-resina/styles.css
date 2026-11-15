@@ -3022,6 +3022,36 @@ a { color: inherit; text-decoration: none; }
 .gallery { background: var(--bg); padding-top: 40px; padding-bottom: 28px; }
 .gallery-carousel { margin-top: 28px; }
 
+/* ===== Mosaico de trabajos (varios a la vez) ===== */
+.gallery-grid {
+  margin-top: 26px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.gal-item {
+  margin: 0;
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: linear-gradient(160deg, var(--teal-700, #0f766e), var(--teal-900, #052e2b));
+}
+.gal-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .4s ease;
+}
+@media (hover: hover) {
+  .gal-item:hover img { transform: scale(1.06); }
+}
+@media (min-width: 768px) {
+  .gallery-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 1120px; margin-left: auto; margin-right: auto; }
+}
+
 /* Testimonio real destacado bajo el subtitulo de la galeria */
 .gallery-quote {
   position: relative;

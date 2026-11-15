@@ -403,8 +403,7 @@
 
   // Carrusel de WhatsApp (con puntos) con autoplay que se pausa al interactuar
   initCarousel({ viewport: 'waViewport', track: 'waTrack', prev: 'waPrev', next: 'waNext', dots: 'waDots', autoplay: true, autoplayDelay: 3200 });
-  // Carrusel de galería de trabajos (sin puntos, son muchas) con autoplay que se pausa al interactuar
-  initCarousel({ viewport: 'galViewport', track: 'galTrack', prev: 'galPrev', next: 'galNext', autoplay: true, autoplayDelay: 2800 });
+
 
   // ---- Contador regresivo (2 días, persistente por visitante) ----
   (function initCountdown() {
