@@ -38,7 +38,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261115s14" />
+  <link rel="stylesheet" href="styles.css?v=20261115s15" />
   <!-- Precarga el poster del video del hero para que el espacio se vea lleno al instante -->
   <link rel="preload" as="image" href="img/hero-video-poster.webp" fetchpriority="high" />
   <!-- Precarga las primeras imagenes de la galeria para que aparezcan al instante (la galeria va arriba) -->
@@ -76,10 +76,10 @@
   <a class="topbar" id="top" href="https://go.hotmart.com/B107766290U?ap=1492" target="_blank" rel="noopener" aria-label="Aprovechar la oferta de hoy por $35">
     <div class="marquee" aria-label="Oferta del día">
       <div class="marquee-track" id="marqueeTrack">
-        <span class="marquee-item"><span class="marquee-flag">🔥 SOLO HOY</span><span class="marquee-sep">·</span><span class="marquee-date"></span><span class="marquee-sep">·</span>Especialízate por <strong>$35 USD</strong><span class="marquee-dot"></span><span class="marquee-urgent">Últimas vacantes</span></span>
-        <span class="marquee-item"><span class="marquee-flag">🔥 SOLO HOY</span><span class="marquee-sep">·</span><span class="marquee-date"></span><span class="marquee-sep">·</span>Especialízate por <strong>$35 USD</strong><span class="marquee-dot"></span><span class="marquee-urgent">Últimas vacantes</span></span>
-        <span class="marquee-item"><span class="marquee-flag">🔥 SOLO HOY</span><span class="marquee-sep">·</span><span class="marquee-date"></span><span class="marquee-sep">·</span>Especialízate por <strong>$35 USD</strong><span class="marquee-dot"></span><span class="marquee-urgent">Últimas vacantes</span></span>
-        <span class="marquee-item"><span class="marquee-flag">🔥 SOLO HOY</span><span class="marquee-sep">·</span><span class="marquee-date"></span><span class="marquee-sep">·</span>Especialízate por <strong>$35 USD</strong><span class="marquee-dot"></span><span class="marquee-urgent">Últimas vacantes</span></span>
+        <span class="marquee-item"><span class="marquee-flag">🔥 SOLO HOY</span><span class="marquee-sep">·</span><span class="marquee-date"></span><span class="marquee-sep">·</span><strong>50% de descuento</strong><span class="marquee-sep">·</span>Pago único<span class="marquee-dot"></span><span class="marquee-urgent">Últimas vacantes</span></span>
+        <span class="marquee-item"><span class="marquee-flag">🔥 SOLO HOY</span><span class="marquee-sep">·</span><span class="marquee-date"></span><span class="marquee-sep">·</span><strong>50% de descuento</strong><span class="marquee-sep">·</span>Pago único<span class="marquee-dot"></span><span class="marquee-urgent">Últimas vacantes</span></span>
+        <span class="marquee-item"><span class="marquee-flag">🔥 SOLO HOY</span><span class="marquee-sep">·</span><span class="marquee-date"></span><span class="marquee-sep">·</span><strong>50% de descuento</strong><span class="marquee-sep">·</span>Pago único<span class="marquee-dot"></span><span class="marquee-urgent">Últimas vacantes</span></span>
+        <span class="marquee-item"><span class="marquee-flag">🔥 SOLO HOY</span><span class="marquee-sep">·</span><span class="marquee-date"></span><span class="marquee-sep">·</span><strong>50% de descuento</strong><span class="marquee-sep">·</span>Pago único<span class="marquee-dot"></span><span class="marquee-urgent">Últimas vacantes</span></span>
       </div>
     </div>
   </a>
@@ -624,7 +624,6 @@
         <p class="section-sub" data-reveal>Pagas una vez y es tuyo para siempre. Sin mensualidades.</p>
 
         <div class="price-card" data-reveal>
-          <div class="price-badge">50% de descuento</div>
 
           <div class="price-preview">
             <div class="price-preview-frame">
@@ -634,15 +633,14 @@
 
           <!-- Cabecera: precio -->
           <div class="price-head">
-            <div class="price-amount">
-              <span class="price-old">$70</span>
-              <span class="price-now">$35</span>
-              <span class="price-cur">USD</span>
+            <div class="price-offer">
+              <span class="price-off-badge">50% de descuento</span>
+              <span class="price-offer-text">Solo por hoy · Pago único · Acceso de por vida</span>
             </div>
             <p class="price-currency-note">
-              <span aria-hidden="true">🌎</span> ¿No manejas dólares? Tranquilo: <strong>pagas en tu moneda local</strong> con tarjeta, Yape, PagoEfectivo, OXXO y más. Esto es lo que pagarías hoy:
+              <span aria-hidden="true">🌎</span> <strong>Pagas en la moneda de tu país</strong> (soles, pesos y más) con tarjeta, Yape, PagoEfectivo, OXXO y más.
             </p>
-            <img src="img/CertGarantiaMetodosProf/moneda.webp" alt="Precio aproximado en soles, pesos mexicanos y pesos colombianos" class="price-currencies-img" loading="lazy">
+            <p class="price-vacantes"><span aria-hidden="true">🔥</span> <strong>Últimas 4 vacantes</strong> a este precio</p>
           </div>
 
           <!-- Cuerpo: contador + CTA + escasez -->
@@ -663,15 +661,8 @@
               </div>
 
               <!-- CTA principal -->
-              <a href="https://go.hotmart.com/B107766290U?ap=1492" class="btn btn-primary btn-lg btn-block btn-shine" id="cta-buy" target="_blank" rel="noopener">¡Sí, quiero empezar por $35!</a>
+              <a href="https://go.hotmart.com/B107766290U?ap=1492" class="btn btn-primary btn-lg btn-block btn-shine cta-ver-precio" id="cta-buy" target="_blank" rel="noopener">Ver mi precio y empezar →</a>
               <p class="cta-trust">🔒 Pago 100% seguro · ⚡ Acceso inmediato</p>
-
-              <!-- Escasez de cupos -->
-              <div class="stock" id="stock">
-                <span class="stock-flame" aria-hidden="true">🔥</span>
-                <p>¡Solo quedan <strong id="stock-count">5</strong> cupos disponibles a este precio!</p>
-              </div>
-              <div class="stock-bar" aria-hidden="true"><span id="stockBar"></span></div>
             </div>
           </div>
 
@@ -757,7 +748,7 @@
           </div>
         </div>
 
-        <p class="bonus-closer" data-reveal>Te llevas <strong>$579 en regalos</strong>… y pagas solo <strong>$35</strong> por todo.</p>
+
 
         <div class="gallery-cta" data-reveal>
           <a href="https://go.hotmart.com/B107766290U?ap=1492" class="btn btn-primary btn-lg btn-shine" target="_blank" rel="noopener">Quiero el curso + los 6 regalos</a>
@@ -870,7 +861,7 @@
     <!-- ===== 11. CTA FINAL ===== -->
     <section class="section final-cta" aria-labelledby="final-title">
       <div class="container">
-        <span class="fc-eyebrow">🎯 Última oportunidad al 50% OFF</span>
+        <span class="fc-eyebrow">🎯 Última oportunidad con 50% de descuento</span>
         <h2 id="final-title">Conviértete en el experto que todos buscan</h2>
         <p>Vengas de la construcción o empieces desde cero, suma la resina a tus servicios y empieza a cobrar más. Hoy con el paquete completo 5×1.</p>
 
@@ -884,11 +875,11 @@
 
         <!-- Precio destacado -->
         <div class="fc-price">
-          <span class="fc-old">$70</span>
-          <span class="fc-now">$35 USD</span>
+          <span class="fc-off">50% de descuento</span>
+          <span class="fc-now">Solo por hoy · Pago único</span>
         </div>
 
-        <a href="https://go.hotmart.com/B107766290U?ap=1492" class="btn btn-light btn-lg" target="_blank" rel="noopener">Quiero cobrar más por $35</a>
+        <a href="https://go.hotmart.com/B107766290U?ap=1492" class="btn btn-light btn-lg cta-ver-precio" target="_blank" rel="noopener">Ver mi precio en mi moneda →</a>
 
         <!-- Nota de moneda local -->
         <p class="fc-currency">
@@ -1008,8 +999,8 @@
   <div class="sticky-cta" id="stickyCta" aria-hidden="true">
     <div class="sticky-inner">
       <span class="sticky-price">
-        <span class="sticky-amount"><s>$70</s> <strong>$35</strong> <span class="sticky-usd">USD</span></span>
-        <span class="sticky-note">🌎 Paga en la moneda de tu país</span>
+        <span class="sticky-amount"><span class="sticky-off">50% dcto</span> Últimas 4 vacantes</span>
+        <span class="sticky-note">Pagas en tu moneda</span>
       </span>
       <a href="https://go.hotmart.com/B107766290U?ap=1492" class="btn btn-primary btn-sm" target="_blank" rel="noopener">¡Lo quiero! 🔥</a>
     </div>
@@ -1017,7 +1008,7 @@
 
   <!-- SDK de Vimeo: permite controlar la reproducción desde nuestro propio botón/capa -->
   <script src="https://player.vimeo.com/api/player.js"></script>
-  <script src="script.js?v=20261115s14" defer></script>
+  <script src="script.js?v=20261115s15" defer></script>
 
   <!-- ===== DATOS ESTRUCTURADOS (Schema.org) para SEO ===== -->
   <script type="application/ld+json">

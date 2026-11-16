@@ -2100,18 +2100,43 @@ a { color: inherit; text-decoration: none; }
 }
 .price-currency-note strong { color: var(--teal-700); font-weight: 800; }
 
-/* Precio aproximado por país (imagen de monedas) */
-.price-currencies-img {
-  display: block;
-  width: 100%;
-  max-width: 380px;
-  height: auto; /* usa la proporción real de la imagen, sin deformar */
-  margin: 14px auto 0;
+/* CTA "ver mi precio": letra un poco mas pequena para que no se vea estirada */
+.cta-ver-precio { font-size: 1.05rem; }
+
+/* Texto de urgencia: ultimas vacantes (texto simple, sin pildora) */
+.price-vacantes {
+  margin: 12px 0 0;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #b91c1c;
 }
+.price-vacantes strong { font-weight: 900; color: #991b1b; }
 
 .price-old { color: var(--slate-300); text-decoration: line-through; font-size: 1.6rem; font-weight: 600; }
 .price-now { font-size: 3.8rem; font-weight: 900; color: var(--teal-700); letter-spacing: -.03em; }
 .price-note { color: var(--slate); margin-bottom: 0; font-size: .92rem; }
+
+/* Oferta en lugar del precio (foco en descuento, no en el monto en USD) */
+.price-offer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.price-off-badge {
+  font-family: var(--display);
+  font-size: 3.4rem;
+  font-weight: 900;
+  color: var(--teal-700);
+  line-height: 1;
+  letter-spacing: -.02em;
+}
+.price-offer-text {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--slate);
+}
 
 /* Cuerpo: 1 columna */
 .price-body {
@@ -2372,9 +2397,10 @@ a { color: inherit; text-decoration: none; }
 /* Precio destacado */
 .fc-price {
   display: flex;
-  align-items: baseline;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 8px;
   margin-bottom: 24px;
 }
 .fc-old {
@@ -2383,12 +2409,20 @@ a { color: inherit; text-decoration: none; }
   font-size: 1.5rem;
   font-weight: 600;
 }
-.fc-now {
+.fc-off {
+  display: inline-block;
   font-family: var(--display);
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   font-weight: 900;
   color: var(--amber);
   line-height: 1;
+}
+.fc-now {
+  font-family: var(--font);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
 }
 
 /* Nota de moneda local */
@@ -2625,22 +2659,33 @@ a { color: inherit; text-decoration: none; }
   }
 }
 
-.sticky-price { font-size: 1rem; display: flex; flex-direction: column; line-height: 1.1; }
-.sticky-price s { color: #94a3b8; font-size: 1rem; font-weight: 600; }
-.sticky-price strong { color: var(--teal-700); font-size: 1.7rem; font-weight: 900; letter-spacing: -.02em; }
-.sticky-usd { color: var(--teal-600); font-size: .85rem; font-weight: 800; }
-.sticky-amount { display: inline-flex; align-items: baseline; gap: 7px; }
-/* Nota de moneda local: badge destacado para que se note que paga en su moneda */
-.sticky-note {
-  display: inline-block;
-  font-size: .72rem;
+.sticky-price { display: flex; flex-direction: column; gap: 4px; line-height: 1.15; }
+/* Linea principal: descuento + escasez, un solo tono (teal) para que se lea limpio */
+.sticky-amount {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .9rem;
   font-weight: 800;
-  color: #0f766e;
-  background: #d1faf0;
-  border: 1px solid #5eead4;
-  padding: 2px 8px;
-  border-radius: 999px;
-  margin-top: 4px;
+  color: var(--teal-900, #134e4a);
+  white-space: nowrap;
+}
+/* Badge de descuento: unico acento de color */
+.sticky-off {
+  flex-shrink: 0;
+  font-size: .95rem;
+  font-weight: 900;
+  color: #fff;
+  background: var(--teal-700, #0f766e);
+  padding: 3px 9px;
+  border-radius: 8px;
+  letter-spacing: -.01em;
+}
+/* Nota de moneda: texto simple y discreto */
+.sticky-note {
+  font-size: .76rem;
+  font-weight: 700;
+  color: #64748b;
 }
 
 /* ============================================
