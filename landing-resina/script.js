@@ -70,8 +70,8 @@
       var playBtn = item.querySelector('.wa-video-play');
       if (!video || !playBtn) return;
 
+      // Reproduce sin barra de controles (video limpio, solo el boton de play).
       function play() {
-        video.setAttribute('controls', 'controls');
         if (video.readyState < 2) { try { video.load(); } catch (e) {} }
         var p = video.play();
         if (p && typeof p.then === 'function') {
@@ -80,14 +80,14 @@
             video.play().catch(function () {});
           });
         }
-        playBtn.classList.add('hidden');
       }
 
       playBtn.addEventListener('click', play);
+      // Tocar el video: la primera vez arranca; despues alterna play/pausa
       video.addEventListener('click', function () {
-        if (video.paused && playBtn.classList.contains('hidden') === false) play();
+        if (video.paused) { play(); } else { video.pause(); }
       });
-      // Si pausa, volvemos a mostrar el boton grande
+      // El boton de play aparece al pausar y se oculta al reproducir
       video.addEventListener('pause', function () { playBtn.classList.remove('hidden'); });
       video.addEventListener('play', function () { playBtn.classList.add('hidden'); });
     });
