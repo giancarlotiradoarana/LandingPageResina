@@ -72,6 +72,7 @@
 
       function play() {
         video.setAttribute('controls', 'controls');
+        if (video.readyState < 2) { try { video.load(); } catch (e) {} }
         var p = video.play();
         if (p && typeof p.then === 'function') {
           p.catch(function () {
