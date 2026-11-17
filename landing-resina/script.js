@@ -62,6 +62,19 @@
     }
   })();
 
+  // ---- Galeria: boton "Ver mas trabajos" revela el resto + muestra el CTA de compra ----
+  (function initGalleryMore() {
+    var btn = document.getElementById('galleryMoreBtn');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.gal-more[hidden]').forEach(function (el) {
+        el.hidden = false;
+      });
+      // Oculta el boton una vez mostradas todas las imagenes
+      if (btn.parentNode) btn.parentNode.style.display = 'none';
+    });
+  })();
+
   // ---- Videos de testimonios: boton de play tipo hero ----
   (function initTestimonioVideos() {
     var items = document.querySelectorAll('.wa-video-item');

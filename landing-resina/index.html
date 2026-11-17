@@ -38,7 +38,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261116s5" />
+  <link rel="stylesheet" href="styles.css?v=20261116s6" />
   <!-- Precarga el poster del video del hero para que el espacio se vea lleno al instante -->
   <link rel="preload" as="image" href="img/hero-video-poster.webp" fetchpriority="high" />
   <!-- Precarga las primeras imagenes de la galeria para que aparezcan al instante (la galeria va arriba) -->
@@ -200,15 +200,6 @@
       <div class="container">
         <h2 id="gallery-title" class="section-title" data-reveal>Esto vas a crear… y la gente lo paga muy bien</h2>
 
-        <!-- Testimonio real destacado: refuerza "se gana bien" y "desde cero" -->
-        <figure class="gallery-quote" data-reveal>
-          <span class="gq-mark" aria-hidden="true">“</span>
-          <blockquote>
-            Hoy mi familia y yo vivimos de mis trabajos con resina, <strong>desde casa</strong>. Empezamos <strong>desde cero</strong> y, gracias a Dios, es hermoso: <strong>este arte se gana bien</strong>.
-          </blockquote>
-          <figcaption>— Carlos Medina, alumno del curso</figcaption>
-        </figure>
-
         <!-- Mosaico de trabajos: imagenes servidas desde GitHub Pages (CDN rapido) -->
         <div class="gallery-grid" id="galleryGrid">
           <figure class="gal-item"><img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-34.webp" alt="Alumno mostrando su trabajo en resina epóxica" loading="eager" fetchpriority="high"></figure>
@@ -231,25 +222,28 @@
           <figure class="gal-item"><img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-14.webp" alt="Alumno mostrando su trabajo en resina epóxica" loading="lazy"></figure>
           <figure class="gal-item"><img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-17.webp" alt="Alumno mostrando su trabajo en resina epóxica" loading="lazy"></figure>
           <figure class="gal-item"><img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-1.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
-          <figure class="gal-item"><img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-12.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
-          <figure class="gal-item"><img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-6.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
-          <figure class="gal-item"><img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-9.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
-          <figure class="gal-item"><img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-11.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
-          <figure class="gal-item"><img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-15.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
-          <figure class="gal-item"><img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-20.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
-          <figure class="gal-item"><img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-21.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
-          <figure class="gal-item"><img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-22.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
-          <figure class="gal-item"><img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-24.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
-          <figure class="gal-item"><img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-28.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
-          <figure class="gal-item"><img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-40.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
-          <figure class="gal-item"><img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-43.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
-          <figure class="gal-item"><img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-3.webp" alt="Alumno mostrando su trabajo en resina epóxica" loading="lazy"></figure>
-          <figure class="gal-item"><img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-7.webp" alt="Alumno mostrando su trabajo en resina epóxica" loading="lazy"></figure>
+          <figure class="gal-item gal-more" hidden><img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-12.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
+          <figure class="gal-item gal-more" hidden><img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-6.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
+          <figure class="gal-item gal-more" hidden><img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-9.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
+          <figure class="gal-item gal-more" hidden><img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-11.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
+          <figure class="gal-item gal-more" hidden><img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-15.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
+          <figure class="gal-item gal-more" hidden><img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-20.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
+          <figure class="gal-item gal-more" hidden><img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-21.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
+          <figure class="gal-item gal-more" hidden><img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-22.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
+          <figure class="gal-item gal-more" hidden><img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-24.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
+          <figure class="gal-item gal-more" hidden><img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-28.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
+          <figure class="gal-item gal-more" hidden><img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-40.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
+          <figure class="gal-item gal-more" hidden><img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-43.webp" alt="Trabajo en resina epóxica" loading="lazy"></figure>
+          <figure class="gal-item gal-more" hidden><img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-3.webp" alt="Alumno mostrando su trabajo en resina epóxica" loading="lazy"></figure>
+          <figure class="gal-item gal-more" hidden><img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-7.webp" alt="Alumno mostrando su trabajo en resina epóxica" loading="lazy"></figure>
         </div>
 
-        <!-- Cierre de galería reforzado: captura el deseo justo tras ver los trabajos -->
-        <div class="gallery-close" data-reveal>
-          <a href="https://go.hotmart.com/B107766290U?ap=1492" class="btn btn-primary btn-lg btn-shine" target="_blank" rel="noopener">Quiero crear y vender esto</a>
+        <!-- Boton para ver mas trabajos -->
+        <div class="gallery-more-wrap">
+          <button type="button" class="gallery-more-btn" id="galleryMoreBtn">
+            <span class="gmb-text">Ver más trabajos</span>
+            <span class="gmb-count">+14 trabajos más</span>
+          </button>
         </div>
 
       </div>
@@ -1004,7 +998,7 @@
 
   <!-- SDK de Vimeo: permite controlar la reproducción desde nuestro propio botón/capa -->
   <script src="https://player.vimeo.com/api/player.js"></script>
-  <script src="script.js?v=20261116s5" defer></script>
+  <script src="script.js?v=20261116s6" defer></script>
 
   <!-- ===== DATOS ESTRUCTURADOS (Schema.org) para SEO ===== -->
   <script type="application/ld+json">
