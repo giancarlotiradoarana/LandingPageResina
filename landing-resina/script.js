@@ -62,6 +62,36 @@
     }
   })();
 
+  // ---- Videos de testimonios: boton de play tipo hero ----
+  (function initTestimonioVideos() {
+    var items = document.querySelectorAll('.wa-video-item');
+    items.forEach(function (item) {
+      var video = item.querySelector('video');
+      var playBtn = item.querySelector('.wa-video-play');
+      if (!video || !playBtn) return;
+
+      function play() {
+        video.setAttribute('controls', 'controls');
+        var p = video.play();
+        if (p && typeof p.then === 'function') {
+          p.catch(function () {
+            video.muted = true;
+            video.play().catch(function () {});
+          });
+        }
+        playBtn.classList.add('hidden');
+      }
+
+      playBtn.addEventListener('click', play);
+      video.addEventListener('click', function () {
+        if (video.paused && playBtn.classList.contains('hidden') === false) play();
+      });
+      // Si pausa, volvemos a mostrar el boton grande
+      video.addEventListener('pause', function () { playBtn.classList.remove('hidden'); });
+      video.addEventListener('play', function () { playBtn.classList.add('hidden'); });
+    });
+  })();
+
   // ---- Evitar que la página cargue desplazada (salto en móvil) ----
   var topInterval = null;
   // Al recargar, la página empieza arriba (no restaura la posición previa).
@@ -457,8 +487,6 @@
     }
   }
 
-  // Carrusel de WhatsApp (con puntos) con autoplay que se pausa al interactuar
-  initCarousel({ viewport: 'waViewport', track: 'waTrack', prev: 'waPrev', next: 'waNext', dots: 'waDots', autoplay: true, autoplayDelay: 3200 });
 
 
   // ---- Contador regresivo (2 días, persistente por visitante) ----
