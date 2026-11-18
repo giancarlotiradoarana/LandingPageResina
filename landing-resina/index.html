@@ -38,7 +38,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261116s6" />
+  <link rel="stylesheet" href="styles.css?v=20261116s7" />
   <!-- Precarga el poster del video del hero para que el espacio se vea lleno al instante -->
   <link rel="preload" as="image" href="img/hero-video-poster.webp" fetchpriority="high" />
   <!-- Precarga las primeras imagenes de la galeria para que aparezcan al instante (la galeria va arriba) -->
@@ -953,38 +953,6 @@
     </span>
   </div>
 
-  <!-- ===== POPUP DE INTENCIÓN DE SALIDA ===== -->
-  <div class="exit-pop" id="exitPop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="exitPop-title">
-    <div class="exit-pop-box">
-      <button type="button" class="exit-pop-close" id="exitPopClose" aria-label="Cerrar">&times;</button>
-
-      <!-- NIVEL 1: oferta de rescate a $25 -->
-      <div class="exit-step" id="exitStep1">
-        <span class="exit-pop-emoji" aria-hidden="true">✋</span>
-        <h3 id="exitPop-title">¡Espera! Tengo algo para ti</h3>
-        <p class="exit-pop-text">
-          Sé que empezar es una decisión. Por eso, solo por hoy, puedes llevarte el <strong>curso completo</strong> con todos los regalos por <span class="exit-price"><s>$35</s> $25</span>.
-          Con <strong>7 días de garantía</strong>.
-        </p>
-        <a href="https://go.hotmart.com/B107766290U?ap=0690" class="btn btn-primary btn-lg btn-shine exit-pop-btn" target="_blank" rel="noopener" data-exit-buy>Sí, lo quiero por $25</a>
-        <button type="button" class="exit-pop-dismiss" id="exitDismiss1">No, gracias</button>
-      </div>
-
-      <!-- NIVEL 2: último rescate a $17 -->
-      <div class="exit-step" id="exitStep2" hidden>
-        <span class="exit-pop-emoji" aria-hidden="true">🎁</span>
-        <h3>Última oportunidad: el precio más bajo</h3>
-        <p class="exit-pop-text">
-          No quiero que te quedes sin aprender. Te dejo el <strong>mismo curso completo</strong> al precio más bajo que vas a ver: <span class="exit-price"><s>$35</s> $17</span>.
-          Esta oferta no vuelve a aparecer.
-        </p>
-        <a href="https://go.hotmart.com/B107766290U?ap=adc2" class="btn btn-primary btn-lg btn-shine exit-pop-btn" target="_blank" rel="noopener" data-exit-buy>Lo quiero por $17</a>
-        <button type="button" class="exit-pop-dismiss" id="exitDismiss2">No, prefiero dejarlo pasar</button>
-      </div>
-
-    </div>
-  </div>
-
   <!-- ===== BARRA CTA MÓVIL FIJA ===== -->
   <div class="sticky-cta" id="stickyCta" aria-hidden="true">
     <div class="sticky-inner">
@@ -998,7 +966,7 @@
 
   <!-- SDK de Vimeo: permite controlar la reproducción desde nuestro propio botón/capa -->
   <script src="https://player.vimeo.com/api/player.js"></script>
-  <script src="script.js?v=20261116s6" defer></script>
+  <script src="script.js?v=20261116s7" defer></script>
 
   <!-- ===== DATOS ESTRUCTURADOS (Schema.org) para SEO ===== -->
   <script type="application/ld+json">
