@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clase gratis de resina epóxica | Resinovo</title>
+  <meta name="description" content="Clase gratis y en vivo con el profe Yair Ruiz: aprende a hacer mesas, pisos, paredes y cocinas con resina epóxica." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#134e4a" />
+  <link rel="icon" type="image/webp" href="../img/Logo/logo2.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{--teal-900:#0b3b38;--teal-700:#0f766e;--gold:#f5c542;--gold-dark:#d9a512;--white:#fff;--ink:#0f172a}
+    html{-webkit-text-size-adjust:100%}
+    body{font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--white);
+      background:radial-gradient(120% 80% at 50% 0%,#0f766e 0%,#134e4a 45%,#082a28 100%);min-height:100vh}
+    .wrap{max-width:520px;margin:0 auto;padding:18px 18px 40px;text-align:center}
+
+    .live{display:inline-flex;align-items:center;gap:8px;background:#e11d2e;color:#fff;font-weight:800;font-size:.78rem;
+      letter-spacing:.06em;padding:7px 14px;border-radius:999px;border:2px solid #fff}
+    .live i{width:9px;height:9px;border-radius:50%;background:#fff;animation:pulse 1.4s infinite}
+    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.7)}100%{box-shadow:0 0 0 9px rgba(255,255,255,0)}}
+
+    h1{font-family:"Fraunces",Georgia,serif;font-weight:900;font-size:clamp(1.45rem,6.4vw,2.05rem);line-height:1.1;margin:12px 0 8px;text-transform:uppercase;letter-spacing:.01em}
+    h1 .gold{color:var(--gold)}
+    .sub{display:flex;flex-direction:column;align-items:center;gap:4px;margin:2px auto 14px;line-height:1.3}
+    /* Dos líneas fijas: la letra se ajusta al ancho para que cada frase entre siempre en una sola línea */
+    .sub-1{display:block;white-space:nowrap;font-weight:600;color:#fff;font-size:min(1.05rem,calc((100vw - 40px) / 25.5))}
+    .sub-1 .l1,.sub-1 .l2{display:inline;white-space:nowrap}
+    .sub-1 b{font-weight:800;color:#fff}
+    .sub-1 .hl{color:var(--gold);font-weight:800;letter-spacing:.01em;
+      background:linear-gradient(transparent 62%,rgba(245,197,66,.22) 62%);padding:0 2px}
+    .sub-2{display:block;white-space:nowrap;font-weight:500;color:#cdeee9;font-style:italic;
+      font-size:min(1rem,calc((100vw - 40px) / 25.5))}
+    .nw{white-space:nowrap}
+
+    .gal{position:relative;margin:2px -18px 16px;padding:0;overflow:hidden;display:grid;gap:6px;background:transparent;
+      -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+    .gal-track{display:flex;gap:6px;width:max-content;animation:slide 90s linear infinite;will-change:transform}
+    .gal-track.rev{animation-direction:reverse;animation-duration:98s}
+    .gal-track img{display:block;height:150px;width:auto;aspect-ratio:3/4;object-fit:cover;border-radius:12px;flex:none;
+      background:rgba(255,255,255,.06);border:1px solid rgba(245,197,66,.45);box-shadow:0 6px 16px rgba(0,0,0,.28)}
+    @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    .when{background:rgba(0,0,0,.28);border:2px solid var(--gold);border-radius:16px;padding:10px 12px;margin-bottom:14px}
+    .when .t{font-weight:800;font-size:.95rem;letter-spacing:.04em;color:var(--gold);margin-bottom:4px}
+    .when .row{display:flex;justify-content:space-between;gap:10px;font-weight:700;font-size:1.05rem;padding:4px 4px;
+      border-top:1px solid rgba(255,255,255,.14)}
+    .when .row:first-of-type{border-top:0}
+    .when .row b{color:var(--gold);font-size:1.15rem}
+
+    .cta{display:block;width:100%;background:linear-gradient(180deg,#25d366,#128c4a);color:#fff;text-decoration:none;
+      font-weight:800;font-size:1.2rem;line-height:1.2;padding:18px 14px;border-radius:14px;
+      box-shadow:0 10px 26px rgba(18,140,74,.55);border:2px solid #fff;animation:pop 2.4s ease-in-out infinite}
+    .cta-main{display:flex;align-items:center;justify-content:center;gap:10px}
+    .cta-ico{width:30px;height:30px;flex:none;fill:#fff;filter:drop-shadow(0 2px 3px rgba(0,0,0,.25))}
+    .cta-sub{display:block;font-size:.8rem;font-weight:700;opacity:.95;margin-top:5px}
+    @keyframes pop{0%,100%{transform:scale(1)}50%{transform:scale(1.025)}}
+    .cta:active{transform:scale(.98)}
+    .cta-end{margin-top:12px}
+    .micro{font-size:.85rem;color:#bfe7e1;margin-top:10px}
+
+    .sec{margin:24px 0 0;padding:20px 14px 16px;border-radius:20px;text-align:center;
+      background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(0,0,0,.25));border:1px solid rgba(245,197,66,.35);
+      box-shadow:0 14px 30px rgba(0,0,0,.28)}
+    .eyebrow{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.12em;color:#0b3b38;
+      background:var(--gold);padding:5px 10px;border-radius:999px;margin-bottom:8px}
+    .learn-t{margin:0 0 14px;font-family:"Fraunces",Georgia,serif;font-weight:900;font-size:1.3rem;line-height:1.15;
+      letter-spacing:.02em;text-transform:uppercase;color:#fff}
+    .learn-t span{color:var(--gold)}
+
+    .learn{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px;counter-reset:paso}
+    .learn li{counter-increment:paso;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:9px;
+      padding:14px 10px;border-radius:16px;font-weight:800;font-size:.98rem;line-height:1.25;color:#fff;
+      background:linear-gradient(180deg,rgba(245,197,66,.18),rgba(255,255,255,.04));border:1px solid rgba(245,197,66,.5)}
+    .learn li:before{content:counter(paso);width:38px;height:38px;border-radius:50%;display:grid;place-items:center;flex:none;
+      background:linear-gradient(180deg,#f8d566,#e0ac1c);color:#0b3b38;font-family:"Fraunces",Georgia,serif;font-size:1.2rem;font-weight:900;
+      box-shadow:0 0 0 4px rgba(245,197,66,.22),0 4px 10px rgba(0,0,0,.3)}
+
+    .for{list-style:none;text-align:left;display:grid;gap:9px}
+    .for li{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:14px;font-weight:700;font-size:.98rem;line-height:1.3;
+      color:#fff;background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.12)}
+    .for .ic{width:40px;height:40px;flex:none;border-radius:12px;display:grid;place-items:center;font-size:1.25rem;
+      background:rgba(245,197,66,.16);border:1px solid rgba(245,197,66,.5)}
+    .for b{color:var(--gold)}
+    @media (max-width:340px){.learn{grid-template-columns:1fr}}
+    .prof{margin-top:18px;position:relative;display:flex;align-items:center;gap:14px;text-align:left;padding:16px 14px;border-radius:20px;
+      background:linear-gradient(135deg,rgba(245,197,66,.16),rgba(0,0,0,.3) 60%);border:1px solid rgba(245,197,66,.45);
+      box-shadow:0 14px 30px rgba(0,0,0,.3)}
+    .prof-foto{position:relative;width:84px;height:84px;flex:none;border-radius:50%;overflow:hidden;
+      border:3px solid var(--gold);box-shadow:0 0 0 5px rgba(245,197,66,.18),0 8px 18px rgba(0,0,0,.4);background:#0b3b38}
+    .prof-foto img{width:100%;height:100%;object-fit:cover;object-position:50% 8%;transform:scale(1.75);transform-origin:50% 12%}
+    .prof-txt .eyebrow{margin-bottom:6px;font-size:.66rem}
+    .prof-txt p{font-size:.98rem;line-height:1.4;color:#e6faf6}
+    .prof-txt b{color:#fff;font-size:1.08rem;font-weight:800}
+    .prof-txt .gold{color:var(--gold);font-weight:800}
+
+    .stop{margin:22px 0 4px;display:flex;align-items:center;gap:10px;justify-content:center}
+    .stop:before,.stop:after{content:"";flex:1;height:2px;background:linear-gradient(90deg,transparent,var(--gold))}
+    .stop:after{background:linear-gradient(90deg,var(--gold),transparent)}
+    .stop span{display:inline-block;font-family:"Fraunces",Georgia,serif;font-weight:900;font-size:1.35rem;letter-spacing:.05em;
+      color:#fff;background:linear-gradient(180deg,#e11d2e,#a50f1d);padding:9px 16px;border-radius:12px;border:2px solid var(--gold);
+      box-shadow:0 8px 20px rgba(225,29,46,.4);transform:rotate(-2deg);animation:latido 2.2s ease-in-out infinite}
+    @keyframes latido{0%,100%{transform:rotate(-2deg) scale(1)}50%{transform:rotate(-2deg) scale(1.06)}}
+    @media (prefers-reduced-motion:reduce){.cta,.live i,.stop span{animation:none}.gal{overflow-x:auto}.gal-track{animation:none}}
+
+    /* ===== PC (960px o más): dos columnas a lo ancho. El celular no cambia. ===== */
+    @media (min-width:960px){
+      .wrap{max-width:1180px;padding:40px 40px 56px;display:grid;grid-template-columns:1fr 1fr;
+        column-gap:48px;row-gap:0;align-items:start;text-align:left}
+      .live{grid-column:1;grid-row:1;justify-self:start}
+      h1{grid-column:1;grid-row:2;font-size:2.55rem;margin:16px 0 12px}
+      .sub{grid-column:1;grid-row:3;align-items:flex-start;margin:0 0 18px}
+      .when{grid-column:1;grid-row:4}
+      #cta{grid-column:1;grid-row:5}
+      .cta{text-align:center}
+      .micro{grid-column:1;grid-row:6;text-align:center}
+      .gal{grid-column:2;grid-row:1 / span 6;align-self:center;margin:0;gap:10px}
+      .gal-track{gap:10px}
+      .gal-track img{height:200px;border-radius:14px}
+
+      .wrap > section:nth-of-type(1){grid-column:1;grid-row:7}
+      .wrap > section:nth-of-type(2){grid-column:2;grid-row:7}
+      .sec{margin-top:40px;height:calc(100% - 40px)}
+      .prof{grid-column:1 / -1;grid-row:8;justify-self:center;width:100%;max-width:760px;margin-top:32px}
+      .stop{grid-column:1 / -1;grid-row:9;margin-top:28px}
+      .cta-end{grid-column:1 / -1;grid-row:10;justify-self:center;width:100%;max-width:560px}
+    }
+  </style>
+
+  <!-- Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","yo675gok20");
+  </script>
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','2204789833777306');
+    fbq('track','PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2204789833777306&ev=PageView&noscript=1" /></noscript>
+</head>
+<body>
+  <main class="wrap">
+    <div class="live"><i></i> EVENTO EN VIVO</div>
+
+    <h1>Aprende a hacer <span class="gold">mesas, pisos, paredes y cocinas</span> con resina epóxica</h1>
+    <p class="sub">
+      <span class="sub-1"><span class="l1"><b class="hl">Clase GRATIS y en VIVO</b></span> <span class="l2">con el profe <b>Yair&nbsp;Ruiz</b>.</span></span>
+      <span class="sub-2">Paso a paso, aunque nunca hayas <span class="nw">tocado resina.</span></span>
+    </p>
+
+    <div class="gal" aria-label="Trabajos hechos con resina epóxica">
+      <div class="gal-track">
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-34.webp" alt="Trabajo en resina epóxica" width="112" height="150" fetchpriority="high" />
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-46.webp" alt="Trabajo en resina epóxica" width="112" height="150" fetchpriority="high" />
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-5.webp" alt="Trabajo en resina epóxica" width="112" height="150" fetchpriority="high" />
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-1.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-11.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-12.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-14.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-15.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-17.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-18.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-20.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-3.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-7.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-24.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-28.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-33.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-39.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-45.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
+      </div>
+      <div class="gal-track rev">
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-21.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-22.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-23.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-26.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-29.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-30.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-32.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-35.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-36.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-38.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-40.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-6.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-9.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-25.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-31.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-37.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-43.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
+      </div>
+    </div>
+
+    <div class="when" aria-label="Horario de la clase">
+      <div class="t">🕕 ES ESTE DOMINGO</div>
+      <div class="row"><span>Perú y Colombia</span><b>6 p.m.</b></div>
+      <div class="row"><span>México</span><b>5 p.m.</b></div>
+      <div class="row"><span>Chile</span><b>8 p.m.</b></div>
+    </div>
+
+    <a class="cta" id="cta" href="https://chat.whatsapp.com/KyCS81azWqfEnQeNVU2CrB" rel="noopener">
+      <span class="cta-main">
+        <svg class="cta-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Entrar al grupo de WhatsApp
+      </span>
+      <span class="cta-sub">Es GRATIS. Ahí te avisamos cuando empiece la clase</span>
+    </a>
+    <p class="micro">Puedes salirte del grupo cuando quieras.</p>
+
+    <section class="sec">
+      <span class="eyebrow">CONTENIDO DE LA CLASE</span>
+      <h2 class="learn-t">En la clase <span>vas a ver</span></h2>
+      <ul class="learn">
+        <li>Qué materiales necesitas de verdad</li>
+        <li>Cómo preparar la superficie</li>
+        <li>Cómo hacer la mezcla, paso a paso</li>
+        <li>Los errores más comunes y cómo evitarlos</li>
+      </ul>
+    </section>
+
+    <section class="sec">
+      <span class="eyebrow">¿ES PARA MÍ?</span>
+      <h2 class="learn-t">Esta clase <span>es para ti si…</span></h2>
+      <ul class="for">
+        <li><span class="ic" aria-hidden="true">🌱</span><span>Empiezas <b>desde cero</b>, sin ninguna experiencia</span></li>
+        <li><span class="ic" aria-hidden="true">🏠</span><span>Quieres renovar tu casa con acabados en resina</span></li>
+        <li><span class="ic" aria-hidden="true">🧱</span><span>Eres albañil, pintor o maestro de obra y quieres ofrecer algo nuevo</span></li>
+        <li><span class="ic" aria-hidden="true">💼</span><span>Buscas aprender un oficio para <b>generar ingresos</b> extra</span></li>
+        <li><span class="ic" aria-hidden="true">🤔</span><span>Te gusta la resina pero no sabes por dónde empezar</span></li>
+      </ul>
+    </section>
+
+    <div class="prof">
+      <div class="prof-foto">
+        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/CertGarantiaMetodosProf/profesor.webp" alt="Yair Ruiz, profesor de resina epóxica" width="84" height="84" loading="lazy" />
+      </div>
+      <div class="prof-txt">
+        <span class="eyebrow">TU PROFESOR</span>
+        <p><b>Yair Ruiz</b> lleva <span class="gold">más de 5 años</span> trabajando con resina epóxica y da esta clase totalmente GRATIS y<span class="nw"> en vivo.</span></p>
+      </div>
+    </div>
+    <p class="stop"><span>PROHIBIDO FALTAR</span></p>
+
+    <a class="cta cta-end" href="https://chat.whatsapp.com/KyCS81azWqfEnQeNVU2CrB" rel="noopener">
+      <span class="cta-main">
+        <svg class="cta-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Entrar al grupo de WhatsApp
+      </span>
+      <span class="cta-sub">Es GRATIS. Ahí te avisamos cuando empiece la clase</span>
+    </a>
+  </main>
+
+  <script>
+    // Cambia solo esta línea si el grupo se llena o cambias de grupo.
+    var GRUPO = "https://chat.whatsapp.com/KyCS81azWqfEnQeNVU2CrB";
+
+    // Duplica las fotos de cada fila para que la tira se repita sin cortes.
+    Array.prototype.forEach.call(document.querySelectorAll(".gal-track"), function (tr) {
+      Array.prototype.slice.call(tr.children).forEach(function (im) {
+        var c = im.cloneNode(true);
+        c.setAttribute("aria-hidden", "true");
+        c.setAttribute("alt", "");
+        c.removeAttribute("fetchpriority");
+        c.setAttribute("loading", "lazy");
+        tr.appendChild(c);
+      });
+    });
+
+    // Los dos botones (arriba y al final) usan el mismo link del grupo.
+    var yaClic = false;
+    Array.prototype.forEach.call(document.querySelectorAll(".cta"), function (cta) {
+      cta.href = GRUPO;
+      cta.addEventListener("click", function (e) {
+        if (yaClic) return;
+        yaClic = true;
+        e.preventDefault();
+        try { if (window.fbq) fbq("track", "Lead"); } catch (err) {}
+        // Pequeña pausa para que el Píxel alcance a registrar el evento.
+        setTimeout(function () { window.location.href = GRUPO; }, 350);
+      });
+    });
+  </script>
+</body>
+</html>
