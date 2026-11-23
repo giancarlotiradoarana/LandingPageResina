@@ -20,13 +20,19 @@
       background:radial-gradient(120% 80% at 50% 0%,#0f766e 0%,#134e4a 45%,#082a28 100%);min-height:100vh}
     .wrap{max-width:520px;margin:0 auto;padding:18px 18px 40px;text-align:center}
 
-    .live{display:inline-flex;align-items:center;gap:8px;background:#e11d2e;color:#fff;font-weight:800;font-size:.78rem;
-      letter-spacing:.06em;padding:7px 14px;border-radius:999px;border:2px solid #fff}
+    .live{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(180deg,#e11d2e,#b8121f);color:#fff;font-weight:800;font-size:.78rem;
+      letter-spacing:.06em;padding:7px 14px;border-radius:999px;border:2px solid #fff;text-decoration:none;
+      -webkit-tap-highlight-color:transparent}
+    .live:active{transform:scale(.97)}
     .live i{width:9px;height:9px;border-radius:50%;background:#fff;animation:pulse 1.4s infinite}
     @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.7)}100%{box-shadow:0 0 0 9px rgba(255,255,255,0)}}
 
-    h1{font-family:"Fraunces",Georgia,serif;font-weight:900;font-size:clamp(1.45rem,6.4vw,2.05rem);line-height:1.1;margin:12px 0 8px;text-transform:uppercase;letter-spacing:.01em}
+    /* Título en 4 líneas fijas. La letra crece con el ancho para que la línea más larga
+       ("PAREDES Y COCINAS") llene la pantalla sin dejar espacios a los lados. */
+    h1{font-family:"Fraunces",Georgia,serif;font-weight:900;font-size:min(2.3rem,calc((100vw - 36px) / 13.8));
+      line-height:1.08;margin:12px 0 8px;text-transform:uppercase;letter-spacing:0}
     h1 .gold{color:var(--gold)}
+    h1 .ln{display:block;white-space:nowrap}
     .sub{display:flex;flex-direction:column;align-items:center;gap:4px;margin:2px auto 14px;line-height:1.3}
     /* Dos líneas fijas: la letra se ajusta al ancho para que cada frase entre siempre en una sola línea */
     .sub-1{display:block;white-space:nowrap;font-weight:600;color:#fff;font-size:min(1.05rem,calc((100vw - 40px) / 25.5))}
@@ -40,12 +46,28 @@
 
     .gal{position:relative;margin:2px -18px 16px;padding:0;overflow:hidden;display:grid;gap:6px;background:transparent;
       -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
-    .gal-track{display:flex;gap:6px;width:max-content;animation:slide 90s linear infinite;will-change:transform}
-    .gal-track.rev{animation-direction:reverse;animation-duration:98s}
+    .gal-track{display:flex;gap:6px;width:max-content;animation:slide 65s linear infinite;will-change:transform}
+    .gal-track.rev{animation-direction:reverse;animation-duration:72s}
     .gal-track img{display:block;height:150px;width:auto;aspect-ratio:3/4;object-fit:cover;border-radius:12px;flex:none;
       background:rgba(255,255,255,.06);border:1px solid rgba(245,197,66,.45);box-shadow:0 6px 16px rgba(0,0,0,.28)}
     @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-    .when{background:rgba(0,0,0,.28);border:2px solid var(--gold);border-radius:16px;padding:10px 12px;margin:16px 0 0}
+    .when{display:block;color:#fff;text-decoration:none;-webkit-tap-highlight-color:transparent;
+      background:rgba(0,0,0,.28);border:2px solid var(--gold);border-radius:16px;padding:10px 12px;margin:16px 0 0}
+    .when:active{transform:scale(.99)}
+    .when-cta{margin-top:8px;padding-top:8px;border-top:1px dashed rgba(245,197,66,.45);text-align:center;
+      font-size:.88rem;font-weight:800;color:#25d366}
+
+    .gal-track img{cursor:zoom-in}
+    .gal.pausa .gal-track{animation-play-state:paused}
+    .lb{position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+      padding:56px 18px 24px;background:rgba(4,20,19,.93);text-align:center}
+    .lb[hidden]{display:none}
+    .lb img{display:block;max-width:100%;max-height:58vh;width:auto;height:auto;border-radius:14px;border:2px solid var(--gold);
+      box-shadow:0 18px 40px rgba(0,0,0,.5)}
+    .lb-txt{font-weight:800;font-size:1.05rem;color:#fff}
+    .lb-cta{max-width:420px}
+    .lb-close{position:absolute;top:12px;right:12px;width:42px;height:42px;border-radius:50%;border:2px solid #fff;
+      background:rgba(0,0,0,.4);color:#fff;font-size:1.2rem;font-weight:800;cursor:pointer}
     .when .t{font-weight:800;font-size:.95rem;letter-spacing:.04em;color:var(--gold);margin-bottom:4px}
     .when .row{display:flex;justify-content:space-between;gap:10px;font-weight:700;font-size:1.05rem;padding:4px 4px;
       border-top:1px solid rgba(255,255,255,.14)}
@@ -112,7 +134,7 @@
       .wrap{max-width:1180px;padding:40px 40px 56px;display:grid;grid-template-columns:1fr 1fr;
         column-gap:48px;row-gap:0;align-items:start;text-align:left}
       .live{grid-column:1;grid-row:1;justify-self:start}
-      h1{grid-column:1;grid-row:2;font-size:2.55rem;margin:16px 0 12px}
+      h1{grid-column:1;grid-row:2;font-size:2.4rem;margin:16px 0 12px}
       .sub{grid-column:1;grid-row:3;align-items:flex-start;margin:0 0 18px}
       .when{grid-column:1;grid-row:4;margin:0 0 14px}
       #cta{grid-column:1;grid-row:5}
@@ -149,9 +171,9 @@
 </head>
 <body>
   <main class="wrap">
-    <div class="live"><i></i> EVENTO EN VIVO</div>
+    <a class="live" href="https://chat.whatsapp.com/KyCS81azWqfEnQeNVU2CrB" rel="noopener" aria-label="Clase gratis en vivo: entrar al grupo de WhatsApp"><span aria-hidden="true">🎁</span> CLASE GRATIS EN VIVO</a>
 
-    <h1>Aprende a hacer <span class="gold">mesas, pisos, paredes y cocinas</span> con resina epóxica</h1>
+    <h1><span class="ln">Aprende a hacer</span> <span class="ln gold">mesas, pisos,</span> <span class="ln gold">paredes y cocinas</span> <span class="ln">con resina epóxica</span></h1>
     <p class="sub">
       <span class="sub-1"><span class="l1"><b class="hl">Clase GRATIS y en VIVO</b></span> <span class="l2">con el profe <b>Yair&nbsp;Ruiz</b>.</span></span>
       <span class="sub-2">Paso a paso, aunque nunca hayas <span class="nw">tocado resina.</span></span>
@@ -163,7 +185,6 @@
         <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-46.webp" alt="Trabajo en resina epóxica" width="112" height="150" fetchpriority="high" />
         <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-5.webp" alt="Trabajo en resina epóxica" width="112" height="150" fetchpriority="high" />
         <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-1.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
-        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-11.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
         <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-12.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
         <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-14.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
         <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-15.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
@@ -171,30 +192,22 @@
         <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-18.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
         <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-20.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
         <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-3.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
-        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-7.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
-        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-24.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
         <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-28.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
         <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-33.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
-        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-39.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
-        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-45.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
       </div>
       <div class="gal-track rev">
         <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-21.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
         <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-22.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
-        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-23.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
         <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-26.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
         <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-29.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
         <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-30.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
         <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-32.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
-        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-35.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
         <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-36.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
         <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-38.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
-        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-40.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
         <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-6.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
         <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-9.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
         <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-25.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
         <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-31.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
-        <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-37.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
         <img src="https://giancarlotiradoarana.github.io/LandingPageResina/landing-resina/img/trabajos/trabajo-43.webp" alt="Trabajo en resina epóxica" width="112" height="150" loading="lazy" />
       </div>
     </div>
@@ -208,12 +221,13 @@
     </a>
     <p class="micro">Puedes salirte del grupo cuando quieras.</p>
 
-    <div class="when" aria-label="Horario de la clase">
+    <a class="when" href="https://chat.whatsapp.com/KyCS81azWqfEnQeNVU2CrB" rel="noopener" aria-label="Horario de la clase: entrar al grupo para recibir el aviso">
       <div class="t">🕕 ES ESTE DOMINGO</div>
       <div class="row"><span>Perú y Colombia</span><b>6 p.m.</b></div>
       <div class="row"><span>México</span><b>5 p.m.</b></div>
       <div class="row"><span>Chile</span><b>8 p.m.</b></div>
-    </div>
+      <div class="when-cta">🔔 Toca aquí y te avisamos por WhatsApp</div>
+    </a>
 
     <section class="sec">
       <span class="eyebrow">CONTENIDO DE LA CLASE</span>
@@ -258,6 +272,17 @@
     </a>
   </main>
 
+  <!-- Visor de fotos: al tocar una foto de la galería se ve en grande, con el botón al grupo debajo -->
+  <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Trabajo en resina epóxica" hidden>
+    <button class="lb-close" id="lbClose" type="button" aria-label="Cerrar">✕</button>
+    <img id="lbImg" src="" alt="Trabajo en resina epóxica" />
+    <p class="lb-txt">¿Te gustaría aprender a hacer trabajos así?</p>
+    <a class="cta lb-cta" href="https://chat.whatsapp.com/KyCS81azWqfEnQeNVU2CrB" rel="noopener">
+      <span class="cta-main">Entrar al grupo de WhatsApp</span>
+      <span class="cta-sub">Es GRATIS. Ahí te avisamos cuando empiece la clase</span>
+    </a>
+  </div>
+
   <script>
     // Cambia solo esta línea si el grupo se llena o cambias de grupo.
     var GRUPO = "https://chat.whatsapp.com/KyCS81azWqfEnQeNVU2CrB";
@@ -275,16 +300,31 @@
     });
 
     // Los dos botones (arriba y al final) usan el mismo link del grupo.
-    var yaClic = false;
-    Array.prototype.forEach.call(document.querySelectorAll(".cta"), function (cta) {
+    // El link se abre de forma nativa con el toque del usuario (sin retrasos ni redirecciones por código):
+    // en los navegadores de Instagram/Facebook y en iPhone, una redirección hecha por código
+    // puede abrir la página web de WhatsApp en vez de la app, y la persona no llega a unirse.
+    var leadEnviado = false;
+    // Visor de fotos (funciona también con las fotos duplicadas de la tira).
+    var lb = document.getElementById("lb"), lbImg = document.getElementById("lbImg"), gal = document.querySelector(".gal");
+    function cerrarLb() { lb.hidden = true; gal.classList.remove("pausa"); document.body.style.overflow = ""; }
+    gal.addEventListener("click", function (e) {
+      if (e.target.tagName !== "IMG") return;
+      lbImg.src = e.target.src;
+      lb.hidden = false;
+      gal.classList.add("pausa");
+      document.body.style.overflow = "hidden";
+    });
+    document.getElementById("lbClose").addEventListener("click", cerrarLb);
+    lb.addEventListener("click", function (e) { if (e.target === lb) cerrarLb(); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !lb.hidden) cerrarLb(); });
+
+    // También la insignia "EVENTO EN VIVO" y el panel de horario: la gente los toca pensando que son botones.
+    Array.prototype.forEach.call(document.querySelectorAll(".cta, .live, .when"), function (cta) {
       cta.href = GRUPO;
-      cta.addEventListener("click", function (e) {
-        if (yaClic) return;
-        yaClic = true;
-        e.preventDefault();
+      cta.addEventListener("click", function () {
+        if (leadEnviado) return;
+        leadEnviado = true;
         try { if (window.fbq) fbq("track", "Lead"); } catch (err) {}
-        // Pequeña pausa para que el Píxel alcance a registrar el evento.
-        setTimeout(function () { window.location.href = GRUPO; }, 350);
       });
     });
   </script>
