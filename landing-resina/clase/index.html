@@ -59,8 +59,10 @@
 
     .gal-track img{cursor:zoom-in}
     /* Con JS activo, el movimiento lo maneja el código para poder arrastrar la tira con el dedo o el mouse */
-    .gal.js-drag{touch-action:pan-y;-webkit-user-select:none;user-select:none}
-    .gal.js-drag .gal-track{animation:none}
+    .gal.js-drag{-webkit-user-select:none;user-select:none}
+    .gal.js-drag .gal-track{animation:none;width:auto;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;
+      overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+    .gal.js-drag .gal-track::-webkit-scrollbar{display:none}
     .gal.js-drag.arrastrando .gal-track img{cursor:grabbing}
     .gal.pausa .gal-track{animation-play-state:paused}
     .lb{position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
@@ -291,16 +293,20 @@
     // Cambia solo esta línea si el grupo se llena o cambias de grupo.
     var GRUPO = "https://chat.whatsapp.com/KyCS81azWqfEnQeNVU2CrB";
 
-    // Duplica las fotos de cada fila para que la tira se repita sin cortes.
+    // Triplica las fotos de cada fila: la del medio es la que se ve, y las otras dos dan margen
+    // para deslizar hacia atrás o adelante sin llegar al borde. Las copias no se vuelven a descargar.
     Array.prototype.forEach.call(document.querySelectorAll(".gal-track"), function (tr) {
-      Array.prototype.slice.call(tr.children).forEach(function (im) {
-        var c = im.cloneNode(true);
-        c.setAttribute("aria-hidden", "true");
-        c.setAttribute("alt", "");
-        c.removeAttribute("fetchpriority");
-        c.setAttribute("loading", "lazy");
-        tr.appendChild(c);
-      });
+      var originales = Array.prototype.slice.call(tr.children);
+      for (var k = 0; k < 2; k++) {
+        originales.forEach(function (im) {
+          var c = im.cloneNode(true);
+          c.setAttribute("aria-hidden", "true");
+          c.setAttribute("alt", "");
+          c.removeAttribute("fetchpriority");
+          c.setAttribute("loading", "lazy");
+          tr.appendChild(c);
+        });
+      }
     });
 
     // Los dos botones (arriba y al final) usan el mismo link del grupo.
@@ -311,70 +317,92 @@
     // Visor de fotos (funciona también con las fotos duplicadas de la tira).
     var lb = document.getElementById("lb"), lbImg = document.getElementById("lbImg"), gal = document.querySelector(".gal");
     function cerrarLb() { lb.hidden = true; gal.classList.remove("pausa"); document.body.style.overflow = ""; }
-    // Galería deslizable: se mueve sola y también se puede arrastrar hacia atrás o adelante.
-    // Al soltarla, retoma el movimiento automático tras una pausa corta.
+    // Galería deslizable con el desplazamiento nativo del celular (con inercia normal).
+    // Cuando nadie la toca, el código la hace avanzar sola. Si la persona la desliza,
+    // el movimiento automático se detiene y vuelve 2,5 segundos después de soltarla.
     var huboArrastre = false;
     (function () {
       if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       gal.classList.add("js-drag");
       var filas = Array.prototype.map.call(document.querySelectorAll(".gal-track"), function (tr) {
         var rev = tr.classList.contains("rev");
-        return { el: tr, dir: rev ? 1 : -1, seg: rev ? 72 : 65, pos: 0, mitad: 0, quietoHasta: 0 };
+        return { el: tr, dir: rev ? -1 : 1, seg: rev ? 72 : 65, tercio: 0, quietoHasta: 0, x: 0, tocando: false };
       });
+
+      // Cada fila tiene 3 copias de sus fotos. Se mantiene el desplazamiento en la copia del medio:
+      // si la persona se acerca a un borde, se salta una copia completa sin que se note.
+      function recentrar(f) {
+        if (!f.tercio) return;
+        var sl = f.el.scrollLeft;
+        if (sl < f.tercio * 0.5) { f.el.scrollLeft = sl + f.tercio; f.x = f.el.scrollLeft; }
+        else if (sl > f.tercio * 1.5) { f.el.scrollLeft = sl - f.tercio; f.x = f.el.scrollLeft; }
+      }
       function medir() {
         filas.forEach(function (f) {
-          f.mitad = f.el.scrollWidth / 2;
-          if (f.dir === 1 && f.pos === 0) f.pos = -f.mitad;
+          var nuevo = f.el.scrollWidth / 3;
+          if (!nuevo) return;
+          if (!f.tercio) { f.el.scrollLeft = nuevo; }
+          f.tercio = nuevo;
+          f.x = f.el.scrollLeft;
         });
-      }
-      function ajustar(f) {
-        if (!f.mitad) return;
-        while (f.pos <= -f.mitad) f.pos += f.mitad;
-        while (f.pos > 0) f.pos -= f.mitad;
-        f.el.style.transform = "translateX(" + f.pos + "px)";
       }
       medir();
       window.addEventListener("resize", medir);
+      window.addEventListener("load", medir);
+
+      filas.forEach(function (f) {
+        Array.prototype.forEach.call(f.el.querySelectorAll("img"), function (im) { im.draggable = false; });
+        var parar = function () { f.tocando = true; f.quietoHasta = Infinity; };
+        var soltar = function () { f.tocando = false; f.quietoHasta = performance.now() + 2500; };
+        f.el.addEventListener("touchstart", parar, { passive: true });
+        f.el.addEventListener("touchend", soltar, { passive: true });
+        f.el.addEventListener("touchcancel", soltar, { passive: true });
+        f.el.addEventListener("wheel", function () { f.quietoHasta = performance.now() + 2500; }, { passive: true });
+        // Si la persona desliza (también la inercia tras soltar), la posición la manda el desplazamiento nativo.
+        f.el.addEventListener("scroll", function () {
+          if (Math.abs(f.el.scrollLeft - f.x) > 2) {
+            f.x = f.el.scrollLeft;
+            if (!f.tocando) f.quietoHasta = Math.max(f.quietoHasta, performance.now() + 2500);
+          }
+          recentrar(f);
+        }, { passive: true });
+
+        // En PC: arrastrar con el mouse.
+        var x0 = 0, sl0 = 0, arrastrandoMouse = false, movido = false;
+        f.el.addEventListener("mousedown", function (e) {
+          arrastrandoMouse = true; movido = false; x0 = e.clientX; sl0 = f.el.scrollLeft; f.quietoHasta = Infinity;
+        });
+        window.addEventListener("mousemove", function (e) {
+          if (!arrastrandoMouse) return;
+          var dx = e.clientX - x0;
+          if (!movido && Math.abs(dx) > 5) { movido = true; gal.classList.add("arrastrando"); }
+          if (movido) { f.el.scrollLeft = sl0 - dx; }
+        });
+        window.addEventListener("mouseup", function () {
+          if (!arrastrandoMouse) return;
+          arrastrandoMouse = false; gal.classList.remove("arrastrando");
+          if (movido) { huboArrastre = true; setTimeout(function () { huboArrastre = false; }, 60); }
+          f.quietoHasta = performance.now() + 2500;
+        });
+      });
+
+      // Movimiento automático: avanza solo cuando nadie toca la fila.
       var antes = performance.now();
       function paso(ahora) {
         var dt = Math.min(ahora - antes, 60) / 1000;
         antes = ahora;
         var pausado = gal.classList.contains("pausa");
         filas.forEach(function (f) {
-          if (!pausado && !f.arrastrando && ahora > f.quietoHasta && f.mitad) {
-            f.pos += f.dir * (f.mitad / f.seg) * dt;
+          if (!f.tercio) return;
+          if (!pausado && !f.tocando && ahora > f.quietoHasta) {
+            f.x += f.dir * (f.tercio / f.seg) * dt;
+            f.el.scrollLeft = f.x;
+            recentrar(f);
           }
-          ajustar(f);
         });
         requestAnimationFrame(paso);
       }
       requestAnimationFrame(paso);
-
-      filas.forEach(function (f) {
-        Array.prototype.forEach.call(f.el.querySelectorAll("img"), function (im) { im.draggable = false; });
-        var x0 = 0, pos0 = 0, id = null;
-        f.el.addEventListener("pointerdown", function (e) {
-          id = e.pointerId; x0 = e.clientX; pos0 = f.pos; f.arrastrando = true; f.movido = false;
-        });
-        f.el.addEventListener("pointermove", function (e) {
-          if (!f.arrastrando || e.pointerId !== id) return;
-          var dx = e.clientX - x0;
-          if (!f.movido && Math.abs(dx) > 6) {
-            f.movido = true; gal.classList.add("arrastrando");
-            try { f.el.setPointerCapture(id); } catch (err) {}
-          }
-          if (f.movido) { f.pos = pos0 + dx; ajustar(f); }
-        });
-        function soltar(e) {
-          if (!f.arrastrando || (e && e.pointerId !== id)) return;
-          f.arrastrando = false; gal.classList.remove("arrastrando");
-          if (f.movido) { huboArrastre = true; setTimeout(function () { huboArrastre = false; }, 60); }
-          f.quietoHasta = performance.now() + 2500;
-        }
-        f.el.addEventListener("pointerup", soltar);
-        f.el.addEventListener("pointercancel", soltar);
-        f.el.addEventListener("lostpointercapture", soltar);
-      });
     })();
 
     gal.addEventListener("click", function (e) {
