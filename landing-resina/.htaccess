@@ -21,10 +21,10 @@
   RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
   RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
 
-  # 3) /clase ahora es una landing (carpeta clase/index.html) con un solo boton al grupo.
-  #    Respaldo: si quieres volver a la redireccion directa, quita el # de la linea
-  #    de abajo y cambia el link por el del grupo.
-  # RewriteRule ^clase/?$ https://chat.whatsapp.com/KyCS81azWqfEnQeNVU2CrB [R=302,L]
+  # 3) /clase redirige directo al grupo de WhatsApp (302 temporal).
+  #    La landing sigue guardada en clase/index.html, pero no se muestra mientras esta linea este activa.
+  #    Para volver a mostrar la landing, pon un # al inicio de la linea RewriteRule de abajo.
+  RewriteRule ^clase/?$ https://chat.whatsapp.com/KyCS81azWqfEnQeNVU2CrB [R=302,L]
 </IfModule>
 
 
